@@ -504,28 +504,22 @@
     border-color:rgba(0,210,255,0.4);
     box-shadow:0 20px 50px rgba(0,210,255,0.15);
   }
-  .portfolio-preview{
-    height:180px;
-    position:relative;
-    overflow:hidden;
-    background:#0f141d;
+
+  /* ✅ ATUALIZADO — contêiner com proporção 16:9 fixa */
+  .portfolio-preview {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
   }
 
-  /* ✅ CSS ADICIONADO — regra para as imagens dos portfólios */
+  /* ✅ ATUALIZADO — imagem exibida INTEIRA (sem cortes) */
   .portfolio-preview img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 
-  /* Mantido: efeito de zoom suave no hover do card */
-  .portfolio-preview img{
-    transition:transform .5s ease;
-  }
-  .portfolio-card:hover .portfolio-preview img{
-    transform:scale(1.05);
-  }
   .preview-content{
     padding:24px;
     height:100%;
@@ -1000,7 +994,7 @@
     </div>
     <div class="portfolio-grid">
 
-      <!-- ✅ PC-PEST — imagem png na raiz -->
+      <!-- ✅ PC-PEST — imagem 16:9 sem cortes -->
       <article class="portfolio-card pc-pest">
         <div class="portfolio-preview">
           <img src="pragas.png" alt="Controle de Pragas" class="object-cover w-full h-full">
@@ -1015,7 +1009,7 @@
         </div>
       </article>
 
-      <!-- ✅ PC-ESTETICA — imagem png na raiz -->
+      <!-- ✅ PC-ESTETICA — imagem 16:9 sem cortes -->
       <article class="portfolio-card pc-estetica">
         <div class="portfolio-preview">
           <img src="estetica.png" alt="BelaEstética" class="object-cover w-full h-full">
@@ -1030,7 +1024,7 @@
         </div>
       </article>
 
-      <!-- ✅ PC-CLINICA — imagem png na raiz -->
+      <!-- ✅ PC-CLINICA — imagem 16:9 sem cortes -->
       <article class="portfolio-card pc-clinica">
         <div class="portfolio-preview">
           <img src="clinica.png" alt="ClínicaSaúde" class="object-cover w-full h-full">
@@ -1045,7 +1039,7 @@
         </div>
       </article>
 
-      <!-- ✅ PC-RESTAURANTE — imagem png na raiz -->
+      <!-- ✅ PC-RESTAURANTE — imagem 16:9 sem cortes -->
       <article class="portfolio-card pc-restaurant">
         <div class="portfolio-preview">
           <img src="restaurante.png" alt="Restaurante" class="object-cover w-full h-full">
