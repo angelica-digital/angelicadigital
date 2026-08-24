@@ -23,7 +23,6 @@
     min-height:100vh;
     position:relative;
   }
-  /* Animated Background Grid */
   body::before{
     content:'';
     position:fixed;
@@ -511,11 +510,16 @@
     overflow:hidden;
     background:#0f141d;
   }
-  .portfolio-preview::after{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(180deg,transparent 50%,rgba(8,11,17,0.8));
+  /* ✅ NOVO — estilo para as imagens reais dos portfólios */
+  .portfolio-preview img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .5s ease;
+  }
+  .portfolio-card:hover .portfolio-preview img{
+    transform:scale(1.05);
   }
   .preview-content{
     padding:24px;
@@ -991,17 +995,10 @@
     </div>
     <div class="portfolio-grid">
 
+      <!-- ✅ CONTROLE DE PRAGAS — imagem substituída -->
       <article class="portfolio-card pc-pest">
-        <div class="portfolio-preview preview-bg">
-          <div class="preview-content">
-            <div class="preview-mock">
-              <div class="pm-title">ControleTotal · Pragas</div>
-              <div class="pm-line"></div>
-              <div class="pm-line short"></div>
-              <div class="pm-line"></div>
-              <div class="pm-line btn"></div>
-            </div>
-          </div>
+        <div class="portfolio-preview">
+          <img src="./images/pragas.jpg" alt="Demonstração Controle de Pragas">
         </div>
         <div class="portfolio-info">
           <span class="cat">Serviços Domésticos</span>
@@ -1013,17 +1010,10 @@
         </div>
       </article>
 
+      <!-- ✅ ESTÉTICA & BELEZA — imagem substituída -->
       <article class="portfolio-card pc-estetica">
-        <div class="portfolio-preview preview-bg">
-          <div class="preview-content">
-            <div class="preview-mock">
-              <div class="pm-title">BelaEstética</div>
-              <div class="pm-line"></div>
-              <div class="pm-line short"></div>
-              <div class="pm-line"></div>
-              <div class="pm-line btn"></div>
-            </div>
-          </div>
+        <div class="portfolio-preview">
+          <img src="./images/estetica.jpg" alt="Demonstração Estética e Beleza">
         </div>
         <div class="portfolio-info">
           <span class="cat">Estética & Beleza</span>
@@ -1035,17 +1025,10 @@
         </div>
       </article>
 
+      <!-- ✅ CLÍNICA MÉDICA — imagem substituída -->
       <article class="portfolio-card pc-clinica">
-        <div class="portfolio-preview preview-bg">
-          <div class="preview-content">
-            <div class="preview-mock">
-              <div class="pm-title">ClínicaSaúde+</div>
-              <div class="pm-line"></div>
-              <div class="pm-line short"></div>
-              <div class="pm-line"></div>
-              <div class="pm-line btn"></div>
-            </div>
-          </div>
+        <div class="portfolio-preview">
+          <img src="./images/clinica.jpg" alt="Demonstração Clínica Médica">
         </div>
         <div class="portfolio-info">
           <span class="cat">Saúde & Bem-Estar</span>
@@ -1057,6 +1040,7 @@
         </div>
       </article>
 
+      <!-- Restaurante — mantido intacto -->
       <article class="portfolio-card pc-restaurant">
         <div class="portfolio-preview preview-bg">
           <div class="preview-content">
