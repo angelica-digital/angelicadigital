@@ -510,12 +510,17 @@
     overflow:hidden;
     background:#0f141d;
   }
-  /* ✅ NOVO — estilo para as imagens reais dos portfólios */
+
+  /* ✅ CSS ADICIONADO — regra para as imagens dos portfólios */
+  .portfolio-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Mantido: efeito de zoom suave no hover do card */
   .portfolio-preview img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
     transition:transform .5s ease;
   }
   .portfolio-card:hover .portfolio-preview img{
@@ -995,10 +1000,10 @@
     </div>
     <div class="portfolio-grid">
 
-      <!-- ✅ CONTROLE DE PRAGAS — imagem substituída -->
+      <!-- ✅ PC-PEST — imagem png na raiz -->
       <article class="portfolio-card pc-pest">
         <div class="portfolio-preview">
-          <img src="./images/pragas.jpg" alt="Demonstração Controle de Pragas">
+          <img src="pragas.png" alt="Controle de Pragas" class="object-cover w-full h-full">
         </div>
         <div class="portfolio-info">
           <span class="cat">Serviços Domésticos</span>
@@ -1010,10 +1015,10 @@
         </div>
       </article>
 
-      <!-- ✅ ESTÉTICA & BELEZA — imagem substituída -->
+      <!-- ✅ PC-ESTETICA — imagem png na raiz -->
       <article class="portfolio-card pc-estetica">
         <div class="portfolio-preview">
-          <img src="./images/estetica.jpg" alt="Demonstração Estética e Beleza">
+          <img src="estetica.png" alt="BelaEstética" class="object-cover w-full h-full">
         </div>
         <div class="portfolio-info">
           <span class="cat">Estética & Beleza</span>
@@ -1025,10 +1030,10 @@
         </div>
       </article>
 
-      <!-- ✅ CLÍNICA MÉDICA — imagem substituída -->
+      <!-- ✅ PC-CLINICA — imagem png na raiz -->
       <article class="portfolio-card pc-clinica">
         <div class="portfolio-preview">
-          <img src="./images/clinica.jpg" alt="Demonstração Clínica Médica">
+          <img src="clinica.png" alt="ClínicaSaúde" class="object-cover w-full h-full">
         </div>
         <div class="portfolio-info">
           <span class="cat">Saúde & Bem-Estar</span>
@@ -1040,18 +1045,10 @@
         </div>
       </article>
 
-      <!-- Restaurante — mantido intacto -->
+      <!-- ✅ PC-RESTAURANTE — imagem png na raiz -->
       <article class="portfolio-card pc-restaurant">
-        <div class="portfolio-preview preview-bg">
-          <div class="preview-content">
-            <div class="preview-mock">
-              <div class="pm-title">SaborLocal · Restaurante</div>
-              <div class="pm-line"></div>
-              <div class="pm-line short"></div>
-              <div class="pm-line"></div>
-              <div class="pm-line btn"></div>
-            </div>
-          </div>
+        <div class="portfolio-preview">
+          <img src="restaurante.png" alt="Restaurante" class="object-cover w-full h-full">
         </div>
         <div class="portfolio-info">
           <span class="cat">Gastronomia</span>
