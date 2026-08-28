@@ -143,18 +143,20 @@
     font-family:inherit;
     white-space:nowrap;
   }
-  .btn-whatsapp{
-    background:linear-gradient(135deg,#10b981,#059669);
+
+  /* Atualizado para a cor roxa/violeta integrada à paleta */
+  .btn-purple-accent{
+    background:linear-gradient(135deg,#a855f7,#7c3aed);
     color:#fff;
-    box-shadow:0 4px 20px rgba(16,185,129,0.35);
+    box-shadow:0 4px 20px rgba(168,85,247,0.35);
     position:relative;
     overflow:hidden;
   }
-  .btn-whatsapp:hover{
+  .btn-purple-accent:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 30px rgba(16,185,129,0.5);
+    box-shadow:0 8px 30px rgba(168,85,247,0.5);
   }
-  .btn-whatsapp::before{
+  .btn-purple-accent::before{
     content:'';
     position:absolute;
     inset:0;
@@ -162,7 +164,7 @@
     opacity:0;
     transition:opacity .3s;
   }
-  .btn-whatsapp:hover::before{opacity:1}
+  .btn-purple-accent:hover::before{opacity:1}
 
   .btn-cyan{
     background:linear-gradient(135deg,#818cf8,#a855f7);
@@ -209,15 +211,17 @@
     gap:60px;
     align-items:center;
   }
+  
+  /* Badge atualizada com a nova cor roxa/violeta */
   .badge{
     display:inline-flex;
     align-items:center;
     gap:8px;
     padding:8px 16px;
-    background:rgba(16,185,129,0.1);
-    border:1px solid rgba(16,185,129,0.3);
+    background:rgba(168,85,247,0.1);
+    border:1px solid rgba(168,85,247,0.3);
     border-radius:50px;
-    color:#34d399;
+    color:#c084fc;
     font-size:.85rem;
     font-weight:500;
     margin-bottom:24px;
@@ -225,9 +229,9 @@
   }
   .badge .dot{
     width:8px;height:8px;
-    background:#10b981;
+    background:#a855f7;
     border-radius:50%;
-    box-shadow:0 0 10px #10b981;
+    box-shadow:0 0 10px #a855f7;
     animation:blink 1.5s infinite;
   }
   @keyframes blink{50%{opacity:.4}}
@@ -458,7 +462,7 @@
   .service-card:nth-child(1) .service-icon{background:rgba(234,67,53,0.15);color:#ea4335;box-shadow:0 0 25px rgba(234,67,53,0.3)}
   .service-card:nth-child(2) .service-icon{background:rgba(168,85,247,0.15);color:#c084fc;box-shadow:0 0 25px rgba(168,85,247,0.3)}
   .service-card:nth-child(3) .service-icon{background:rgba(251,188,5,0.15);color:#fbbc05;box-shadow:0 0 25px rgba(251,188,5,0.3)}
-  .service-card:nth-child(4) .service-icon{background:rgba(16,185,129,0.15);color:#10b981;box-shadow:0 0 25px rgba(16,185,129,0.3)}
+  .service-card:nth-child(4) .service-icon{background:rgba(168,85,247,0.15);color:#c084fc;box-shadow:0 0 25px rgba(168,85,247,0.3)}
   .service-card h3{
     font-size:1.2rem;
     margin-bottom:12px;
@@ -668,7 +672,7 @@
   }
   .footer-bottom span{color:#c084fc}
 
-  /* ============== FLOATING WHATSAPP ============== */
+  /* ============== FLOATING WHATSAPP (MANTIDO VERDE) ============== */
   .float-wa{
     position:fixed;
     bottom:24px;
@@ -779,7 +783,8 @@
         <li><a href="#portfolio" onclick="closeMenu()">Portfólio</a></li>
         <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
       </ul>
-      <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-whatsapp header-cta">
+      <!-- Botão alterado para violeta/roxo -->
+      <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-purple-accent header-cta">
         <i class="fa-brands fa-whatsapp"></i> Falar pelo WhatsApp
       </a>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
@@ -792,6 +797,7 @@
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
+        <!-- Badge com cor ajustada para a paleta principal -->
         <span class="badge"><span class="dot"></span> Estratégia de Presença Digital para Negócios Locais</span>
         <h1>Aumente suas Vendas Locais <span class="gradient">Dominando o Google Maps</span> e Landing Pages de Alta Conversão</h1>
         <p class="lead">Ajudo seu negócio a se destacar da concorrência, aparecer nos primeiros lugares do Google e converter visitas em clientes diários pelo WhatsApp.</p>
@@ -992,7 +998,8 @@
     <div class="cta-box">
       <h2>Pronto para dominar o mercado local?</h2>
       <p>Solicite seu diagnóstico gratuito e descubra os pontos exatos para aumentar suas vendas pelo Google e WhatsApp.</p>
-      <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-whatsapp">
+      <!-- Botão alterado para violeta/roxo -->
+      <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-purple-accent">
         <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp Agora
       </a>
     </div>
@@ -1034,7 +1041,7 @@
   </div>
 </footer>
 
-<!-- ============== FLOATING WHATSAPP ============== -->
+<!-- ============== FLOATING WHATSAPP (MANTIDO EM VERDE) ============== -->
 <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="float-wa" aria-label="Falar no WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
   <span class="tooltip">Falar com Angélica</span>
