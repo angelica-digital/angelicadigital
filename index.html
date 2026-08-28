@@ -144,7 +144,7 @@
     white-space:nowrap;
   }
 
-  /* Atualizado para a cor roxa/violeta integrada à paleta */
+  /* Botão Violeta / Púrpura Neon */
   .btn-purple-accent{
     background:linear-gradient(135deg,#a855f7,#7c3aed);
     color:#fff;
@@ -211,8 +211,6 @@
     gap:60px;
     align-items:center;
   }
-  
-  /* Badge atualizada com a nova cor roxa/violeta */
   .badge{
     display:inline-flex;
     align-items:center;
@@ -401,6 +399,7 @@
     margin:0 auto 60px;
   }
   .section-tag{
+    display:inline-block;
     color:#c084fc;
     font-size:.85rem;
     font-weight:600;
@@ -544,6 +543,51 @@
   .portfolio-info p{font-size:.88rem;flex-grow:1;margin-bottom:16px}
   .portfolio-info .btn{align-self:flex-start;font-size:.85rem;padding:10px 18px}
 
+  /* ============== WHY ============== */
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:24px;
+  }
+  .why-card{
+    background:linear-gradient(160deg,rgba(17,24,39,0.6),rgba(9,13,22,0.4));
+    border:1px solid rgba(168,85,247,0.12);
+    border-radius:18px;
+    padding:32px 24px;
+    text-align:center;
+    transition:all .4s ease;
+    backdrop-filter:blur(10px);
+  }
+  .why-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(168,85,247,0.4);
+    box-shadow:0 15px 40px rgba(168,85,247,0.15);
+  }
+  .why-icon{
+    width:80px;height:80px;
+    border-radius:50%;
+    background:rgba(168,85,247,0.08);
+    border:2px solid rgba(168,85,247,0.3);
+    display:grid;place-items:center;
+    margin:0 auto 20px;
+    font-size:2rem;
+    color:#c084fc;
+    position:relative;
+    transition:all .4s ease;
+  }
+  .why-card:hover .why-icon{
+    background:rgba(168,85,247,0.15);
+    box-shadow:0 0 30px rgba(168,85,247,0.5);
+    transform:scale(1.05);
+  }
+  .why-card h3{
+    font-size:1.1rem;
+    margin-bottom:10px;
+    font-family:'Inter',sans-serif;
+    color:#fff;
+  }
+  .why-card p{font-size:.9rem}
+
   /* ============== FAQ ============== */
   .faq-container{max-width:800px;margin:0 auto}
   .faq-item{
@@ -672,7 +716,7 @@
   }
   .footer-bottom span{color:#c084fc}
 
-  /* ============== FLOATING WHATSAPP (MANTIDO VERDE) ============== */
+  /* ============== FLOATING WHATSAPP ============== */
   .float-wa{
     position:fixed;
     bottom:24px;
@@ -783,7 +827,6 @@
         <li><a href="#portfolio" onclick="closeMenu()">Portfólio</a></li>
         <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
       </ul>
-      <!-- Botão alterado para violeta/roxo -->
       <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-purple-accent header-cta">
         <i class="fa-brands fa-whatsapp"></i> Falar pelo WhatsApp
       </a>
@@ -797,7 +840,6 @@
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
-        <!-- Badge com cor ajustada para a paleta principal -->
         <span class="badge"><span class="dot"></span> Estratégia de Presença Digital para Negócios Locais</span>
         <h1>Aumente suas Vendas Locais <span class="gradient">Dominando o Google Maps</span> e Landing Pages de Alta Conversão</h1>
         <p class="lead">Ajudo seu negócio a se destacar da concorrência, aparecer nos primeiros lugares do Google e converter visitas em clientes diários pelo WhatsApp.</p>
@@ -913,7 +955,7 @@
   </div>
 </section>
 
-<!-- ============== PORTFOLIO ============== -->
+<!-- ============== PORTFOLIO (TODOS OS 4 CARDS MANTIDOS) ============== -->
 <section id="portfolio">
   <div class="container">
     <div class="section-header">
@@ -923,7 +965,7 @@
     </div>
     <div class="portfolio-grid">
 
-      <!-- PC-PEST -->
+      <!-- CARD 1: PC-PEST -->
       <article class="portfolio-card pc-pest">
         <div class="portfolio-preview">
           <img src="pragas.png" alt="Controle de Pragas" class="object-cover w-full h-full">
@@ -938,7 +980,7 @@
         </div>
       </article>
 
-      <!-- PC-ESTETICA -->
+      <!-- CARD 2: PC-ESTETICA -->
       <article class="portfolio-card pc-estetica">
         <div class="portfolio-preview">
           <img src="estetica.png" alt="BelaEstética" class="object-cover w-full h-full">
@@ -953,6 +995,68 @@
         </div>
       </article>
 
+      <!-- CARD 3: PC-CLINICA -->
+      <article class="portfolio-card pc-clinica">
+        <div class="portfolio-preview">
+          <img src="clinica.png" alt="ClínicaSaúde" class="object-cover w-full h-full">
+        </div>
+        <div class="portfolio-info">
+          <span class="cat">Saúde & Bem-Estar</span>
+          <h3>Clínicas e Consultórios</h3>
+          <p>Site profissional com especialidades, profissionais, convênios e botão de agendamento rápido.</p>
+          <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-outline">
+            <i class="fa-solid fa-eye"></i> Ver Demonstração ao Vivo
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 4: PC-RESTAURANTE -->
+      <article class="portfolio-card pc-restaurant">
+        <div class="portfolio-preview">
+          <img src="restaurante.png" alt="Restaurante" class="object-cover w-full h-full">
+        </div>
+        <div class="portfolio-info">
+          <span class="cat">Gastronomia</span>
+          <h3>Restaurantes e Cafés</h3>
+          <p>Site apetitoso com cardápio digital, fotos profissionais e pedidos pelo WhatsApp em um clique.</p>
+          <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-outline">
+            <i class="fa-solid fa-eye"></i> Ver Demonstração ao Vivo
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============== WHY ============== -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">// Por que me escolher?</span>
+      <h2>Trabalhar comigo é <span class="gradient">garantia de resultados</span></h2>
+      <p>Um serviço direto, transparente e focado 100% em fazer crescer seu negócio local.</p>
+    </div>
+    <div class="why-grid">
+
+      <div class="why-card">
+        <div class="why-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Foco 100% em Resultados</h3>
+        <p>Cada ação é pensada para aumentar sua receita e clientes reais, não apenas métricas vazias.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon"><i class="fa-solid fa-rocket"></i></div>
+        <h3>Entrega Rápida e Transparente</h3>
+        <p>Seu projeto pronto em menos de 7 dias, com avanços visíveis e comunicação constante.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon"><i class="fa-solid fa-handshake"></i></div>
+        <h3>Suporte Direto e Pessoal</h3>
+        <p>Você fala diretamente comigo, sem intermediários ou call centers. Atendimento real quando precisar.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -966,28 +1070,31 @@
       <p>Tire suas dúvidas sobre como podemos transformar a presença digital da sua empresa.</p>
     </div>
     <div class="faq-container">
+
       <div class="faq-item">
         <button class="faq-question">
-          <span>Em quanto tempo vejo os primeiros resultados no Google Maps?</span>
+          <span>Por que meu negócio precisa estar otimizado no Google Maps?</span>
           <span class="ic"><i class="fa-solid fa-plus"></i></span>
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            Os primeiros efeitos da otimização costumam ser visíveis entre 7 e 14 dias após as alterações técnicas, com crescimento contínuo à medida que novas avaliações e interações chegam.
+            80% das buscas locais pelo celular terminam em uma visita ou ligação em menos de 24 horas. Se sua ficha do Google não estiver otimizada, você está perdendo clientes que já estão procurando o que você oferece.
           </div>
         </div>
       </div>
+
       <div class="faq-item">
         <button class="faq-question">
-          <span>Como funciona a criação da Landing Page?</span>
+          <span>Quanto tempo leva para ter meu site pronto?</span>
           <span class="ic"><i class="fa-solid fa-plus"></i></span>
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            Desenvolvo a estrutura completa focada em alta velocidade e conversão direta para o WhatsApp, com entregas ágeis e prontas para rodar anúncios.
+            Uma Landing Page de alta conversão geralmente fica pronta entre 3 e 7 dias úteis, dependendo da complexidade e da entrega do conteúdo do seu negócio.
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -998,7 +1105,6 @@
     <div class="cta-box">
       <h2>Pronto para dominar o mercado local?</h2>
       <p>Solicite seu diagnóstico gratuito e descubra os pontos exatos para aumentar suas vendas pelo Google e WhatsApp.</p>
-      <!-- Botão alterado para violeta/roxo -->
       <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-purple-accent">
         <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp Agora
       </a>
@@ -1041,7 +1147,7 @@
   </div>
 </footer>
 
-<!-- ============== FLOATING WHATSAPP (MANTIDO EM VERDE) ============== -->
+<!-- ============== FLOATING WHATSAPP ============== -->
 <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="float-wa" aria-label="Falar no WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
   <span class="tooltip">Falar com Angélica</span>
@@ -1060,12 +1166,16 @@
   const hamburger = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
 
-  hamburger.addEventListener('click', () => {
-    menu.classList.toggle('open');
-  });
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+  }
 
   function closeMenu() {
-    menu.classList.remove('open');
+    if (menu) {
+      menu.classList.remove('open');
+    }
   }
 </script>
 
