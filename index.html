@@ -491,7 +491,7 @@
     box-shadow:0 4px 15px rgba(168,85,247,0.35);
   }
 
-  /* Grid de 4 Cards em destaque */
+  /* Grid de Cards */
   .real-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
@@ -940,7 +940,7 @@
       <button class="filter-btn" onclick="filterPortfolio('coquetelaria', event)">Coquetelaria</button>
     </div>
 
-    <!-- Grid com os 4 Negócios Reais Finalizados -->
+    <!-- Grid de Cards -->
     <div class="real-grid">
 
       <!-- CARD REAL 1: Tacobons -->
@@ -968,7 +968,7 @@
       <article class="real-card" data-category="estudio">
         <span class="badge-live"><span class="pulse"></span> Projeto No Ar</span>
         <div class="real-preview">
-          <img src="bavel.png" alt="Bavel Piercing Sede Centro">
+          <img src="logobavelpiercing.png" alt="Bavel Piercing Sede Centro">
         </div>
         <div class="real-info">
           <span class="cat-tag">Estúdio & Piercing</span>
@@ -997,10 +997,10 @@
           <p>Cardápio digital interativo de coquetéis, estratégias de conversão e pedidos diretos via WhatsApp.</p>
           <div class="real-tags">
             <span>Cardápio Digital</span>
+            <span>Google Maps Top 1</span>
             <span>Pedidos WhatsApp</span>
-            <span>Coquetelaria</span>
           </div>
-          <a href="#" target="_blank" rel="noopener" class="btn btn-purple-accent">
+          <a href="https://icetropical.com" target="_blank" rel="noopener" class="btn btn-purple-accent">
             <i class="fa-solid fa-arrow-up-right-from-square"></i> Visitar Site Oficial
           </a>
         </div>
@@ -1015,13 +1015,13 @@
         <div class="real-info">
           <span class="cat-tag">Gastronomia & Restaurante</span>
           <h3>Meraki Restaurant</h3>
-          <p>Presença digital otimizada no Google Maps, cardápio digital e integração para pedidos e reservas.</p>
+          <p>Presença digital completa, otimização de ficha local e estrutura para reservas e pedidos online.</p>
           <div class="real-tags">
             <span>Google Maps Top 1</span>
-            <span>Cardápio Digital</span>
             <span>Reservas Online</span>
+            <span>Atendimento Direto</span>
           </div>
-          <a href="#" target="_blank" rel="noopener" class="btn btn-purple-accent">
+          <a href="https://merakirestaurant.com" target="_blank" rel="noopener" class="btn btn-purple-accent">
             <i class="fa-solid fa-arrow-up-right-from-square"></i> Visitar Site Oficial
           </a>
         </div>
@@ -1031,34 +1031,29 @@
   </div>
 </section>
 
-<!-- ============== WHY ============== -->
-<section id="por-que-nos">
+<!-- ============== WHY CHOOSE US ============== -->
+<section>
   <div class="container">
     <div class="section-header">
       <span class="section-tag">// Diferenciais</span>
-      <h2>Por Que Escolher a <span class="gradient">Angélica Digital</span>?</h2>
-      <p>Entregamos soluções focadas em resultados reais, sem enrolação e com suporte próximo ao seu negócio.</p>
+      <h2>Por que <span class="gradient">Trabalhar Comigo?</span></h2>
+      <p>Foco total em resultados práticos, aumento de vendas e visibilidade real para sua empresa.</p>
     </div>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-icon"><i class="fa-solid fa-chart-line"></i></div>
         <h3>Foco em Conversão</h3>
-        <p>Não criamos apenas páginas bonitas. Desenvolvemos ecossistemas focados em transformar visitantes em vendas reais.</p>
+        <p>Não crio apenas páginas bonitas, crio estruturas pensadas para transformar visitantes em clientes compradores.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon"><i class="fa-solid fa-gauge-high"></i></div>
-        <h3>Velocidade Extrema</h3>
-        <p>Páginas otimizadas que carregam em menos de 2 segundos para garantir a melhor experiência no celular.</p>
+        <div class="why-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Agilidade na Entrega</h3>
+        <p>Projetos executados com precisão e rapidez para que seu negócio comece a faturar o quanto antes.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-        <h3>100% Responsivo</h3>
-        <p>Design perfeito para telas de smartphones, tablets e computadores desktop.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon"><i class="fa-solid fa-headset"></i></div>
-        <h3>Suporte Personalizado</h3>
-        <p>Atendimento humano e direto para resolver suas dúvidas e acompanhar a evolução do seu projeto.</p>
+        <div class="why-icon"><i class="fa-solid fa-comments"></i></div>
+        <h3>Atendimento Direto</h3>
+        <p>Comunicação transparente e sem intermediários durante todo o processo de desenvolvimento.</p>
       </div>
     </div>
   </div>
@@ -1068,41 +1063,41 @@
 <section id="faq">
   <div class="container">
     <div class="section-header">
-      <span class="section-tag">// Dúvidas Frequentes</span>
+      <span class="section-tag">// Tira Dúvidas</span>
       <h2>Perguntas <span class="gradient">Frequentes</span></h2>
-      <p>Tire suas dúvidas sobre o processo de otimização e desenvolvimento do seu negócio local.</p>
+      <p>Esclareça suas principais dúvidas sobre o processo e os serviços fornecidos.</p>
     </div>
     <div class="faq-container">
       <div class="faq-item">
-        <button class="faq-question">
+        <button class="faq-question" onclick="toggleFaq(this)">
           <span>Quanto tempo leva para otimizar meu Google Meu Negócio?</span>
           <span class="ic"><i class="fa-solid fa-plus"></i></span>
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            A configuração inicial é realizada em até 48 horas. Os primeiros resultados de posicionamento costumam ser perceptíveis entre 7 e 14 dias após as otimizações.
+            A otimização inicial é concluída em até 5 dias úteis. Os resultados de posicionamento no Google Maps começam a aparecer gradualmente nas semanas seguintes conforme a relevância da ficha aumenta.
           </div>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">
-          <span>Qual é o prazo de entrega de uma Landing Page?</span>
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>O que é preciso para criar uma Landing Page?</span>
           <span class="ic"><i class="fa-solid fa-plus"></i></span>
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            O prazo médio para entrega completa de uma Landing Page de alta conversão é de 3 a 5 dias úteis após o envio das informações do seu negócio.
+            Preciso apenas das informações básicas do seu negócio, fotos dos serviços/produtos e do número de WhatsApp para onde as vendas serão direcionadas. Eu cuido de toda a estrutura e texto de conversão.
           </div>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">
-          <span>Como funcionam as Placas Inteligentes com QR e NFC?</span>
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Como funcionam as placas com QR e NFC?</span>
           <span class="ic"><i class="fa-solid fa-plus"></i></span>
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            A placa física é configurada diretamente com o link da sua ficha de avaliações. O cliente aproxima o celular (NFC) ou aponta a câmera (QR Code) e é direcionado para deixar 5 estrelas instantaneamente.
+            São placas físicas que você coloca no balcão ou nas mesas. Quando o cliente aproxima o celular (NFC) ou aponta a câmera (QR Code), ele é direcionado imediatamente para a página de avaliação 5 estrelas do seu Google.
           </div>
         </div>
       </div>
@@ -1114,10 +1109,10 @@
 <section class="cta-section">
   <div class="container">
     <div class="cta-box">
-      <h2>Pronto para Dominar sua Região e Atrair Mais Clientes?</h2>
-      <p>Solicite seu diagnóstico gratuito agora mesmo e descubra como colocar sua empresa nos primeiros lugares do Google.</p>
+      <h2>Pronto para <span class="gradient">Dominar a Presença Digital</span> do seu Negócio?</h2>
+      <p>Solicite seu diagnóstico gratuito e descubra como colocar sua empresa no Top 3 do Google Maps ainda esta semana.</p>
       <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-cyan">
-        <i class="fa-brands fa-whatsapp"></i> FALAR COM A ANGÉLICA AGORA
+        <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp Agora
       </a>
     </div>
   </div>
@@ -1128,15 +1123,15 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col">
-        <a href="#" class="logo mb-3">
+        <a href="#" class="logo" style="margin-bottom:16px;">
           <span class="icon-wrap"><i class="fa-solid fa-bolt"></i></span>
           <span class="neon-text">Angélica Digital</span>
         </a>
-        <p>Especialista em presença digital, otimização de Google Maps e desenvolvimento de landing pages de alta conversão para negócios locais.</p>
+        <p>Especialista em presença digital, otimização do Google Meu Negócio e ecossistemas web de alta conversão para empresas locais.</p>
         <div class="social-links">
+          <a href="https://wa.me/5511953285680" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
           <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
       </div>
       <div class="footer-col">
@@ -1144,63 +1139,73 @@
         <ul>
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#por-que-nos">Diferenciais</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contato</h4>
         <ul>
-          <li><i class="fa-solid fa-envelope" style="color:#c084fc;margin-right:8px"></i> contato@angelicadigital.com</li>
-          <li><i class="fa-brands fa-whatsapp" style="color:#c084fc;margin-right:8px"></i> +55 11 95328-5680</li>
+          <li><i class="fa-solid fa-envelope" style="color:#a855f7;margin-right:8px;"></i> contato@angelicadigital.com</li>
+          <li><i class="fa-brands fa-whatsapp" style="color:#a855f7;margin-right:8px;"></i> +55 11 95328-5680</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Angélica Digital. Todos os direitos reservados. Desenvolvido com foco em <span>Alta Conversão</span>.</p>
+      <p>&copy; 2026 <span>Angélica Digital</span>. Todos os direitos reservados.</p>
     </div>
   </div>
 </footer>
 
 <!-- ============== FLOATING WHATSAPP ============== -->
-<a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="float-wa" aria-label="Contato pelo WhatsApp">
+<a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="float-wa" aria-label="Falar no WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 <!-- ============== SCRIPTS ============== -->
 <script>
-  // Menu Mobile Toggle
+  // Menu Mobile
   const hamburger = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
 
   hamburger.addEventListener('click', () => {
     menu.classList.toggle('open');
+    const icon = hamburger.querySelector('i');
+    if (menu.classList.contains('open')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-xmark');
+    } else {
+      icon.classList.remove('fa-xmark');
+      icon.classList.add('fa-bars');
+    }
   });
 
   function closeMenu() {
     menu.classList.remove('open');
+    const icon = hamburger.querySelector('i');
+    if (icon) {
+      icon.classList.remove('fa-xmark');
+      icon.classList.add('fa-bars');
+    }
   }
 
-  // FAQ Toggle
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    question.addEventListener('click', () => {
-      const isOpen = item.classList.contains('active');
-      faqItems.forEach(i => i.classList.remove('active'));
-      if (!isOpen) {
-        item.classList.add('active');
-      }
-    });
+  // Header Scroll
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
   });
 
-  // Filtro do Portfólio
+  // Filtro de Portfólio
   function filterPortfolio(category, event) {
-    const buttons = document.querySelectorAll('.filter-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-
     const cards = document.querySelectorAll('.real-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
     cards.forEach(card => {
       if (category === 'all' || card.getAttribute('data-category') === category) {
         card.classList.remove('hide');
@@ -1210,16 +1215,19 @@
     });
   }
 
-  // Header background on scroll
-  window.addEventListener('scroll', () => {
-    const header = document.getElementById('header');
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
-</script>
+  // FAQ Accordion
+  function toggleFaq(button) {
+    const item = button.parentElement;
+    const isActive = item.classList.contains('active');
 
+    document.querySelectorAll('.faq-item').forEach(faq => {
+      faq.classList.remove('active');
+    });
+
+    if (!isActive) {
+      item.classList.add('active');
+    }
+  }
+</script>
 </body>
 </html>
