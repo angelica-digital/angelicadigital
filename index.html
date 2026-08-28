@@ -541,16 +541,19 @@
 
   .real-preview{
     width:100%;
-    height:180px;
+    height:220px;
     border-radius:12px;
     overflow:hidden;
     margin-bottom:18px;
     background:#111827;
+    display:flex;
+    align-items:center;
+    justify-content:center;
   }
   .real-preview img{
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:contain; /* Ajuste para não cortar o texto ou bordas da marca */
   }
 
   .real-info{
@@ -917,14 +920,12 @@
 <section id="portfolio">
   <div class="container">
     
-    <!-- Cabeçalho Principal da Seção Centralizado -->
     <div class="section-header">
       <span class="section-tag">// Projetos Publicados</span>
       <h2>Ecossistemas Digitais & <span class="gradient">Empresas Ativas</span></h2>
       <p>Conheça plataformas web, soluções e marcas em operação desenvolvidas com foco em posicionamento e alta conversão.</p>
     </div>
 
-    <!-- Título do Subgrupo Centralizado -->
     <div class="sub-header-center">
       <div class="sub-title">
         <i class="fa-solid fa-layer-group"></i>
@@ -932,7 +933,6 @@
       </div>
     </div>
 
-    <!-- Barra de Filtros Centralizada -->
     <div class="filter-bar">
       <button class="filter-btn active" onclick="filterPortfolio('all', event)">Todos</button>
       <button class="filter-btn" onclick="filterPortfolio('gastronomia', event)">Gastronomia</button>
@@ -940,7 +940,6 @@
       <button class="filter-btn" onclick="filterPortfolio('coquetelaria', event)">Coquetelaria</button>
     </div>
 
-    <!-- Grid de Cards -->
     <div class="real-grid">
 
       <!-- CARD REAL 1: Tacobons -->
