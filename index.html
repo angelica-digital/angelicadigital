@@ -541,10 +541,7 @@
 
   .real-preview{
     width:100%;
-    height:500px;
-    width:500px;
-    max-width:100%;
-    margin-inline:auto;
+    height:220px;
     border-radius:12px;
     overflow:hidden;
     margin-bottom:18px;
@@ -557,7 +554,7 @@
     width:500px;
     height:500px;
     max-width:100%;
-    object-fit:cover;
+    object-fit:contain;
   }
 
   .real-info{
@@ -951,7 +948,7 @@
       <article class="real-card" data-category="gastronomia">
         <span class="badge-live"><span class="pulse"></span> Projeto No Ar</span>
         <div class="real-preview">
-          <img src="logotacobons.png" alt="TacoBons Google Business e Cardápio">
+          <img src="logotacobons.png" alt="TacoBons Google Business e Cardápio" width="500" height="500">
         </div>
         <div class="real-info">
           <span class="cat-tag">Gastronomia Mexicana</span>
@@ -972,7 +969,7 @@
       <article class="real-card" data-category="estudio">
         <span class="badge-live"><span class="pulse"></span> Projeto No Ar</span>
         <div class="real-preview">
-          <img src="logobavelpiercing.png" alt="Bavel Piercing">
+          <img src="logobavelpiercing.png" alt="Bavel Piercing" width="500" height="500">
         </div>
         <div class="real-info">
           <span class="cat-tag">Estúdio & Piercing</span>
@@ -993,7 +990,7 @@
       <article class="real-card" data-category="coquetelaria">
         <span class="badge-live"><span class="pulse"></span> Projeto No Ar</span>
         <div class="real-preview">
-          <img src="logoicetropical.png" alt="ICE TROPICAL Cócteles">
+          <img src="logoicetropical.png" alt="ICE TROPICAL Cócteles" width="500" height="500">
         </div>
         <div class="real-info">
           <span class="cat-tag">Cócteles & Nightlife</span>
@@ -1014,7 +1011,7 @@
       <article class="real-card" data-category="estetica">
         <span class="badge-live"><span class="pulse"></span> Projeto No Ar</span>
         <div class="real-preview">
-          <img src="logoadrianagarcia.png" alt="Adriana Garcia Estética">
+          <img src="logoadrianagarcia.png" alt="Adriana Garcia Estética" width="500" height="500">
         </div>
         <div class="real-info">
           <span class="cat-tag">Estética & Saúde</span>
@@ -1095,7 +1092,7 @@
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question" onclick="toggleFuv(this)">
+        <button class="faq-question" onclick="toggleFaq(this)">
           <span>Como funcionam as placas com QR e NFC?</span>
           <span class="ic"><i class="fa-solid fa-plus"></i></span>
         </button>
@@ -1192,7 +1189,7 @@
     }
   }
 
-  //Header Scroll
+  // Header Scroll
   window.addEventListener('scroll', () => {
     const header = document.getElementById('header');
     if (window.scrollY > 50) {
