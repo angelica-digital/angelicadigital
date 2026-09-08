@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Angélica Digital - Especialista em Presença Digital e Alta Conversão para Negócios Locais. Otimização de Google Maps, Landing Pages de alta conversão e ecossistemas web.">
 <meta name="keywords" content="Google Maps, Landing Pages, Marketing Local, Presença Digital, Google Meu Negócio, QR Code, NFC">
-<title>Angélica Digital | Especialista em Presença Digital & Alta Conversão</title>
+<title id="page-title">Angélica Digital | Especialista em Presença Digital & Alta Conversão</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
@@ -128,6 +128,37 @@
     box-shadow:0 0 8px #a855f7;
   }
   .menu a:hover::after{width:100%}
+
+  .nav-right-area{
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .lang-switcher{
+    display:flex;
+    background:rgba(168,85,247,0.1);
+    border:1px solid rgba(168,85,247,0.3);
+    border-radius:50px;
+    padding:3px;
+    gap:2px;
+  }
+  .lang-btn{
+    background:transparent;
+    border:none;
+    color:#94a3b8;
+    font-size:0.75rem;
+    font-weight:700;
+    padding:5px 10px;
+    border-radius:50px;
+    cursor:pointer;
+    transition:all .3s ease;
+    font-family:inherit;
+  }
+  .lang-btn.active{
+    background:linear-gradient(135deg,#a855f7,#7c3aed);
+    color:#fff;
+    box-shadow:0 2px 10px rgba(168,85,247,0.4);
+  }
 
   .btn{
     display:inline-flex;
@@ -785,13 +816,23 @@
         <span class="neon-text">Angélica Digital</span>
       </a>
       <ul class="menu" id="menu">
-        <li><a href="#servicos" onclick="closeMenu()">Serviços</a></li>
-        <li><a href="#portfolio" onclick="closeMenu()">Portfólio</a></li>
-        <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
+        <li><a href="#servicos" id="nav-servicos" onclick="closeMenu()">Serviços</a></li>
+        <li><a href="#portfolio" id="nav-portfolio" onclick="closeMenu()">Portfólio</a></li>
+        <li><a href="#faq" id="nav-faq" onclick="closeMenu()">FAQ</a></li>
       </ul>
-      <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-purple-accent header-cta">
-        <i class="fa-brands fa-whatsapp"></i> Falar pelo WhatsApp
-      </a>
+      
+      <div class="nav-right-area">
+        <div class="lang-switcher">
+          <button onclick="setLanguage('es')" id="btn-es" class="lang-btn">ES</button>
+          <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+          <button onclick="setLanguage('pt')" id="btn-pt" class="lang-btn active">PT</button>
+        </div>
+
+        <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-purple-accent header-cta" id="header-cta-text">
+          <i class="fa-brands fa-whatsapp"></i> Falar pelo WhatsApp
+        </a>
+      </div>
+
       <button class="hamburger" id="hamburger" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
     </nav>
   </div>
@@ -802,21 +843,21 @@
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
-        <span class="badge"><span class="dot"></span> Estratégia de Presença Digital para Negócios Locais</span>
-        <h1>Aumente suas Vendas Locais <span class="gradient">Dominando o Google Maps</span> e Landing Pages de Alta Conversão</h1>
-        <p class="lead">Ajudo seu negócio a se destacar da concorrência, aparecer nos primeiros lugares do Google e converter visitas em clientes diários pelo WhatsApp.</p>
+        <span class="badge" id="hero-badge"><span class="dot"></span> Estratégia de Presença Digital para Negócios Locais</span>
+        <h1 id="hero-title">Aumente suas Vendas Locais <span class="gradient">Dominando o Google Maps</span> e Landing Pages de Alta Conversão</h1>
+        <p class="lead" id="hero-lead">Ajudo seu negócio a se destacar da concorrência, aparecer nos primeiros lugares do Google e converter visitas em clientes diários pelo WhatsApp.</p>
         <div class="hero-cta">
-          <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-cyan">
+          <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-cyan" id="hero-btn-primary">
             <i class="fa-solid fa-rocket"></i> SOLICITAR DIAGNÓSTICO GRATUITO
           </a>
-          <a href="#servicos" class="btn btn-outline">
+          <a href="#servicos" class="btn btn-outline" id="hero-btn-secondary">
             <i class="fa-solid fa-arrow-down"></i> Ver Serviços
           </a>
         </div>
         <div class="hero-trust">
-          <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> Sem compromisso</div>
-          <div class="trust-item"><i class="fa-solid fa-bolt"></i> Entrega rápida</div>
-          <div class="trust-item"><i class="fa-solid fa-headset"></i> Suporte direto</div>
+          <div class="trust-item" id="trust-1"><i class="fa-solid fa-shield-halved"></i> Sem compromisso</div>
+          <div class="trust-item" id="trust-2"><i class="fa-solid fa-bolt"></i> Entrega rápida</div>
+          <div class="trust-item" id="trust-3"><i class="fa-solid fa-headset"></i> Suporte direto</div>
         </div>
       </div>
 
@@ -830,28 +871,28 @@
             <div class="gmb-header">
               <div class="gmb-logo">A</div>
               <div class="gmb-info">
-                <h4>Seu Negócio Local</h4>
-                <span><i class="fa-solid fa-star" style="color:#fbbc05"></i> 4.9 · 128 avaliações · Verificado</span>
+                <h4 id="gmb-biz-name">Seu Negócio Local</h4>
+                <span id="gmb-reviews"><i class="fa-solid fa-star" style="color:#fbbc05"></i> 4.9 · 128 avaliações · Verificado</span>
               </div>
             </div>
             <div class="gmb-rating">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
             <div class="gmb-meta">
-              <span>Empresa Otimizada</span>
+              <span id="gmb-tag-1">Empresa Otimizada</span>
               <span>$$</span>
-              <span>Aberto</span>
+              <span id="gmb-tag-2">Aberto</span>
             </div>
             <div class="gmb-actions">
-              <span><i class="fa-solid fa-route"></i> Indicações</span>
-              <span><i class="fa-solid fa-phone"></i> Ligar</span>
-              <span><i class="fa-solid fa-globe"></i> Site</span>
+              <span id="gmb-act-1"><i class="fa-solid fa-route"></i> Indicações</span>
+              <span id="gmb-act-2"><i class="fa-solid fa-phone"></i> Ligar</span>
+              <span id="gmb-act-3"><i class="fa-solid fa-globe"></i> Site</span>
             </div>
           </div>
           <div class="stats-row">
-            <div class="stat-mini"><span class="num">+250%</span><span class="lbl">Visitas</span></div>
-            <div class="stat-mini"><span class="num">Top 3</span><span class="lbl">Maps</span></div>
-            <div class="stat-mini"><span class="num">24/7</span><span class="lbl">Online</span></div>
+            <div class="stat-mini"><span class="num">+250%</span><span class="lbl" id="stat-lbl-1">Visitas</span></div>
+            <div class="stat-mini"><span class="num">Top 3</span><span class="lbl" id="stat-lbl-2">Maps</span></div>
+            <div class="stat-mini"><span class="num">24/7</span><span class="lbl" id="stat-lbl-3">Online</span></div>
           </div>
         </div>
       </div>
@@ -863,53 +904,53 @@
 <section id="servicos">
   <div class="container">
     <div class="section-header">
-      <span class="section-tag">// Serviços Principais</span>
-      <h2>Soluções <span class="gradient">Projetadas para Crescer</span> Seu Negócio</h2>
-      <p>Estratégias práticas e eficazes para que sua empresa atraia clientes todos os dias pelo Google e redes sociais.</p>
+      <span class="section-tag" id="serv-tag">// Serviços Principais</span>
+      <h2 id="serv-title">Soluções <span class="gradient">Projetadas para Crescer</span> Seu Negócio</h2>
+      <p id="serv-subtitle">Estratégias práticas e eficazes para que sua empresa atraia clientes todos os dias pelo Google e redes sociais.</p>
     </div>
     <div class="services-grid">
 
       <article class="service-card">
         <div class="service-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-        <h3>Otimização do Google Meu Negócio</h3>
-        <p>Apareça no Top 3 do Google Maps com sua ficha verificada, categorias corretas e catálogo carregado.</p>
+        <h3 id="card1-title">Otimização do Google Meu Negócio</h3>
+        <p id="card1-desc">Apareça no Top 3 do Google Maps com sua ficha verificada, categorias corretas e catálogo carregado.</p>
         <ul class="features">
-          <li><i class="fa-solid fa-check"></i> Verificação e configuração completa</li>
-          <li><i class="fa-solid fa-check"></i> Categorias e palavras-chave estratégicas</li>
-          <li><i class="fa-solid fa-check"></i> Gestão de avaliações e fotos</li>
+          <li><i class="fa-solid fa-check"></i> <span id="card1-f1">Verificação e configuração completa</span></li>
+          <li><i class="fa-solid fa-check"></i> <span id="card1-f2">Categorias e palavras-chave estratégicas</span></li>
+          <li><i class="fa-solid fa-check"></i> <span id="card1-f3">Gestão de avaliações e fotos</span></li>
         </ul>
       </article>
 
       <article class="service-card">
         <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
-        <h3>Landing Pages de Alta Conversão</h3>
-        <p>Páginas ultra rápidas, otimizadas para celular e projetadas para fechar vendas diretamente pelo WhatsApp.</p>
+        <h3 id="card2-title">Landing Pages de Alta Conversão</h3>
+        <p id="card2-desc">Páginas ultra rápidas, otimizadas para celular e projetadas para fechar vendas diretamente pelo WhatsApp.</p>
         <ul class="features">
-          <li><i class="fa-solid fa-check"></i> Design moderno e responsivo</li>
-          <li><i class="fa-solid fa-check"></i> Velocidade de carregamento inferior a 2s</li>
-          <li><i class="fa-solid fa-check"></i> Integração com WhatsApp e Analytics</li>
+          <li><i class="fa-solid fa-check"></i> <span id="card2-f1">Design moderno e responsivo</span></li>
+          <li><i class="fa-solid fa-check"></i> <span id="card2-f2">Velocidade de carregamento inferior a 2s</span></li>
+          <li><i class="fa-solid fa-check"></i> <span id="card2-f3">Integração com WhatsApp e Analytics</span></li>
         </ul>
       </article>
 
       <article class="service-card">
         <div class="service-icon"><i class="fa-solid fa-qrcode"></i></div>
-        <h3>Placas Inteligentes QR / NFC</h3>
-        <p>Estratégia física para coletar dezenas de avaliações de 5 estrelas diretamente do seu estabelecimento.</p>
+        <h3 id="card3-title">Placas Inteligentes QR / NFC</h3>
+        <p id="card3-desc">Estratégia física para coletar dezenas de avaliações de 5 estrelas diretamente do seu estabelecimento.</p>
         <ul class="features">
-          <li><i class="fa-solid fa-check"></i> Placa personalizada com sua marca</li>
-          <li><i class="fa-solid fa-check"></i> QR + NFC prontos para usar</li>
-          <li><i class="fa-solid fa-check"></i> Aumento real de avaliações</li>
+          <li><i class="fa-solid fa-check"></i> <span id="card3-f1">Placa personalizada com sua marca</span></li>
+          <li><i class="fa-solid fa-check"></i> <span id="card3-f2">QR + NFC prontos para usar</span></li>
+          <li><i class="fa-solid fa-check"></i> <span id="card3-f3">Aumento real de avaliações</span></li>
         </ul>
       </article>
 
       <article class="service-card">
         <div class="service-icon"><i class="fa-solid fa-bullseye"></i></div>
-        <h3>Posicionamento e Anúncios Locais</h3>
-        <p>Estratégias de atração direta para clientes da sua cidade com campanhas no Google Ads e Meta Ads.</p>
+        <h3 id="card4-title">Posicionamento e Anúncios Locais</h3>
+        <p id="card4-desc">Estratégias de atração direta para clientes da sua cidade com campanhas no Google Ads e Meta Ads.</p>
         <ul class="features">
-          <li><i class="fa-solid fa-check"></i> SEO local avançado</li>
-          <li><i class="fa-solid fa-check"></i> Campanhas segmentadas por região</li>
-          <li><i class="fa-solid fa-check"></i> Relatórios mensais de resultados</li>
+          <li><i class="fa-solid fa-check"></i> <span id="card4-f1">SEO local avançado</span></li>
+          <li><i class="fa-solid fa-check"></i> <span id="card4-f2">Campanhas segmentadas por região</span></li>
+          <li><i class="fa-solid fa-check"></i> <span id="card4-f3">Relatórios mensais de resultados</span></li>
         </ul>
       </article>
 
@@ -922,129 +963,129 @@
   <div class="container">
     
     <div class="section-header">
-      <span class="section-tag">// Projetos Publicados</span>
-      <h2>Ecossistemas Digitais & <span class="gradient">Empresas Ativas</span></h2>
-      <p>Conheça plataformas web, soluções e marcas em operação desenvolvidas com foco em posicionamento e alta conversão.</p>
+      <span class="section-tag" id="port-tag">// Projetos Publicados</span>
+      <h2 id="port-title">Ecossistemas Digitais & <span class="gradient">Empresas Ativas</span></h2>
+      <p id="port-subtitle">Conheça plataformas web, soluções e marcas em operação desenvolvidas com foco em posicionamento e alta conversão.</p>
     </div>
 
     <div class="sub-header-center">
       <div class="sub-title">
         <i class="fa-solid fa-layer-group"></i>
-        <span>Soluções e Marcas Finalizadas</span>
+        <span id="port-sub-title">Soluções e Marcas Finalizadas</span>
       </div>
     </div>
 
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterPortfolio('all', event)">Todos</button>
-      <button class="filter-btn" onclick="filterPortfolio('gastronomia', event)">Gastronomia</button>
-      <button class="filter-btn" onclick="filterPortfolio('estudio', event)">Estúdio & Piercing</button>
-      <button class="filter-btn" onclick="filterPortfolio('coquetelaria', event)">Coquetelaria</button>
-      <button class="filter-btn" onclick="filterPortfolio('estetica', event)">Estética & Saúde</button>
+      <button class="filter-btn active" onclick="filterPortfolio('all', event)" id="filter-all">Todos</button>
+      <button class="filter-btn" onclick="filterPortfolio('gastronomia', event)" id="filter-gastronomia">Gastronomia</button>
+      <button class="filter-btn" onclick="filterPortfolio('estudio', event)" id="filter-estudio">Estúdio & Piercing</button>
+      <button class="filter-btn" onclick="filterPortfolio('coquetelaria', event)" id="filter-coquetelaria">Coquetelaria</button>
+      <button class="filter-btn" onclick="filterPortfolio('estetica', event)" id="filter-estetica">Estética & Saúde</button>
     </div>
 
     <div class="real-grid">
 
       <!-- CARD REAL 1: Tacobons -->
       <article class="real-card" data-category="gastronomia">
-        <span class="badge-live"><span class="pulse"></span> Projeto No Ar</span>
+        <span class="badge-live"><span class="pulse"></span> <span class="live-txt">Projeto No Ar</span></span>
         <div class="real-preview">
           <img src="logotacobons.png" alt="TacoBons Google Business e Cardápio" width="500" height="500">
         </div>
         <div class="real-info">
-          <span class="cat-tag">Gastronomia Mexicana</span>
+          <span class="cat-tag" id="p1-cat">Gastronomia Mexicana</span>
           <h3>TacoBons</h3>
-          <p>Otimização completa no Google Maps, catálogo digital interativo e canal direto de pedidos pelo WhatsApp.</p>
+          <p id="p1-desc">Otimização completa no Google Maps, catálogo digital interativo e canal direto de pedidos pelo WhatsApp.</p>
           <div class="real-tags">
-            <span>Google Maps Top 1</span>
-            <span>Cardápio Digital</span>
-            <span>Pedidos WhatsApp</span>
+            <span id="p1-t1">Google Maps Top 1</span>
+            <span id="p1-t2">Cardápio Digital</span>
+            <span id="p1-t3">Pedidos WhatsApp</span>
           </div>
           <a href="https://tacobons.angelicadigital.com/" target="_blank" rel="noopener" class="btn btn-purple-accent">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Visitar Site Oficial
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> <span class="visit-btn-txt">Visitar Site Oficial</span>
           </a>
         </div>
       </article>
 
       <!-- CARD REAL 5: Meraki -->
       <article class="real-card" data-category="gastronomia">
-        <span class="badge-live"><span class="pulse"></span> Projeto No Ar</span>
+        <span class="badge-live"><span class="pulse"></span> <span class="live-txt">Projeto No Ar</span></span>
         <div class="real-preview">
           <img src="logomeraki.png" alt="Meraki Experiências" width="500" height="500">
         </div>
         <div class="real-info">
-          <span class="cat-tag">Gastronomia & Experiências</span>
+          <span class="cat-tag" id="p2-cat">Gastronomia & Experiências</span>
           <h3>Meraki</h3>
-          <p>Presença digital estratégica, otimização de ficha e ecossistema web voltado para alta conversão.</p>
+          <p id="p2-desc">Presença digital estratégica, otimização de ficha e ecossistema web voltado para alta conversão.</p>
           <div class="real-tags">
-            <span>Google Maps Top 1</span>
-            <span>Cardápio Digital</span>
-            <span>Pedidos WhatsApp</span>
+            <span id="p2-t1">Google Maps Top 1</span>
+            <span id="p2-t2">Cardápio Digital</span>
+            <span id="p2-t3">Pedidos WhatsApp</span>
           </div>
           <a href="https://meraki.angelicadigital.com/" target="_blank" rel="noopener" class="btn btn-purple-accent">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Visitar Site Oficial
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> <span class="visit-btn-txt">Visitar Site Oficial</span>
           </a>
         </div>
       </article>
 
       <!-- CARD REAL 2: Bavel Piercing -->
       <article class="real-card" data-category="estudio">
-        <span class="badge-live"><span class="pulse"></span> Projeto No Ar</span>
+        <span class="badge-live"><span class="pulse"></span> <span class="live-txt">Projeto No Ar</span></span>
         <div class="real-preview">
           <img src="logobavelpiercing.png" alt="Bavel Piercing" width="500" height="500">
         </div>
         <div class="real-info">
-          <span class="cat-tag">Estúdio & Piercing</span>
+          <span class="cat-tag" id="p3-cat">Estúdio & Piercing</span>
           <h3>Bavel Piercing</h3>
-          <p>E-commerce completo e otimização para estúdio físico, catálogo online e canal direto de atendimento.</p>
+          <p id="p3-desc">E-commerce completo e otimização para estúdio físico, catálogo online e canal direto de atendimento.</p>
           <div class="real-tags">
-            <span>Loja Online</span>
-            <span>Google Maps Top 1</span>
-            <span>Atendimento Direto</span>
+            <span id="p3-t1">Loja Online</span>
+            <span id="p3-t2">Google Maps Top 1</span>
+            <span id="p3-t3">Atendimento Direto</span>
           </div>
           <a href="https://bavelpiercing.com" target="_blank" rel="noopener" class="btn btn-purple-accent">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Visitar Site Oficial
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> <span class="visit-btn-txt">Visitar Site Oficial</span>
           </a>
         </div>
       </article>
 
       <!-- CARD REAL 3: ICE TROPICAL -->
       <article class="real-card" data-category="coquetelaria">
-        <span class="badge-live"><span class="pulse"></span> Projeto No Ar</span>
+        <span class="badge-live"><span class="pulse"></span> <span class="live-txt">Projeto No Ar</span></span>
         <div class="real-preview">
           <img src="logoicetropical.png" alt="ICE TROPICAL Cócteles" width="500" height="500">
         </div>
         <div class="real-info">
-          <span class="cat-tag">Cócteles & Nightlife</span>
+          <span class="cat-tag" id="p4-cat">Cócteles & Nightlife</span>
           <h3>ICE TROPICAL</h3>
-          <p>Cardápio digital interativo de coquetéis, estratégias de conversão e pedidos diretos via WhatsApp.</p>
+          <p id="p4-desc">Cardápio digital interativo de coquetéis, estratégias de conversão e pedidos diretos via WhatsApp.</p>
           <div class="real-tags">
-            <span>Cardápio Digital</span>
-            <span>Google Maps Top 1</span>
-            <span>Pedidos WhatsApp</span>
+            <span id="p4-t1">Cardápio Digital</span>
+            <span id="p4-t2">Google Maps Top 1</span>
+            <span id="p4-t3">Pedidos WhatsApp</span>
           </div>
           <a href="https://icetropical.com" target="_blank" rel="noopener" class="btn btn-purple-accent">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Visitar Site Oficial
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> <span class="visit-btn-txt">Visitar Site Oficial</span>
           </a>
         </div>
       </article>
 
       <!-- CARD REAL 4: Adriana Garcia -->
       <article class="real-card" data-category="estetica">
-        <span class="badge-live"><span class="pulse"></span> Projeto No Ar</span>
+        <span class="badge-live"><span class="pulse"></span> <span class="live-txt">Projeto No Ar</span></span>
         <div class="real-preview">
           <img src="logoadrianagarcia.png" alt="Adriana Garcia Estética" width="500" height="500">
         </div>
         <div class="real-info">
-          <span class="cat-tag">Estética & Saúde</span>
+          <span class="cat-tag" id="p5-cat">Estética & Saúde</span>
           <h3>Adriana Garcia</h3>
-          <p>Presença digital completa, otimização de ficha local e estrutura estratégica para agendamento de serviços.</p>
+          <p id="p5-desc">Presença digital completa, otimização de ficha local e estrutura estratégica para agendamento de serviços.</p>
           <div class="real-tags">
-            <span>Google Maps Top 1</span>
-            <span>Agendamento Online</span>
-            <span>Atendimento Direto</span>
+            <span id="p5-t1">Google Maps Top 1</span>
+            <span id="p5-t2">Agendamento Online</span>
+            <span id="p5-t3">Atendimento Direto</span>
           </div>
           <a href="https://adrianagarcia.com" target="_blank" rel="noopener" class="btn btn-purple-accent">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Visitar Site Oficial
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> <span class="visit-btn-txt">Visitar Site Oficial</span>
           </a>
         </div>
       </article>
@@ -1057,25 +1098,25 @@
 <section>
   <div class="container">
     <div class="section-header">
-      <span class="section-tag">// Diferenciais</span>
-      <h2>Por que <span class="gradient">Trabalhar Comigo?</span></h2>
-      <p>Foco total em resultados práticos, aumento de vendas e visibilidade real para sua empresa.</p>
+      <span class="section-tag" id="why-tag">// Diferenciais</span>
+      <h2 id="why-title">Por que <span class="gradient">Trabalhar Comigo?</span></h2>
+      <p id="why-subtitle">Foco total em resultados práticos, aumento de vendas e visibilidade real para sua empresa.</p>
     </div>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-icon"><i class="fa-solid fa-chart-line"></i></div>
-        <h3>Foco em Conversão</h3>
-        <p>Não crio apenas páginas bonitas, crio estruturas pensadas para transformar visitantes em clientes compradores.</p>
+        <h3 id="why1-title">Foco em Conversão</h3>
+        <p id="why1-desc">Não crio apenas páginas bonitas, crio estruturas pensadas para transformar visitantes em clientes compradores.</p>
       </div>
       <div class="why-card">
         <div class="why-icon"><i class="fa-solid fa-bolt"></i></div>
-        <h3>Agilidade na Entrega</h3>
-        <p>Projetos executados com precisão e rapidez para que seu negócio comece a faturar o quanto antes.</p>
+        <h3 id="why2-title">Agilidade na Entrega</h3>
+        <p id="why2-desc">Projetos executados com precisão e rapidez para que seu negócio comece a faturar o quanto antes.</p>
       </div>
       <div class="why-card">
         <div class="why-icon"><i class="fa-solid fa-comments"></i></div>
-        <h3>Atendimento Direto</h3>
-        <p>Comunicação transparente e sem intermediários durante todo o processo de desenvolvimento.</p>
+        <h3 id="why3-title">Atendimento Direto</h3>
+        <p id="why3-desc">Comunicação transparente e sem intermediários durante todo o processo de desenvolvimento.</p>
       </div>
     </div>
   </div>
@@ -1085,40 +1126,40 @@
 <section id="faq">
   <div class="container">
     <div class="section-header">
-      <span class="section-tag">// Tira Dúvidas</span>
-      <h2>Perguntas <span class="gradient">Frequentes</span></h2>
-      <p>Esclareça suas principais dúvidas sobre o processo e os serviços fornecidos.</p>
+      <span class="section-tag" id="faq-tag">// Tira Dúvidas</span>
+      <h2 id="faq-title">Perguntas <span class="gradient">Frequentes</span></h2>
+      <p id="faq-subtitle">Esclareça suas principais dúvidas sobre o processo e os serviços fornecidos.</p>
     </div>
     <div class="faq-container">
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          <span>Quanto tempo leva para otimizar meu Google Meu Negócio?</span>
+          <span id="faq1-q">Quanto tempo leva para otimizar meu Google Meu Negócio?</span>
           <span class="ic"><i class="fa-solid fa-plus"></i></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">
+          <div class="faq-answer-inner" id="faq1-a">
             A otimização inicial é concluída em até 5 dias úteis. Os resultados de posicionamento no Google Maps começam a aparecer gradualmente nas semanas seguintes conforme a relevância da ficha aumenta.
           </div>
         </div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          <span>O que é preciso para criar uma Landing Page?</span>
+          <span id="faq2-q">O que é preciso para criar uma Landing Page?</span>
           <span class="ic"><i class="fa-solid fa-plus"></i></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">
+          <div class="faq-answer-inner" id="faq2-a">
             Preciso apenas das informações básicas do seu negócio, fotos dos serviços/produtos e do número de WhatsApp para onde as vendas serão direcionadas. Eu cuido de toda a estrutura e texto de conversão.
           </div>
         </div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          <span>Como funcionam as placas com QR e NFC?</span>
+          <span id="faq3-q">Como funcionam as placas com QR e NFC?</span>
           <span class="ic"><i class="fa-solid fa-plus"></i></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">
+          <div class="faq-answer-inner" id="faq3-a">
             São placas físicas que você coloca no balcão ou nas mesas. Quando o cliente aproxima o celular (NFC) ou aponta a câmera (QR Code), ele é direcionado imediatamente para a página de avaliação 5 estrelas do seu Google.
           </div>
         </div>
@@ -1131,9 +1172,9 @@
 <section class="cta-section">
   <div class="container">
     <div class="cta-box">
-      <h2>Pronto para <span class="gradient">Dominar a Presença Digital</span> do seu Negócio?</h2>
-      <p>Solicite seu diagnóstico gratuito e descubra como colocar sua empresa no Top 3 do Google Maps ainda esta semana.</p>
-      <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-cyan">
+      <h2 id="cta-title">Pronto para <span class="gradient">Dominar a Presença Digital</span> do seu Negócio?</h2>
+      <p id="cta-subtitle">Solicite seu diagnóstico gratuito e descubra como colocar sua empresa no Top 3 do Google Maps ainda esta semana.</p>
+      <a href="https://wa.me/5511953285680?text=Ol%C3%A1%20Ang%C3%A9lica%2C%20quero%20meu%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener" class="btn btn-cyan" id="cta-btn">
         <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp Agora
       </a>
     </div>
@@ -1149,7 +1190,7 @@
           <span class="icon-wrap"><i class="fa-solid fa-bolt"></i></span>
           <span class="neon-text">Angélica Digital</span>
         </a>
-        <p>Especialista em presença digital, otimização do Google Meu Negócio e ecossistemas web de alta conversão para empresas locais.</p>
+        <p id="footer-desc">Especialista em presença digital, otimização do Google Meu Negócio e ecossistemas web de alta conversão para empresas locais.</p>
         <div class="social-links">
           <a href="https://wa.me/5511953285680" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
           <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -1157,15 +1198,15 @@
         </div>
       </div>
       <div class="footer-col">
-        <h4>Navegação</h4>
+        <h4 id="footer-nav-title">Navegação</h4>
         <ul>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#servicos" id="ft-s">Serviços</a></li>
+          <li><a href="#portfolio" id="ft-p">Portfólio</a></li>
+          <li><a href="#faq" id="ft-f">FAQ</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contato</h4>
+        <h4 id="footer-contact-title">Contato</h4>
         <ul>
           <li><i class="fa-solid fa-envelope" style="color:#a855f7;margin-right:8px;"></i> contato@angelicadigital.com</li>
           <li><i class="fa-brands fa-whatsapp" style="color:#a855f7;margin-right:8px;"></i> +55 11 95328-5680</li>
@@ -1173,7 +1214,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 <span>Angélica Digital</span>. Todos os direitos reservados.</p>
+      <p id="footer-copy">&copy; 2026 <span>Angélica Digital</span>. Todos os direitos reservados.</p>
     </div>
   </div>
 </footer>
@@ -1250,6 +1291,419 @@
       item.classList.add('active');
     }
   }
+
+  // ============== SISTEMA DE TRADUÇÃO (ES, EN, PT) ==============
+  const TRANSLATIONS = {
+    pt: {
+      pageTitle: "Angélica Digital | Especialista em Presença Digital & Alta Conversão",
+      navServicos: "Serviços",
+      navPortfolio: "Portfólio",
+      navFaq: "FAQ",
+      headerCta: "Falar pelo WhatsApp",
+      heroBadge: "Estratégia de Presença Digital para Negócios Locais",
+      heroTitle: 'Aumente suas Vendas Locais <span class="gradient">Dominando o Google Maps</span> e Landing Pages de Alta Conversão',
+      heroLead: "Ajudo seu negócio a se destacar da concorrência, aparecer nos primeiros lugares do Google e converter visitas em clientes diários pelo WhatsApp.",
+      heroBtnPrimary: 'SOLICITAR DIAGNÓSTICO GRATUITO',
+      heroBtnSecondary: 'Ver Serviços',
+      trust1: "Sem compromisso",
+      trust2: "Entrega rápida",
+      trust3: "Suporte direto",
+      gmbBizName: "Seu Negócio Local",
+      gmbReviews: "4.9 · 128 avaliações · Verificado",
+      gmbTag1: "Empresa Otimizada",
+      gmbTag2: "Aberto",
+      gmbAct1: "Indicações",
+      gmbAct2: "Ligar",
+      gmbAct3: "Site",
+      statLbl1: "Visitas",
+      statLbl2: "Maps",
+      statLbl3: "Online",
+      servTag: "// Serviços Principais",
+      servTitle: 'Soluções <span class="gradient">Projetadas para Crescer</span> Seu Negócio',
+      servSubtitle: "Estratégias práticas e eficazes para que sua empresa atraia clientes todos os dias pelo Google e redes sociais.",
+      card1Title: "Otimização do Google Meu Negócio",
+      card1Desc: "Apareça no Top 3 do Google Maps com sua ficha verificada, categorias corretas e catálogo carregado.",
+      card1F1: "Verificação e configuração completa",
+      card1F2: "Categorias e palavras-chave estratégicas",
+      card1F3: "Gestão de avaliações e fotos",
+      card2Title: "Landing Pages de Alta Conversão",
+      card2Desc: "Páginas ultra rápidas, otimizadas para celular e projetadas para fechar vendas diretamente pelo WhatsApp.",
+      card2F1: "Design moderno e responsivo",
+      card2F2: "Velocidade de carregamento inferior a 2s",
+      card2F3: "Integração com WhatsApp e Analytics",
+      card3Title: "Placas Inteligentes QR / NFC",
+      card3Desc: "Estratégia física para coletar dezenas de avaliações de 5 estrelas diretamente do seu estabelecimento.",
+      card3F1: "Placa personalizada com sua marca",
+      card3F2: "QR + NFC prontos para usar",
+      card3F3: "Aumento real de avaliações",
+      card4Title: "Posicionamento e Anúncios Locais",
+      card4Desc: "Estratégias de atração direta para clientes da sua cidade com campanhas no Google Ads e Meta Ads.",
+      card4F1: "SEO local avançado",
+      card4F2: "Campanhas segmentadas por região",
+      card4F3: "Relatórios mensais de resultados",
+      portTag: "// Projetos Publicados",
+      portTitle: 'Ecossistemas Digitais & <span class="gradient">Empresas Ativas</span>',
+      portSubtitle: "Conheça plataformas web, soluções e marcas em operação desenvolvidas com foco em posicionamento e alta conversão.",
+      portSubTitle: "Soluções e Marcas Finalizadas",
+      filterAll: "Todos",
+      filterGastronomia: "Gastronomia",
+      filterEstudio: "Estúdio & Piercing",
+      filterCoquetelaria: "Coquetelaria",
+      filterEstetica: "Estética & Saúde",
+      liveTxt: "Projeto No Ar",
+      visitBtn: "Visitar Site Oficial",
+      p1Cat: "Gastronomia Mexicana",
+      p1Desc: "Otimização completa no Google Maps, catálogo digital interativo e canal direto de pedidos pelo WhatsApp.",
+      p2Cat: "Gastronomia & Experiências",
+      p2Desc: "Presença digital estratégica, otimização de ficha e ecossistema web voltado para alta conversão.",
+      p3Cat: "Estúdio & Piercing",
+      p3Desc: "E-commerce completo e otimização para estúdio físico, catálogo online e canal direto de atendimento.",
+      p4Cat: "Cócteles & Nightlife",
+      p4Desc: "Cardápio digital interativo de coquetéis, estratégias de conversão e pedidos diretos via WhatsApp.",
+      p5Cat: "Estética & Saúde",
+      p5Desc: "Presença digital completa, otimização de ficha local e estrutura estratégica para agendamento de serviços.",
+      whyTag: "// Diferenciais",
+      whyTitle: 'Por que <span class="gradient">Trabalhar Comigo?</span>',
+      whySubtitle: "Foco total em resultados práticos, aumento de vendas e visibilidade real para sua empresa.",
+      why1Title: "Foco em Conversão",
+      why1Desc: "Não crio apenas páginas bonitas, crio estruturas pensadas para transformar visitantes em clientes compradores.",
+      why2Title: "Agilidade na Entrega",
+      why2Desc: "Projetos executados com precisão e rapidez para que seu negócio comece a faturar o quanto antes.",
+      why3Title: "Atendimento Direto",
+      why3Desc: "Comunicação transparente e sem intermediários durante todo o processo de desenvolvimento.",
+      faqTag: "// Tira Dúvidas",
+      faqTitle: 'Perguntas <span class="gradient">Frequentes</span>',
+      faqSubtitle: "Esclareça suas principais dúvidas sobre o processo e os serviços fornecidos.",
+      faq1Q: "Quanto tempo leva para otimizar meu Google Meu Negócio?",
+      faq1A: "A otimização inicial é concluída em até 5 dias úteis. Os resultados de posicionamento no Google Maps começam a aparecer gradualmente nas semanas seguintes conforme a relevância da ficha aumenta.",
+      faq2Q: "O que é preciso para criar uma Landing Page?",
+      faq2A: "Preciso apenas das informações básicas do seu negócio, fotos dos serviços/produtos e do número de WhatsApp para onde as vendas serão direcionadas. Eu cuido de toda a estrutura e texto de conversão.",
+      faq3Q: "Como funcionam as placas com QR e NFC?",
+      faq3A: "São placas físicas que você coloca no balcão ou nas mesas. Quando o cliente aproxima o celular (NFC) ou aponta a câmera (QR Code), ele é direcionado imediatamente para a página de avaliação 5 estrelas do seu Google.",
+      ctaTitle: 'Pronto para <span class="gradient">Dominar a Presença Digital</span> do seu Negócio?',
+      ctaSubtitle: "Solicite seu diagnóstico gratuito e descubra como colocar sua empresa no Top 3 do Google Maps ainda esta semana.",
+      ctaBtn: "Chamar no WhatsApp Agora",
+      footerDesc: "Especialista em presença digital, otimização do Google Meu Negócio e ecossistemas web de alta conversão para empresas locais.",
+      footerNavTitle: "Navegação",
+      footerContactTitle: "Contato",
+      footerCopy: "&copy; 2026 <span>Angélica Digital</span>. Todos os direitos reservados."
+    },
+    es: {
+      pageTitle: "Angélica Digital | Especialista en Presencia Digital y Alta Conversión",
+      navServicos: "Servicios",
+      navPortfolio: "Portafolio",
+      navFaq: "FAQ",
+      headerCta: "Hablar por WhatsApp",
+      heroBadge: "Estrategia de Presencia Digital para Negocios Locales",
+      heroTitle: 'Aumenta tus Ventas Locales <span class="gradient">Dominando Google Maps</span> y Landing Pages de Alta Conversión',
+      heroLead: "Ayudo a tu negocio a destacar de la competencia, aparecer en los primeros lugares de Google y convertir visitas en clientes diarios por WhatsApp.",
+      heroBtnPrimary: 'SOLICITAR DIAGNÓSTICO GRATUITO',
+      heroBtnSecondary: 'Ver Servicios',
+      trust1: "Sin compromiso",
+      trust2: "Entrega rápida",
+      trust3: "Soporte directo",
+      gmbBizName: "Tu Negocio Local",
+      gmbReviews: "4.9 · 128 reseñas · Verificado",
+      gmbTag1: "Empresa Optimizado",
+      gmbTag2: "Abierto",
+      gmbAct1: "Indicaciones",
+      gmbAct2: "Llamar",
+      gmbAct3: "Sitio web",
+      statLbl1: "Visitas",
+      statLbl2: "Maps",
+      statLbl3: "Online",
+      servTag: "// Servicios Principales",
+      servTitle: 'Soluciones <span class="gradient">Diseñadas para Crecer</span> Tu Negocio',
+      servSubtitle: "Estrategias prácticas y efectivas para que tu empresa atraiga clientes todos los días por Google y redes sociales.",
+      card1Title: "Optimización de Google My Business",
+      card1Desc: "Aparece en el Top 3 de Google Maps con tu ficha verificada, categorías correctas y catálogo cargado.",
+      card1F1: "Verificación y configuración completa",
+      card1F2: "Categorías y palabras clave estratégicas",
+      card1F3: "Gestión de reseñas y fotos",
+      card2Title: "Landing Pages de Alta Conversión",
+      card2Desc: "Páginas ultrarrápidas, optimizadas para móviles y diseñadas para cerrar ventas directo por WhatsApp.",
+      card2F1: "Diseño moderno y responsivo",
+      card2F2: "Velocidad de carga inferior a 2s",
+      card2F3: "Integración con WhatsApp y Analytics",
+      card3Title: "Placas Inteligentes QR / NFC",
+      card3Desc: "Estrategia física para recolectar docenas de reseñas de 5 estrellas directamente desde tu establecimiento.",
+      card3F1: "Placa personalizada con tu marca",
+      card3F2: "QR + NFC listos para usar",
+      card3F3: "Aumento real de reseñas",
+      card4Title: "Posicionamiento y Anuncios Locales",
+      card4Desc: "Estrategias de atracción directa para clientes de tu ciudad con campañas en Google Ads y Meta Ads.",
+      card4F1: "SEO local avanzado",
+      card4F2: "Campañas segmentadas por región",
+      card4F3: "Informes mensuales de resultados",
+      portTag: "// Proyectos Publicados",
+      portTitle: 'Ecosistemas Digitales & <span class="gradient">Empresas Activas</span>',
+      portSubtitle: "Conoce plataformas web, soluciones y marcas en operación desarrolladas con enfoque en posicionamiento y alta conversión.",
+      portSubTitle: "Soluciones y Marcas Finalizadas",
+      filterAll: "Todos",
+      filterGastronomia: "Gastronomía",
+      filterEstudio: "Estudio & Piercing",
+      filterCoquetelaria: "Coctelería",
+      filterEstetica: "Estética & Salud",
+      liveTxt: "Proyecto en Vivo",
+      visitBtn: "Visitar Sitio Oficial",
+      p1Cat: "Gastronomía Mexicana",
+      p1Desc: "Optimización completa en Google Maps, catálogo digital interactivo y canal directo de pedidos por WhatsApp.",
+      p2Cat: "Gastronomía & Experiencias",
+      p2Desc: "Presencia digital estratégica, optimización de ficha y ecosistema web orientado a alta conversión.",
+      p3Cat: "Estudio & Piercing",
+      p3Desc: "E-commerce completo y optimización para estudio físico, catálogo online y canal directo de atención.",
+      p4Cat: "Coctelería & Nightlife",
+      p4Desc: "Menú digital interactivo de cócteles, estrategias de conversión y pedidos directos por WhatsApp.",
+      p5Cat: "Estética & Salud",
+      p5Desc: "Presencia digital completa, optimización de ficha local y estructura estratégica para agendamiento de servicios.",
+      whyTag: "// Diferenciales",
+      whyTitle: '¿Por qué <span class="gradient">Trabajar Conmigo?</span>',
+      whySubtitle: "Enfoque total en resultados prácticos, aumento de ventas y visibilidad real para tu empresa.",
+      why1Title: "Enfoque en Conversión",
+      why1Desc: "No solo creo páginas bonitas, creo estructuras pensadas para transformar visitantes en clientes compradores.",
+      why2Title: "Agilidad en la Entrega",
+      why2Desc: "Proyectos ejecutados con precisión y rapidez para que tu negocio empiece a facturar cuanto antes.",
+      why3Title: "Atención Directa",
+      why3Desc: "Comunicación transparente y sin intermediarios durante todo el proceso de desarrollo.",
+      faqTag: "// Preguntas Frecuentes",
+      faqTitle: 'Preguntas <span class="gradient">Frecuentes</span>',
+      faqsubtitle: "Resuelve tus principales dudas sobre el proceso y los servicios ofrecidos.",
+      faq1Q: "¿Cuánto tiempo toma optimizar mi Google My Business?",
+      faq1A: "La optimización inicial se completa en hasta 5 días hábiles. Los resultados de posicionamiento en Google Maps comienzan a aparecer gradualmente en las semanas siguientes conforme aumenta la relevancia de la ficha.",
+      faq2Q: "¿Qué se necesita para crear una Landing Page?",
+      faq2A: "Solo necesito la información básica de tu negocio, fotos de los servicios/productos y el número de WhatsApp a donde se dirigirán las ventas. Yo me encargo de toda la estructura y textos de conversión.",
+      faq3Q: "¿Cómo funcionan las placas con QR y NFC?",
+      faq3A: "Son placas físicas que colocas en el mostrador o en las mesas. Cuando el cliente acerca su celular (NFC) o escanea la cámara (QR Code), es redirigido de inmediato a la página de reseñas 5 estrellas de tu Google.",
+      ctaTitle: '¿Listo para <span class="gradient">Dominar la Presencia Digital</span> de tu Negocio?',
+      ctaSubtitle: "Solicita tu diagnóstico gratuito y descubre cómo colocar a tu empresa en el Top 3 de Google Maps esta misma semana.",
+      ctaBtn: "Hablar por WhatsApp Ahora",
+      footerDesc: "Especialista en presencia digital, optimización de Google My Business y ecosistemas web de alta conversión para negocios locales.",
+      footerNavTitle: "Navegación",
+      footerContactTitle: "Contacto",
+      footerCopy: "&copy; 2026 <span>Angélica Digital</span>. Todos los derechos reservados."
+    },
+    en: {
+      pageTitle: "Angélica Digital | Digital Presence & High Conversion Specialist",
+      navServicos: "Services",
+      navPortfolio: "Portfolio",
+      navFaq: "FAQ",
+      headerCta: "Chat on WhatsApp",
+      heroBadge: "Digital Presence Strategy for Local Businesses",
+      heroTitle: 'Boost Your Local Sales <span class="gradient">Dominating Google Maps</span> and High-Converting Landing Pages',
+      heroLead: "I help your business stand out from the competition, rank at the top of Google, and turn visitors into daily customers via WhatsApp.",
+      heroBtnPrimary: 'REQUEST FREE DIAGNOSTIC',
+      heroBtnSecondary: 'View Services',
+      trust1: "No obligation",
+      trust2: "Fast delivery",
+      trust3: "Direct support",
+      gmbBizName: "Your Local Business",
+      gmbReviews: "4.9 · 128 reviews · Verified",
+      gmbTag1: "Optimized Business",
+      gmbTag2: "Open",
+      gmbAct1: "Directions",
+      gmbAct2: "Call",
+      gmbAct3: "Website",
+      statLbl1: "Visits",
+      statLbl2: "Maps",
+      statLbl3: "Online",
+      servTag: "// Core Services",
+      servTitle: 'Solutions <span class="gradient">Designed to Grow</span> Your Business',
+      servSubtitle: "Practical and effective strategies to help your company attract clients every day through Google and social media.",
+      card1Title: "Google My Business Optimization",
+      card1Desc: "Rank in the Top 3 on Google Maps with your verified listing, correct categories, and loaded catalog.",
+      card1F1: "Complete verification and setup",
+      card1F2: "Strategic categories and keywords",
+      card1F3: "Reviews and photos management",
+      card2Title: "High-Converting Landing Pages",
+      card2Desc: "Ultra-fast pages, mobile-optimized and designed to close sales directly via WhatsApp.",
+      card2F1: "Modern and responsive design",
+      card2F2: "Loading speed under 2s",
+      card2F3: "WhatsApp and Analytics integration",
+      card3Title: "Smart QR / NFC Plates",
+      card3Desc: "Physical strategy to collect dozens of 5-star reviews directly from your venue.",
+      card3F1: "Customized plate with your brand",
+      card3F2: "QR + NFC ready to use",
+      card3F3: "Real increase in reviews",
+      card4Title: "Local Positioning & Ads",
+      card4Desc: "Direct attraction strategies for clients in your city with Google Ads and Meta Ads campaigns.",
+      card4F1: "Advanced local SEO",
+      card4F2: "Region-targeted campaigns",
+      card4F3: "Monthly performance reports",
+      portTag: "// Published Projects",
+      portTitle: 'Digital Ecosystems & <span class="gradient">Active Businesses</span>',
+      portSubtitle: "Explore web platforms, solutions, and operational brands developed focused on positioning and high conversion.",
+      portSubTitle: "Completed Solutions & Brands",
+      filterAll: "All",
+      filterGastronomia: "Gastronomy",
+      filterEstudio: "Studio & Piercing",
+      filterCoquetelaria: "Cocktails",
+      filterEstetica: "Beauty & Health",
+      liveTxt: "Live Project",
+      visitBtn: "Visit Official Website",
+      p1Cat: "Mexican Gastronomy",
+      p1Desc: "Complete optimization on Google Maps, interactive digital catalog, and direct WhatsApp ordering channel.",
+      p2Cat: "Gastronomy & Experiences",
+      p2Desc: "Strategic digital presence, listing optimization, and high-conversion web ecosystem.",
+      p3Cat: "Studio & Piercing",
+      p3Desc: "Full e-commerce and physical studio optimization, online catalog, and direct customer support.",
+      p4Cat: "Cocktails & Nightlife",
+      p4Desc: "Interactive digital cocktail menu, conversion strategies, and direct WhatsApp orders.",
+      p5Cat: "Beauty & Health",
+      p5Desc: "Complete digital presence, local listing optimization, and strategic appointment booking structure.",
+      whyTag: "// Why Choose Me",
+      whyTitle: 'Why <span class="gradient">Work With Me?</span>',
+      whySubtitle: "Total focus on practical results, increased sales, and real visibility for your company.",
+      why1Title: "Conversion Focus",
+      why1Desc: "I don't just build pretty pages; I build structures designed to turn visitors into buying customers.",
+      why2Title: "Fast Delivery",
+      why2Desc: "Projects executed with precision and speed so your business can start profiting sooner.",
+      why3Title: "Direct Communication",
+      why3Desc: "Transparent communication with no middlemen throughout the entire development process.",
+      faqTag: "// FAQ",
+      faqTitle: 'Frequently Asked <span class="gradient">Questions</span>',
+      faqSubtitle: "Get answers to your main questions regarding the process and services provided.",
+      faq1Q: "How long does it take to optimize my Google My Business?",
+      faq1A: "Initial optimization is completed within up to 5 business days. Google Maps ranking results begin to appear gradually over the following weeks as listing relevance increases.",
+      faq2Q: "What is needed to create a Landing Page?",
+      faq2A: "I only need basic information about your business, photos of services/products, and the WhatsApp number where sales will be directed. I handle all structure and conversion copywriting.",
+      faq3Q: "How do QR and NFC plates work?",
+      faq3A: "They are physical plates you place on the counter or tables. When customers tap their phone (NFC) or scan with their camera (QR Code), they are immediately directed to your Google 5-star review page.",
+      ctaTitle: 'Ready to <span class="gradient">Dominate Your Business Digital Presence</span>?',
+      ctaSubtitle: "Request your free diagnostic and discover how to put your company in the top 3 on Google Maps this week.",
+      ctaBtn: "Chat on WhatsApp Now",
+      footerDesc: "Specialist in digital presence, Google My Business optimization, and high-conversion web ecosystems for local businesses.",
+      footerNavTitle: "Navigation",
+      footerContactTitle: "Contact",
+      footerCopy: "&copy; 2026 <span>Angélica Digital</span>. All rights reserved."
+    }
+  };
+
+  function setLanguage(lang) {
+    // Atualiza botões ativos
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.getElementById(`btn-${lang}`);
+    if(activeBtn) activeBtn.classList.add('active');
+
+    const t = TRANSLATIONS[lang];
+    if(!t) return;
+
+    // Aplica traduções de forma segura
+    document.getElementById('page-title').textContent = t.pageTitle;
+    document.getElementById('nav-servicos').textContent = t.navServicos;
+    document.getElementById('nav-portfolio').textContent = t.navPortfolio;
+    document.getElementById('nav-faq').textContent = t.navFaq;
+    document.getElementById('header-cta-text').innerHTML = `<i class="fa-brands fa-whatsapp"></i> ${t.headerCta}`;
+
+    document.getElementById('hero-badge').innerHTML = `<span class="dot"></span> ${t.heroBadge}`;
+    document.getElementById('hero-title').innerHTML = t.heroTitle;
+    document.getElementById('hero-lead').textContent = t.heroLead;
+    document.getElementById('hero-btn-primary').innerHTML = `<i class="fa-solid fa-rocket"></i> ${t.heroBtnPrimary}`;
+    document.getElementById('hero-btn-secondary').innerHTML = `<i class="fa-solid fa-arrow-down"></i> ${t.heroBtnSecondary}`;
+
+    document.getElementById('trust-1').innerHTML = `<i class="fa-solid fa-shield-halved"></i> ${t.trust1}`;
+    document.getElementById('trust-2').innerHTML = `<i class="fa-solid fa-bolt"></i> ${t.trust2}`;
+    document.getElementById('trust-3').innerHTML = `<i class="fa-solid fa-headset"></i> ${t.trust3}`;
+
+    document.getElementById('gmb-biz-name').textContent = t.gmbBizName;
+    document.getElementById('gmb-reviews').innerHTML = `<i class="fa-solid fa-star" style="color:#fbbc05"></i> ${t.gmbReviews}`;
+    document.getElementById('gmb-tag-1').textContent = t.gmbTag1;
+    document.getElementById('gmb-tag-2').textContent = t.gmbTag2;
+    document.getElementById('gmb-act-1').innerHTML = `<i class="fa-solid fa-route"></i> ${t.gmbAct1}`;
+    document.getElementById('gmb-act-2').innerHTML = `<i class="fa-solid fa-phone"></i> ${t.gmbAct2}`;
+    document.getElementById('gmb-act-3').innerHTML = `<i class="fa-solid fa-globe"></i> ${t.gmbAct3}`;
+
+    document.getElementById('stat-lbl-1').textContent = t.statLbl1;
+    document.getElementById('stat-lbl-2').textContent = t.statLbl2;
+    document.getElementById('stat-lbl-3').textContent = t.statLbl3;
+
+    document.getElementById('serv-tag').textContent = t.servTag;
+    document.getElementById('serv-title').innerHTML = t.servTitle;
+    document.getElementById('serv-subtitle').textContent = t.servSubtitle;
+
+    document.getElementById('card1-title').textContent = t.card1Title;
+    document.getElementById('card1-desc').textContent = t.card1Desc;
+    document.getElementById('card1-f1').textContent = t.card1F1;
+    document.getElementById('card1-f2').textContent = t.card1F2;
+    document.getElementById('card1-f3').textContent = t.card1F3;
+
+    document.getElementById('card2-title').textContent = t.card2Title;
+    document.getElementById('card2-desc').textContent = t.card2Desc;
+    document.getElementById('card2-f1').textContent = t.card2F1;
+    document.getElementById('card2-f2').textContent = t.card2F2;
+    document.getElementById('card2-f3').textContent = t.card2F3;
+
+    document.getElementById('card3-title').textContent = t.card3Title;
+    document.getElementById('card3-desc').textContent = t.card3Desc;
+    document.getElementById('card3-f1').textContent = t.card3F1;
+    document.getElementById('card3-f2').textContent = t.card3F2;
+    document.getElementById('card3-f3').textContent = t.card3F3;
+
+    document.getElementById('card4-title').textContent = t.card4Title;
+    document.getElementById('card4-desc').textContent = t.card4Desc;
+    document.getElementById('card4-f1').textContent = t.card4F1;
+    document.getElementById('card4-f2').textContent = t.card4F2;
+    document.getElementById('card4-f3').textContent = t.card4F3;
+
+    document.getElementById('port-tag').textContent = t.portTag;
+    document.getElementById('port-title').innerHTML = t.portTitle;
+    document.getElementById('port-subtitle').textContent = t.portSubtitle;
+    document.getElementById('port-sub-title').textContent = t.portSubTitle;
+
+    document.getElementById('filter-all').textContent = t.filterAll;
+    document.getElementById('filter-gastronomia').textContent = t.filterGastronomia;
+    document.getElementById('filter-estudio').textContent = t.filterEstudio;
+    document.getElementById('filter-coquetelaria').textContent = t.filterCoquetelaria;
+    document.getElementById('filter-estetica').textContent = t.filterEstetica;
+
+    document.querySelectorAll('.live-txt').forEach(el => el.textContent = t.liveTxt);
+    document.querySelectorAll('.visit-btn-txt').forEach(el => el.textContent = t.visitBtn);
+
+    document.getElementById('p1-cat').textContent = t.p1Cat;
+    document.getElementById('p1-desc').textContent = t.p1Desc;
+    document.getElementById('p2-cat').textContent = t.p2Cat;
+    document.getElementById('p2-desc').textContent = t.p2Desc;
+    document.getElementById('p3-cat').textContent = t.p3Cat;
+    document.getElementById('p3-desc').textContent = t.p3Desc;
+    document.getElementById('p4-cat').textContent = t.p4Cat;
+    document.getElementById('p4-desc').textContent = t.p4Desc;
+    document.getElementById('p5-cat').textContent = t.p5Cat;
+    document.getElementById('p5-desc').textContent = t.p5Desc;
+
+    document.getElementById('why-tag').textContent = t.whyTag;
+    document.getElementById('why-title').innerHTML = t.whyTitle;
+    document.getElementById('why-subtitle').textContent = t.whySubtitle;
+    document.getElementById('why1-title').textContent = t.why1Title;
+    document.getElementById('why1-desc').textContent = t.why1Desc;
+    document.getElementById('why2-title').textContent = t.why2Title;
+    document.getElementById('why2-desc').textContent = t.why2Desc;
+    document.getElementById('why3-title').textContent = t.why3Title;
+    document.getElementById('why3-desc').textContent = t.why3Desc;
+
+    document.getElementById('faq-tag').textContent = t.faqTag;
+    document.getElementById('faq-title').innerHTML = t.faqTitle;
+    document.getElementById('faq-subtitle').textContent = t.faqSubtitle;
+    document.getElementById('faq1-q').textContent = t.faq1Q;
+    document.getElementById('faq1-a').textContent = t.faq1A;
+    document.getElementById('faq2-q').textContent = t.faq2Q;
+    document.getElementById('faq2-a').textContent = t.faq2A;
+    document.getElementById('faq3-q').textContent = t.faq3Q;
+    document.getElementById('faq3-a').textContent = t.faq3A;
+
+    document.getElementById('cta-title').innerHTML = t.ctaTitle;
+    document.getElementById('cta-subtitle').textContent = t.ctaSubtitle;
+    document.getElementById('cta-btn').innerHTML = `<i class="fa-brands fa-whatsapp"></i> ${t.ctaBtn}`;
+
+    document.getElementById('footer-desc').textContent = t.footerDesc;
+    document.getElementById('footer-nav-title').textContent = t.footerNavTitle;
+    document.getElementById('ft-s').textContent = t.navServicos;
+    document.getElementById('ft-p').textContent = t.navPortfolio;
+    document.getElementById('ft-f').textContent = t.navFaq;
+    document.getElementById('footer-contact-title').textContent = t.footerContactTitle;
+    document.getElementById('footer-copy').innerHTML = t.footerCopy;
+  }
+
+  // Inicializa no Português por padrão
+  setLanguage('pt');
 </script>
 </body>
 </html>
