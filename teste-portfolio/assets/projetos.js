@@ -1,0 +1,242 @@
+/* ============== PORTFÓLIO (TESTE) — DADOS DOS PROJETOS ==============
+   Fonte única da vitrine e das páginas de projeto.
+
+   Para adicionar um projeto real:
+     1. Acrescente um objeto na lista PROJETOS_REAIS (use o modelo da Tacobons).
+     2. Copie projetos/tacobons.html para projetos/<slug>.html e troque o
+        data-slug do <main> pelo novo slug.
+
+   Textos traduzíveis usam { pt, es, en }. Nomes de clientes, marcas e URLs não se traduzem.
+   Caminhos de "logo" e "pagina" são relativos à pasta teste-portfolio/.
+   Inclua somente informações confirmadas pelo cliente. */
+
+(function () {
+  'use strict';
+
+  const PROJETOS_REAIS = [
+    {
+      slug: 'tacobons',
+      tipo: 'real',
+      nome: 'Tacobons',
+      categoria: { pt: 'Gastronomia Mexicana', es: 'Gastronomía mexicana', en: 'Mexican food' },
+      resumo: {
+        pt: 'Site e Perfil da Empresa no Google.',
+        es: 'Sitio web y Perfil de Empresa en Google.',
+        en: 'Website and Google Business Profile.'
+      },
+      logo: '../logotacobons.png',
+      site: 'https://www.tacobons.com/',
+      pagina: 'projetos/tacobons.html',
+      entregas: [
+        {
+          titulo: { pt: 'Site', es: 'Sitio web', en: 'Website' },
+          icone: 'fa-solid fa-globe',
+          descricao: {
+            pt: 'Site da Tacobons, publicado e acessível no endereço oficial.',
+            es: 'Sitio web de Tacobons, publicado y disponible en su dirección oficial.',
+            en: 'The Tacobons website, published and live at its official address.'
+          },
+          link: { rotulo: 'www.tacobons.com', url: 'https://www.tacobons.com/' },
+          capturas: {
+            endereco: 'www.tacobons.com',
+            nota: {
+              pt: 'Página inicial do site real, capturada em 29/09/2026.',
+              es: 'Página de inicio del sitio real, capturada el 29/09/2026.',
+              en: 'Home page of the real website, captured on September 29, 2026.'
+            },
+            desktop: {
+              src: 'assets/img/tacobons/site-desktop.webp', largura: 2160, altura: 1350,
+              alt: {
+                pt: 'Página inicial de tacobons.com no computador: menu superior, logo, título “La Verdadera Comida Mexicana Llegó a La Tebaida”, botões Ver Menú Digital e Pedir por WhatsApp e foto com pedido de tacos.',
+                es: 'Página de inicio de tacobons.com en computadora: menú superior, logotipo, título “La Verdadera Comida Mexicana Llegó a La Tebaida”, botones Ver Menú Digital y Pedir por WhatsApp y foto de un pedido de tacos.',
+                en: 'tacobons.com home page on desktop: top menu, logo, headline “La Verdadera Comida Mexicana Llegó a La Tebaida”, “Ver Menú Digital” and “Pedir por WhatsApp” buttons, and a photo of a taco order.'
+              }
+            },
+            celular: {
+              src: 'assets/img/tacobons/site-celular.webp', largura: 780, altura: 1688,
+              alt: {
+                pt: 'Página inicial de tacobons.com no celular: botão Pedir Domicilio, logo, título “La Verdadera Comida Mexicana Llegó a La Tebaida” e botões Ver Menú Digital e Pedir por WhatsApp.',
+                es: 'Página de inicio de tacobons.com en celular: botón Pedir Domicilio, logotipo, título “La Verdadera Comida Mexicana Llegó a La Tebaida” y botones Ver Menú Digital y Pedir por WhatsApp.',
+                en: 'tacobons.com home page on mobile: “Pedir Domicilio” button, logo, headline “La Verdadera Comida Mexicana Llegó a La Tebaida”, and “Ver Menú Digital” and “Pedir por WhatsApp” buttons.'
+              }
+            }
+          }
+        },
+        {
+          titulo: { pt: 'Perfil da Empresa no Google', es: 'Perfil de Empresa en Google', en: 'Google Business Profile' },
+          tituloDetalhe: { pt: 'Perfil da Tacobons no Google', es: 'Perfil de Tacobons en Google', en: 'Tacobons on Google' },
+          icone: 'fa-brands fa-google',
+          link: {
+            rotulo: { pt: 'perfil no Google', es: 'perfil en Google', en: 'Google profile' },
+            botao: { pt: 'Abrir perfil atualizado no Google', es: 'Abrir el perfil actualizado en Google', en: 'Open the current profile on Google' },
+            posicao: 'abaixo',
+            url: 'https://share.google/tIp0h9W0QuCsERcus'
+          },
+          imagem: {
+            src: 'assets/img/tacobons/perfil-google.png', largura: 363, altura: 559,
+            alt: {
+              pt: 'Perfil da Tacobons no Google: Tacobons, Restaurante mexicano. Botões Site, Rotas, Avaliar, Salvar, Compartilhar, Ligar e Menu; Pedir e retirar e Pedir delivery. Opções de serviço: Mesas externas, Opções veganas. Endereço: esquina (frente a Discoteca Nocturna, Carrera 10 con Calle 11, La Tebaida, Quindío, Colômbia. Telefone: +57 314 5705287. Menu: tacobons.com.',
+              es: 'Perfil de Tacobons en Google: Tacobons, restaurante mexicano. Botones Sitio web, Cómo llegar, Opinar, Guardar, Compartir, Llamar y Menú; Pedir para recoger y Pedir a domicilio. Opciones de servicio: mesas al aire libre, opciones veganas. Dirección: esquina (frente a Discoteca Nocturna), Carrera 10 con Calle 11, La Tebaida, Quindío, Colombia. Teléfono: +57 314 5705287. Menú: tacobons.com.',
+              en: 'Tacobons on Google: Tacobons, Mexican restaurant. Buttons: Website, Directions, Review, Save, Share, Call and Menu; Pickup and Delivery. Service options: outdoor seating, vegan options. Address: corner (across from Discoteca Nocturna), Carrera 10 con Calle 11, La Tebaida, Quindío, Colombia. Phone: +57 314 5705287. Menu: tacobons.com.'
+            }
+          }
+        }
+      ]
+    },
+
+    // ---------- Bavel Piercing ----------
+    // Verificado em 30/09/2026: loja em bavelpiercing.com na plataforma Tiendanube (envios para toda a Colômbia).
+    // Perfis enviados pela Angélica e identificados pelo Google: "Bavel piercing I sede centro" e "Bavel Piercing I Sede Norte".
+    // A extensão exata do trabalho na loja ainda não foi detalhada: o texto só diz o que é verificável.
+    {
+      slug: 'bavel',
+      tipo: 'real',
+      nome: 'Bavel Piercing',
+      categoria: { pt: 'Estúdio de piercing · Colômbia', es: 'Estudio de piercing · Colombia', en: 'Piercing studio · Colombia' },
+      resumo: {
+        pt: 'Loja online e Perfis da Empresa no Google de duas sedes.',
+        es: 'Tienda en línea y Perfiles de Empresa en Google de dos sedes.',
+        en: 'Online store and Google Business Profiles for two locations.'
+      },
+      logo: '../logobavelpiercing.png',
+      site: 'https://bavelpiercing.com/',
+      pagina: 'projetos/bavel.html',
+      entregas: [
+        {
+          titulo: { pt: 'Loja online', es: 'Tienda en línea', en: 'Online store' },
+          icone: 'fa-solid fa-bag-shopping',
+          descricao: {
+            pt: 'Loja online da Bavel Piercing em bavelpiercing.com, montada na plataforma Tiendanube.',
+            es: 'Tienda en línea de Bavel Piercing en bavelpiercing.com, montada en la plataforma Tiendanube.',
+            en: 'The Bavel Piercing online store at bavelpiercing.com, built on the Tiendanube platform.'
+          },
+          link: { rotulo: 'bavelpiercing.com', url: 'https://bavelpiercing.com/' },
+          capturas: {
+            endereco: 'bavelpiercing.com',
+            nota: {
+              pt: 'Página inicial da loja real, capturada em 30/09/2026.',
+              es: 'Página de inicio de la tienda real, capturada el 30/09/2026.',
+              en: 'Home page of the real store, captured on September 30, 2026.'
+            },
+            desktop: {
+              src: 'assets/img/bavel/site-desktop.webp', largura: 2160, altura: 1350,
+              alt: {
+                pt: 'Página inicial de bavelpiercing.com no computador: busca, logo, menu de categorias (Oreja, Nariz, Boca e outras) e banner de desconto de 10% na primeira compra com joias de piercing.',
+                es: 'Página de inicio de bavelpiercing.com en computadora: buscador, logotipo, menú de categorías (Oreja, Nariz, Boca y otras) y banner de 10% de descuento en la primera compra con joyas de piercing.',
+                en: 'bavelpiercing.com home page on desktop: search bar, logo, category menu (Oreja, Nariz, Boca and more) and a banner offering 10% off the first purchase, showing piercing jewelry.'
+              }
+            },
+            celular: {
+              src: 'assets/img/bavel/site-celular.webp', largura: 780, altura: 1472,
+              alt: {
+                pt: 'Página inicial de bavelpiercing.com no celular: banner “Nueva colección” e a seção “Los favoritos de Bavel” com produtos e preços.',
+                es: 'Página de inicio de bavelpiercing.com en celular: banner “Nueva colección” y la sección “Los favoritos de Bavel” con productos y precios.',
+                en: 'bavelpiercing.com home page on mobile: “Nueva colección” banner and the “Los favoritos de Bavel” section with products and prices.'
+              }
+            }
+          }
+        },
+        {
+          titulo: { pt: 'Perfil da Empresa no Google', es: 'Perfil de Empresa en Google', en: 'Google Business Profile' },
+          tituloDetalhe: { pt: 'Perfil no Google · Sede Centro', es: 'Perfil en Google · Sede Centro', en: 'Google profile · Sede Centro' },
+          icone: 'fa-brands fa-google',
+          descricao: {
+            pt: 'Perfil público “Bavel piercing I sede centro” no Google.',
+            es: 'Perfil público “Bavel piercing I sede centro” en Google.',
+            en: 'Public Google profile “Bavel piercing I sede centro”.'
+          },
+          link: { botao: { pt: 'Ver perfil no Google', es: 'Ver el perfil en Google', en: 'View the profile on Google' }, url: 'https://share.google/6DgDbRvkvezMT9XZ8' }
+        },
+        {
+          titulo: { pt: 'Perfil da Empresa no Google', es: 'Perfil de Empresa en Google', en: 'Google Business Profile' },
+          tituloDetalhe: { pt: 'Perfil no Google · Sede Norte', es: 'Perfil en Google · Sede Norte', en: 'Google profile · Sede Norte' },
+          icone: 'fa-brands fa-google',
+          descricao: {
+            pt: 'Perfil público “Bavel Piercing I Sede Norte” no Google.',
+            es: 'Perfil público “Bavel Piercing I Sede Norte” en Google.',
+            en: 'Public Google profile “Bavel Piercing I Sede Norte”.'
+          },
+          link: { botao: { pt: 'Ver perfil no Google', es: 'Ver el perfil en Google', en: 'View the profile on Google' }, url: 'https://share.google/aDQmPly03bnBRbuFg' }
+        }
+      ]
+    },
+
+    // ---------- Meraki ----------
+    // Verificado em 30/09/2026: meraki.angelicadigital.com se identifica como
+    // "Demo desarrollada por Angélica Digital" (o WhatsApp do site é o da Angélica), por isso a página
+    // é apresentada como demonstração. Perfil: link "Abrir en Google Maps" do próprio site →
+    // share.google/dESclTaohLZJgrkCX, identificado pelo Google como "Meraki Experiences" (Salento).
+    // Esse link não foi enviado pela Angélica: falta ela confirmar que é o perfil que configurou.
+    {
+      slug: 'meraki',
+      tipo: 'real',
+      nome: 'Meraki',
+      categoria: { pt: 'Gastronomia e experiências · Salento, Colômbia', es: 'Gastronomía y experiencias · Salento, Colombia', en: 'Food & experiences · Salento, Colombia' },
+      resumo: {
+        pt: 'Perfil da Empresa no Google e página de demonstração do site.',
+        es: 'Perfil de Empresa en Google y página de demostración del sitio web.',
+        en: 'Google Business Profile and a website demo page.'
+      },
+      logo: '../logomeraki.png',
+      site: 'https://meraki.angelicadigital.com/',
+      pagina: 'projetos/meraki.html',
+      entregas: [
+        {
+          titulo: { pt: 'Perfil da Empresa no Google', es: 'Perfil de Empresa en Google', en: 'Google Business Profile' },
+          tituloDetalhe: { pt: 'Perfil da Meraki no Google', es: 'Perfil de Meraki en Google', en: 'Meraki on Google' },
+          icone: 'fa-brands fa-google',
+          descricao: {
+            pt: 'Perfil público “Meraki Experiences”, em Salento, Quindío.',
+            es: 'Perfil público “Meraki Experiences”, en Salento, Quindío.',
+            en: 'Public profile “Meraki Experiences”, in Salento, Quindío.'
+          },
+          link: { botao: { pt: 'Ver perfil no Google', es: 'Ver el perfil en Google', en: 'View the profile on Google' }, url: 'https://share.google/dESclTaohLZJgrkCX' }
+        },
+        {
+          titulo: { pt: 'Site (demonstração)', es: 'Sitio web (demostración)', en: 'Website (demo)' },
+          icone: 'fa-solid fa-globe',
+          descricao: {
+            pt: 'Página criada pela Angélica Digital para a Meraki, publicada como demonstração: o próprio site traz o aviso “Demo desarrollada por Angélica Digital”.',
+            es: 'Página creada por Angélica Digital para Meraki, publicada como demostración: el propio sitio muestra el aviso “Demo desarrollada por Angélica Digital”.',
+            en: 'A page built by Angélica Digital for Meraki, published as a demo: the site itself shows the notice “Demo desarrollada por Angélica Digital”.'
+          },
+          link: { rotulo: 'meraki.angelicadigital.com', url: 'https://meraki.angelicadigital.com/' },
+          capturas: {
+            endereco: 'meraki.angelicadigital.com',
+            nota: {
+              pt: 'Página inicial da demonstração, capturada em 30/09/2026.',
+              es: 'Página de inicio de la demostración, capturada el 30/09/2026.',
+              en: 'Home page of the demo, captured on September 30, 2026.'
+            },
+            desktop: {
+              src: 'assets/img/meraki/site-desktop.webp', largura: 2160, altura: 1350,
+              alt: {
+                pt: 'Página inicial de meraki.angelicadigital.com no computador: aviso “Demo desarrollada por Angélica Digital”, logo Meraki, título “Local & Cosmo Experiences”, botões Ver Menú & Experiencias e Abrir en Google Maps, filtros e cartões de experiências.',
+                es: 'Página de inicio de meraki.angelicadigital.com en computadora: aviso “Demo desarrollada por Angélica Digital”, logotipo de Meraki, título “Local & Cosmo Experiences”, botones Ver Menú & Experiencias y Abrir en Google Maps, filtros y tarjetas de experiencias.',
+                en: 'meraki.angelicadigital.com home page on desktop: “Demo desarrollada por Angélica Digital” notice, Meraki logo, headline “Local & Cosmo Experiences”, “Ver Menú & Experiencias” and “Abrir en Google Maps” buttons, filters and experience cards.'
+              }
+            },
+            celular: {
+              src: 'assets/img/meraki/site-celular.webp', largura: 780, altura: 1688,
+              alt: {
+                pt: 'Página inicial de meraki.angelicadigital.com no celular: aviso de demonstração, logo, título “Local & Cosmo Experiences” e botões Ver Menú & Experiencias e Abrir en Google Maps.',
+                es: 'Página de inicio de meraki.angelicadigital.com en celular: aviso de demostración, logotipo, título “Local & Cosmo Experiences” y botones Ver Menú & Experiencias y Abrir en Google Maps.',
+                en: 'meraki.angelicadigital.com home page on mobile: demo notice, logo, headline “Local & Cosmo Experiences”, and “Ver Menú & Experiencias” and “Abrir en Google Maps” buttons.'
+              }
+            }
+          }
+        }
+      ]
+    }
+  ];
+
+  // Cartões fictícios, apenas para testar layout e navegação com muitos itens.
+  // Não representam clientes nem marcas. Os textos vêm de i18n-textos.js (demo.*).
+  const TOTAL_DEMONSTRATIVOS = 11;
+  const PROJETOS_DEMONSTRATIVOS = Array.from({ length: TOTAL_DEMONSTRATIVOS }, (_, i) => {
+    const numero = String(i + 1).padStart(2, '0');
+    return { slug: 'demonstrativo-' + numero, tipo: 'demo', numero: numero };
+  });
+
+  window.PORTFOLIO_PROJETOS = PROJETOS_REAIS.concat(PROJETOS_DEMONSTRATIVOS);
+})();
