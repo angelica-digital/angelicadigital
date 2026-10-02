@@ -119,12 +119,13 @@
           </div>
 
           <div class="camada camada--perfil" data-profundidade="-10">
-            <div class="camada__entrada">
-              <div class="cartao-perfil">
-                <img src="assets/img/tacobons/perfil-google.png" width="363" height="559" alt="" decoding="async">
+            <div class="perfil-flutua">
+              <div class="camada__entrada">
+                <div class="cartao-perfil">
+                  <img src="assets/img/tacobons/perfil-google.png" width="363" height="559" alt="" decoding="async">
+                </div>
               </div>
             </div>
-            <span class="nota nota--perfil"><i class="fa-brands fa-google"></i> <span data-i18n="nota.perfil">Perfil da Empresa no Google</span></span>
           </div>
 
           <div class="camada camada--celular" data-profundidade="-18">
@@ -136,7 +137,6 @@
               </div>
             </div>
           </div>
-
         </div>
 
         <div class="palco__legenda">
@@ -176,7 +176,6 @@
           <a href="index.html" class="btn btn-primary btn-lg">
             <span data-i18n="ponte.botao">Explorar a vitrine</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>
-          <p class="ponte__nota" data-i18n="ponte.nota">Versão de teste: 3 projetos reais (Tacobons, Bavel Piercing e Meraki) e 11 cartões demonstrativos de layout.</p>
         </div>
       </div>
 
@@ -188,10 +187,7 @@
             <span class="trio__info">
               <span class="trio__selo"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> <span data-i18n="selo.real">Projeto real</span></span>
               <strong>Meraki</strong>
-              <span class="trio__entregas trio__entregas--lista">
-                <span class="trio__e trio__e--real"><i class="fa-solid fa-check" aria-hidden="true"></i> <span data-i18n="ponte.meraki.real">Perfil da Empresa no Google</span></span>
-                <span class="trio__e trio__e--demo"><i class="fa-solid fa-flask" aria-hidden="true"></i> <span data-i18n="ponte.meraki.demo">Site: só demonstração</span></span>
-              </span>
+              <span class="trio__entregas" data-i18n="ponte.meraki">Site · Perfil da Empresa no Google</span>
             </span>
             <i class="fa-solid fa-arrow-right trio__seta" aria-hidden="true"></i>
           </a>
@@ -223,8 +219,8 @@
   </section>
 
   <!-- ============== O QUE VOCÊ PODE CONTRATAR ============== -->
-  <!-- Os recortes usam as imagens reais do Tacobons já existentes no teste (site-desktop.webp,
-       site-celular.webp e perfil-google.png); os rótulos ficam fora das imagens. -->
+  <!-- Sites: capturas reais no celular de Bavel Piercing, Meraki e Tacobons (site-celular.webp de cada projeto).
+       Perfil: imagem real do Tacobons (perfil-google.png). Os rótulos ficam fora das imagens. -->
   <section class="ofertas" id="servicos" aria-labelledby="ofertas-titulo">
     <div class="container">
       <header class="ofertas__cabeca revela">
@@ -247,39 +243,68 @@
             <li data-i18n="serv.site.i2">Informações essenciais e formas de contato</li>
             <li data-i18n="serv.site.i3">Versão adaptada para celular</li>
           </ul>
-          <p class="oferta__obs" data-i18n="serv.site.obs">Exemplo real: o site da Tacobons. As funções de cada site dependem do que for contratado.</p>
+          <p class="oferta__obs" data-i18n="serv.site.obs">Exemplos reais de sites e loja online. As funções de cada projeto dependem do que foi contratado.</p>
           <div class="oferta__acoes">
             <a href="https://wa.me/5511953285680?text=Ol%C3%A1%2C%20Ang%C3%A9lica!%20Quero%20conversar%20sobre%20um%20site."
                data-i18n-wa="wa.site" target="_blank" rel="noopener" class="btn btn-primary">
               <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> <span data-i18n="serv.site.btn">Conversar sobre um site</span>
             </a>
-            <a href="projetos/tacobons.html" class="oferta__link">
-              <span data-i18n="serv.verTacobons">Ver o projeto Tacobons</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            <a href="projetos/meraki.html" class="btn-acao">
+              <span data-i18n="serv.verMeraki">Ver o projeto Meraki</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
           </div>
         </div>
 
-        <figure class="oferta__visual recortes-site">
-          <div class="recortes-site__grade">
-            <div class="recorte recorte--apresentacao">
-              <span class="recorte__img" role="img" aria-label="Recorte do site da Tacobons: título e descrição do negócio" data-i18n-attr="aria-label:serv.rec.apresAria"></span>
-              <span class="recorte__rotulo" data-i18n="serv.rec.apres">Apresentação do negócio</span>
-            </div>
-            <div class="recorte recorte--produto">
-              <span class="recorte__img" role="img" aria-label="Recorte do site da Tacobons: foto dos produtos" data-i18n-attr="aria-label:serv.rec.prodAria"></span>
-              <span class="recorte__rotulo" data-i18n="serv.rec.prod">Produtos em destaque</span>
-            </div>
-            <div class="recorte recorte--contato">
-              <span class="recorte__img" role="img" aria-label="Recorte do site da Tacobons: botões Ver Menú Digital e Pedir por WhatsApp" data-i18n-attr="aria-label:serv.rec.contAria"></span>
-              <span class="recorte__rotulo" data-i18n="serv.rec.cont">Formas de contato</span>
-            </div>
-            <div class="recorte recorte--celular">
-              <span class="recorte__celular"><img src="assets/img/tacobons/site-celular.webp" width="780" height="1688" alt="Site da Tacobons no celular" data-i18n-attr="alt:serv.rec.celAlt" loading="lazy" decoding="async"></span>
-              <span class="recorte__rotulo" data-i18n="serv.rec.cel">Versão para celular</span>
-            </div>
+        <!-- Três sites reais em molduras de celular (capturas já usadas nas páginas dos projetos).
+             Computador: lado a lado, Meraki um pouco mais alta. Celular: faixa com rolagem por toque. -->
+        <div class="oferta__visual sites-cel">
+          <ul class="sites-cel__lista" aria-label="Exemplos reais de sites e loja online" data-i18n-attr="aria-label:serv.cel.grupo">
+            <li class="site-cel" style="--i:0">
+              <a href="projetos/bavel.html" class="site-cel__link">
+                <span class="site-cel__aparelho"><span class="site-cel__tela">
+                  <img src="assets/img/bavel/site-celular.webp" width="780" height="1472" alt="Loja online da Bavel Piercing no celular" data-i18n-attr="alt:serv.cel.bavelAlt" loading="lazy" decoding="async">
+                </span></span>
+                <span class="site-cel__nome" aria-hidden="true">Bavel Piercing</span>
+              </a>
+            </li>
+            <li class="site-cel site-cel--destaque" style="--i:1">
+              <a href="projetos/meraki.html" class="site-cel__link">
+                <span class="site-cel__aparelho"><span class="site-cel__tela">
+                  <img src="assets/img/meraki/site-celular.webp" width="780" height="1688" alt="Site da Meraki no celular" data-i18n-attr="alt:serv.cel.merakiAlt" loading="lazy" decoding="async">
+                </span></span>
+                <span class="site-cel__nome" aria-hidden="true">Meraki</span>
+              </a>
+            </li>
+            <li class="site-cel" style="--i:2">
+              <a href="projetos/tacobons.html" class="site-cel__link">
+                <span class="site-cel__aparelho"><span class="site-cel__tela">
+                  <img src="assets/img/tacobons/site-celular.webp" width="780" height="1688" alt="Site da Tacobons no celular" data-i18n-attr="alt:serv.cel.tacobonsAlt" loading="lazy" decoding="async">
+                </span></span>
+                <span class="site-cel__nome" aria-hidden="true">Tacobons</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Controles: destacam um projeto por vez (computador) ou levam a faixa até ele (celular).
+               Automático começa desligado; comportamento em assets/inicio.js. -->
+          <div class="sites-cel__controles" role="group" aria-label="Controles dos exemplos de sites" data-i18n-attr="aria-label:serv.cel.controles">
+            <button type="button" class="cel-ctrl" data-cel="anterior" aria-label="Projeto anterior" data-i18n-attr="aria-label:serv.cel.anterior">
+              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="cel-ctrl cel-ctrl--play" data-cel="play" aria-label="Reproduzir">
+              <i class="fa-solid fa-play" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="cel-ctrl" data-cel="proximo" aria-label="Próximo projeto" data-i18n-attr="aria-label:serv.cel.proximo">
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+            <label class="cel-auto">
+              <input type="checkbox" role="switch" class="cel-auto__input" data-cel="auto">
+              <span class="cel-auto__trilho" aria-hidden="true"></span>
+              <span data-i18n="serv.cel.auto">Automático</span>
+            </label>
           </div>
-          <figcaption data-i18n="serv.rec.legenda">Recortes do site real da Tacobons</figcaption>
-        </figure>
+          <p class="visually-hidden sites-cel__aviso" aria-live="polite"></p>
+        </div>
       </article>
 
       <!-- Serviço 2: Perfil da Empresa no Google -->
@@ -319,10 +344,10 @@
                data-i18n-wa="wa.perfil" target="_blank" rel="noopener" class="btn btn-primary">
               <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> <span data-i18n="serv.perf.btn">Conversar sobre meu perfil</span>
             </a>
-            <a href="projetos/tacobons.html" class="oferta__link">
+            <a href="projetos/tacobons.html" class="btn-acao">
               <span data-i18n="serv.verTacobons">Ver o projeto Tacobons</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
-            <a href="https://share.google/tIp0h9W0QuCsERcus" target="_blank" rel="noopener" class="oferta__link">
+            <a href="https://share.google/tIp0h9W0QuCsERcus" target="_blank" rel="noopener" class="btn-acao">
               <span data-i18n="serv.perf.publico">Ver o perfil público</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
             </a>
           </div>
@@ -361,15 +386,23 @@
         </a>
       </div>
 
-      <figure class="nfc-cena revela" aria-labelledby="nfc-cena-legenda">
+      <figure class="nfc-cena revela">
         <div class="nfc-cena__palco" aria-hidden="true">
           <span class="nfc-cena__aviso" data-i18n="nfc.cena.aviso">Ilustração</span>
 
           <div class="placa">
-            <span class="placa__icone"><i class="fa-solid fa-wifi"></i></span>
+            <!-- Símbolo NFC ilustrado (SVG); o texto fica fora da imagem para acompanhar o idioma -->
+            <span class="placa__simbolo" aria-hidden="true">
+              <svg viewBox="7 7 34 34" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" focusable="false">
+                <!-- ponto à esquerda e duas ondas concêntricas à direita; conjunto deslocado para ficar centralizado -->
+                <g transform="translate(2.6 0)">
+                  <circle cx="15" cy="24" r="3.2" fill="currentColor" stroke="none"/>
+                  <path d="M21.4 17.6A9 9 0 0 1 21.4 30.4"/>
+                  <path d="M26.3 12.7A16 16 0 0 1 26.3 35.3"/>
+                </g>
+              </svg>
+            </span>
             <span class="placa__titulo" data-i18n="nfc.cena.placa">Aproxime o celular</span>
-            <span class="placa__linha"></span>
-            <span class="placa__linha placa__linha--curta"></span>
             <span class="placa__ondas"><i></i><i></i></span>
           </div>
 
@@ -392,7 +425,6 @@
           <li style="--i:1"><span>2</span> <b data-i18n="nfc.passo2">Abriu o link</b></li>
           <li style="--i:2"><span>3</span> <b data-i18n="nfc.passo3">Pronto para agir</b></li>
         </ol>
-        <figcaption id="nfc-cena-legenda" data-i18n="nfc.legenda">Representação ilustrativa, não é foto do produto.</figcaption>
       </figure>
     </div>
   </section>
@@ -590,7 +622,7 @@
 
       <div class="autora__texto revela">
         <span class="section-tag" data-i18n="quem.tag">// Quem está por trás do trabalho</span>
-        <h2 id="autora-titulo" data-i18n="quem.titulo" data-i18n-rico>Oi, eu sou a <span class="gradient">Angélica Rodrigues</span></h2>
+        <h2 id="autora-titulo" data-i18n="quem.titulo" data-i18n-rico>Oi, eu sou a <span class="gradient">Angélica Digital</span></h2>
         <p class="autora__apoio" data-i18n="quem.apoio">
           Sou eu quem conversa com você e quem cria os sites e configura os Perfis da Empresa no Google
           que você viu no portfólio. Antes de começar, gosto de entender o seu negócio, para que o que

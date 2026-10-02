@@ -19,11 +19,19 @@
   const t = (k, v) => I.t(k, v);
   const tx = (v) => I.tx(v);
 
+  // Uma única linha de categorias, por serviço realizado. Vem do campo "servico" de cada entrega:
+  // um projeto entra em todas as categorias que realmente recebeu, sempre com um cartão só.
+  // (Real × demonstrativo continua identificado no selo de cada cartão.)
+  const entregou = (p, s) => (p.entregas || []).some((e) => e.servico === s);
   const FILTROS = [
     { id: 'todos', rotulo: 'filtro.todos', aceita: () => true },
-    { id: 'reais', rotulo: 'filtro.reais', aceita: (p) => p.tipo === 'real' },
-    { id: 'demonstrativos', rotulo: 'filtro.demo', aceita: (p) => p.tipo === 'demo' }
+    { id: 'sites', rotulo: 'filtro.sites', aceita: (p) => entregou(p, 'site') },
+    { id: 'perfil', rotulo: 'filtro.perfil', aceita: (p) => entregou(p, 'perfil') },
+    { id: 'nfc', rotulo: 'filtro.nfc', aceita: (p) => entregou(p, 'nfc') }
   ];
+
+  // Ícone do serviço principal, usado quando o projeto ainda não tem foto nem logo.
+  const ICONE_SERVICO = { nfc: 'fa-solid fa-mobile-screen-button', perfil: 'fa-brands fa-google', site: 'fa-solid fa-globe' };
 
   function esc(valor) {
     return String(valor).replace(/[&<>"']/g, (c) => (
@@ -59,8 +67,20 @@
 
   // ---------- Cartão de projeto ----------
   function midiaCartao(p) {
+    // Foto (registro de entrega): preenche o cartão; o enquadramento mantém as plaquinhas à vista.
+    if (p.foto) {
+      return `<img class="midia-foto" src="${esc(BASE + p.foto.src)}" alt="${esc(tx(p.foto.alt))}" width="${p.foto.largura}" height="${p.foto.altura}" style="object-position:${esc(p.foto.enquadramento || '50% 50%')}" loading="lazy">`;
+    }
     if (p.logo) {
       return `<img src="${esc(BASE + p.logo)}" alt="${esc(t('card.logoAlt', { nome: p.nome }))}" width="500" height="500" loading="lazy">`;
+    }
+    if (p.tipo === 'real') {
+      // Sem foto nem logo ainda: bloco neutro com os ícones dos serviços e o nome (não simula uma foto).
+      const icones = [...new Set((p.entregas || []).map((e) => ICONE_SERVICO[e.servico]).filter(Boolean))];
+      return `<div class="midia-servico" aria-hidden="true">
+          <span class="midia-servico__icones">${icones.map((i) => `<i class="${i}"></i>`).join('')}</span>
+          <strong>${esc(p.nome)}</strong>
+        </div>`;
     }
     return `<div class="placeholder" aria-hidden="true"><span>DEMO</span><strong>${esc(p.numero || '')}</strong></div>`;
   }
@@ -84,7 +104,9 @@
       ? `<i class="fa-solid fa-flask"></i> ${esc(t('selo.demo'))}`
       : `<i class="fa-solid fa-circle-check"></i> ${esc(t('selo.real'))}`;
     // Uma etiqueta por tipo de entrega (ex.: dois perfis no Google viram uma etiqueta só).
-    const tags = [...new Set((p.entregas || []).map((e) => tx(e.titulo)))].map((t) => `<li>${esc(t)}</li>`).join('');
+    // No cartão o perfil usa o nome curto "Perfil no Google"; a página mantém o nome completo.
+    const etiqueta = (e) => (e.servico === 'perfil' ? t('etiqueta.perfil') : tx(e.titulo));
+    const tags = [...new Set((p.entregas || []).map(etiqueta))].map((t) => `<li>${esc(t)}</li>`).join('');
 
     return `
       <article class="pcard pcard--${p.tipo === 'demo' ? 'demo' : 'real'}">
@@ -216,7 +238,7 @@
       : '';
     const abaixo = e.link && e.link.posicao === 'abaixo';
     return `
-      <article class="deliverable deliverable--wide">
+      <article class="deliverable deliverable--wide${e.par ? ' deliverable--par' : ''}">
         <div class="deliverable__head">
           <div class="deliverable__icon"><i class="${esc(e.icone)}" aria-hidden="true"></i></div>
           <div>
@@ -235,15 +257,57 @@
     if (e.link && e.link.botao) {
       link = linkExterno(e.link.url, `<i class="fa-solid fa-arrow-up-right-from-square"></i> ${esc(tx(e.link.botao))}`, 'btn btn-primary');
     } else if (e.link) {
-      link = linkExterno(e.link.url, `${esc(tx(e.link.rotulo))} <i class="fa-solid fa-arrow-up-right-from-square"></i>`, '');
+      link = linkExterno(e.link.url, `${esc(tx(e.link.rotulo))} <i class="fa-solid fa-arrow-up-right-from-square"></i>`, 'btn-acao');
     }
     return `
       <article class="deliverable">
         <div class="deliverable__icon"><i class="${esc(e.icone)}" aria-hidden="true"></i></div>
         <h3>${esc(tx(e.tituloDetalhe || e.titulo))}</h3>
         ${e.descricao ? `<p>${esc(tx(e.descricao))}</p>` : ''}
+        ${e.itens ? `<ul class="deliverable__itens">${e.itens.map((i) => `<li><i class="fa-solid fa-check" aria-hidden="true"></i> ${esc(tx(i))}</li>`).join('')}</ul>` : ''}
         ${link}
       </article>`;
+  }
+
+  // Página: foto inteira (sem corte), clicável para ampliar em nova aba.
+  function midiaProjeto(p) {
+    if (!p.foto) return `<div class="project-hero__media">${midiaCartao(p)}</div>`;
+    return `
+      <figure class="project-hero__figura">
+        <a class="project-hero__media project-hero__media--foto" href="${esc(BASE + p.foto.src)}" target="_blank" rel="noopener"
+           aria-label="${esc(t('proj.ampliarFoto'))}">
+          <img src="${esc(BASE + p.foto.src)}" alt="${esc(tx(p.foto.alt))}" width="${p.foto.largura}" height="${p.foto.altura}" decoding="async">
+        </a>
+        <figcaption><i class="fa-solid fa-expand" aria-hidden="true"></i> ${esc(t('proj.registro'))}</figcaption>
+      </figure>`;
+  }
+
+  // Selo e etiquetas de serviço no topo da página (só nos projetos que pedem: "selos: true").
+  function selosProjeto(p) {
+    if (!p.selos) return '';
+    const etiquetas = [...new Set((p.entregas || []).map((e) => tx(e.titulo)))];
+    return `
+      <div class="project-hero__selos">
+        <span class="selo-real"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> ${esc(t('selo.real'))}</span>
+        ${etiquetas.map((e) => `<span class="selo-servico">${esc(e)}</span>`).join('')}
+      </div>`;
+  }
+
+  // Contato para pedir uma plaquinha NFC (contato e regra de disponibilidade da página inicial).
+  const WHATSAPP = 'https://wa.me/5511953285680';
+  function contatoNfc(p) {
+    if (!p.contatoNfc) return '';
+    const href = WHATSAPP + '?text=' + encodeURIComponent(t('wa.projNfc', { nome: p.nome }));
+    return `
+      <section class="project-section" aria-labelledby="contato-nfc-titulo">
+        <div class="project-cta">
+          <div>
+            <h2 id="contato-nfc-titulo">${esc(t('proj.nfc.titulo'))}</h2>
+            <p class="project-cta__selo"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> ${esc(t('proj.nfc.disp'))}</p>
+          </div>
+          ${linkExterno(href, `<i class="fa-brands fa-whatsapp" aria-hidden="true"></i> ${esc(t('proj.nfc.btn'))}`, 'btn btn-primary btn-lg')}
+        </div>
+      </section>`;
   }
 
   function renderProjeto(raiz, slug) {
@@ -272,8 +336,9 @@
         </nav>
 
         <section class="project-hero">
-          <div class="project-hero__media">${midiaCartao(p)}</div>
+          ${midiaProjeto(p)}
           <div>
+            ${selosProjeto(p)}
             <span class="section-tag">${esc(categoria(p))}</span>
             <h1>${esc(p.nome)}</h1>
             <p class="lead">${esc(resumo(p))}</p>
@@ -281,6 +346,7 @@
               ${p.site ? linkExterno(p.site, `<i class="fa-solid fa-arrow-up-right-from-square"></i> ${esc(t('card.visitar'))}`, 'btn btn-primary') : ''}
               <a href="${vitrine}" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> ${esc(t('proj.voltar'))}</a>
             </div>
+            ${p.negocio ? linkExterno(p.negocio, `<i class="fa-solid fa-location-dot" aria-hidden="true"></i> ${esc(t('proj.conhecerNegocio'))} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>`, 'btn-acao project-hero__negocio') : ''}
           </div>
         </section>
 
@@ -288,6 +354,7 @@
           <h2 id="entregas-titulo">${esc(t('proj.entregas'))}</h2>
           <div class="deliverables">${(p.entregas || []).map(entrega).join('')}</div>
         </section>
+        ${contatoNfc(p)}
       </div>`;
   }
 

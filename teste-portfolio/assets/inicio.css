@@ -60,14 +60,25 @@
 
 /* ---------- Palco do Tacobons ---------- */
 .palco{display:flex;flex-direction:column;gap:26px;min-width:0}
-/* Cena um pouco mais alta (era 10/8.2) para abrir uma faixa livre abaixo do site, onde fica o Perfil.
+/* Cena mais alta que o site para abrir uma faixa livre abaixo dele, onde fica o Perfil (à esquerda do celular).
    Navegador e celular usam valores recalculados para ficarem exatamente onde estavam. */
-.palco__cena{position:relative;aspect-ratio:10/10.2;margin-top:18px;container-type:inline-size}
+.palco__cena{position:relative;aspect-ratio:10/8;margin-top:18px;container-type:inline-size}
 .camada{position:absolute;will-change:transform}
-.camada--navegador{left:0;top:4.02%;width:86%;z-index:1}
-.camada--perfil{left:4%;bottom:0;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px}
-.camada--perfil .camada__entrada{width:26cqw}
-.camada--celular{right:1%;bottom:22.02%;width:25%;z-index:3}
+/* Posições pela largura da cena (cqw + px), medidas para ficarem exatamente onde estavam.
+   O Perfil é a única camada no fluxo: fica logo abaixo do site e define a altura da cena,
+   então a imagem inteira cabe e o cartão do projeto desce só o necessário. */
+.camada--navegador{left:0;top:calc(3.78cqw + 1.5px);width:86%;z-index:1}
+/* Perfil: sobe 25px sobre a borda inferior do site (na frente dele, atrás do celular).
+   Três camadas de transform separadas: .camada--perfil (posição + profundidade do JS),
+   .perfil-flutua (flutuação contínua) e .camada__entrada (entrada). */
+.camada--perfil{
+  position:relative;left:2cqw;width:fit-content;z-index:2;   /* mesma borda esquerda aprovada */
+  margin-top:calc(57.83cqw + 16px);   /* fim da janela do site (57,83cqw + 41px) − 25px */
+  margin-bottom:4px;                  /* com a flutuação (+6px), o cartão fica ~24px abaixo do rótulo */
+}
+.perfil-flutua{display:flex;flex-direction:column;align-items:center;gap:10px}
+.camada--perfil .camada__entrada{width:37.5cqw}
+.camada--celular{right:1%;top:calc(25.4cqw + 14px);width:25%;z-index:3}
 .palco__cena img{display:block;width:100%;height:auto;user-select:none;-webkit-user-select:none}
 
 .navegador{
@@ -92,9 +103,9 @@
   transform:translateX(-110%);
 }
 
+/* Imagem real do perfil, inteira e proporcional (sem janela de altura fixa nem rolagem) */
 .cartao-perfil{
   border-radius:14px;overflow:hidden;background:#202124;
-  aspect-ratio:363/330;
   border:1px solid rgba(148,163,184,0.25);
   box-shadow:0 26px 56px rgba(0,0,0,0.6);
 }
@@ -118,7 +129,6 @@
 .nota i{color:var(--accent-soft)}
 /* posicionadas com "translate" para não conflitar com a animação de entrada (transform) */
 .nota--site{top:0;right:8%;translate:0 -55%}
-.nota--perfil{position:static} /* ocupa espaço real, abaixo da miniatura */
 
 .palco__legenda{
   display:grid;grid-template-columns:1fr auto;align-items:end;gap:6px 20px;
@@ -157,7 +167,6 @@
 .ponte h2{font-size:clamp(1.9rem,4.4vw,3.2rem);font-weight:900;line-height:1.1;margin:10px 0 18px;text-wrap:balance}
 .ponte__texto p{font-size:1.05rem;max-width:520px;margin-bottom:30px}
 .ponte__acao{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
-.ponte .ponte__nota{font-size:.8rem;color:var(--muted);margin:0}
 
 .baralho{position:relative;display:block;height:360px;max-width:420px;width:100%;justify-self:center}
 .baralho__carta{
@@ -222,9 +231,13 @@
 
 .camada--navegador .camada__entrada{animation:navegador-entra .95s var(--curva) .52s both}
 .camada--perfil .camada__entrada{animation:perfil-entra .9s var(--curva) .78s both}
+/* Flutuação contínua do conjunto imagem + rótulo: −6px ↔ +6px, ida e volta em 6 s, sem salto.
+   Só roda com o palco visível (classe .em-cena, colocada pelo JS). */
+.perfil-flutua{animation:perfil-flutua 3s ease-in-out 1.7s infinite alternate both;animation-play-state:paused}
+.em-cena .perfil-flutua{animation-play-state:running}
+@keyframes perfil-flutua{from{transform:translateY(-6px)}to{transform:translateY(6px)}}
 .camada--celular .camada__entrada{animation:celular-entra .9s var(--curva) .92s both}
 .nota--site{animation:nota-entra .5s var(--curva) 1.3s both}
-.nota--perfil{animation:nota-entra .5s var(--curva) 1.45s both}
 .palco__legenda{animation:subir .7s var(--curva) 1.15s both}
 .navegador__brilho{animation:varrer 1.3s ease-in-out 1.6s both}
 @keyframes navegador-entra{from{opacity:0;transform:translate(26px,12px) scale(.97)}to{opacity:1;transform:none}}
@@ -232,16 +245,6 @@
 @keyframes celular-entra{from{opacity:0;transform:translateY(44px)}to{opacity:1;transform:none}}
 @keyframes nota-entra{from{opacity:0;transform:translateY(6px) scale(.92)}to{opacity:1;transform:none}}
 @keyframes varrer{from{transform:translateX(-110%)}to{transform:translateX(110%)}}
-
-/* Único movimento contínuo: o cartão do perfil desce e sobe devagar, com pausas.
-   Só roda enquanto o palco está visível (classe .em-cena, colocada pelo JS). */
-.cartao-perfil img{animation:perfil-percorre 11s ease-in-out 1.7s infinite;animation-play-state:paused}
-.em-cena .cartao-perfil img{animation-play-state:running}
-@keyframes perfil-percorre{
-  0%,8%{transform:translateY(0)}
-  38%,54%{transform:translateY(-40.97%)} /* (559 - 330) / 559: mostra até o fim da imagem */
-  84%,100%{transform:translateY(0)}
-}
 
 .js .revela{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s var(--curva);transition-delay:var(--atraso,0ms)}
 .js .revela.visivel{opacity:1;transform:none}
@@ -254,8 +257,8 @@
 .js .baralho.visivel .baralho__carta--3{transition-delay:.45s}
 
 @media (prefers-reduced-motion:reduce){
-  .entra,.palco__legenda,.nota--site,.nota--perfil,
-  .camada__entrada,.navegador__brilho,.cartao-perfil img{animation:none!important}
+  .entra,.palco__legenda,.nota--site,.perfil-flutua,
+  .camada__entrada,.navegador__brilho{animation:none!important}
   .navegador__brilho{display:none}
   .js .revela,.js .ponte__feixe span,.baralho__carta{transition:none!important}
   .js .revela{opacity:1;transform:none}
@@ -303,11 +306,9 @@
 
   .abertura__acoes .btn{flex:1 1 100%}
   .palco__cena{margin-top:10px}
-  .palco__cena{aspect-ratio:10/10.8}
-  .camada--navegador{top:3.80%}  /* mesmas posições com a cena mais alta */
-  .camada--celular{bottom:26.35%}
-  .camada--perfil{gap:8px}
-  .camada--perfil .camada__entrada{width:21cqw}
+  .camada--perfil{left:6.9cqw;margin-top:calc(57.83cqw + 33px)}  /* sobe 28px: sobrepõe 8px a borda do site; mesma borda esquerda */
+  .perfil-flutua{gap:8px}
+  .camada--perfil .camada__entrada{width:32.5cqw}
   .nota{font-size:.7rem;padding:4px 8px;gap:5px;border-radius:6px}
   .palco__legenda{grid-template-columns:1fr;padding:18px}
   .palco__legenda .btn{grid-column:1;grid-row:auto;margin-top:10px;width:100%}
@@ -350,45 +351,73 @@
 .oferta__lista li{position:relative;padding-left:26px;color:var(--text-strong);font-size:.95rem}
 .oferta__lista li::before{content:'\f00c';font-family:'Font Awesome 6 Free';font-weight:900;position:absolute;left:0;top:2px;color:var(--accent-soft);font-size:.8rem}
 .oferta__acoes{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px}
-.oferta__link{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--accent-soft);font-weight:600;font-size:.92rem}
-.oferta__link:hover{text-decoration:underline}
 .oferta__visual{margin:0;min-width:0}
 .oferta__visual figcaption{margin-top:14px;font-size:.78rem;color:var(--muted)}
 
-/* ---- Sites: recortes do site real ---- */
-.recortes-site{
-  padding:22px;border-radius:24px;
-  background:radial-gradient(ellipse at 20% 0%,rgba(168,85,247,0.22),transparent 60%),linear-gradient(160deg,rgba(17,24,39,0.9),rgba(9,13,22,0.9));
-  border:1px solid var(--border);box-shadow:0 30px 70px rgba(0,0,0,0.45);
+/* ---- Sites: três sites reais em molduras de celular ----
+   Imagem com largura total da tela e altura proporcional: nunca estica nem corta dos lados
+   (só o fim da página fica abaixo da moldura). */
+.sites-cel{
+  /* contêiner só de layout: transparente, sem fundo, borda ou sombra próprios.
+     O espaço em cima e embaixo acomoda a elevação, a borda e a sombra dos aparelhos. */
+  padding:28px 0 8px;background:none;border:0;border-radius:0;box-shadow:none;
 }
-.recortes-site__grade{
-  display:grid;gap:14px;align-items:start;
-  grid-template-columns:minmax(0,1.1fr) minmax(0,.62fr) minmax(0,.55fr);
-  grid-template-areas:"apres prod cel" "cont cont cel";
+.sites-cel__lista{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start}
+.site-cel{min-width:0}
+.site-cel--destaque{margin-top:-14px}           /* Meraki discretamente mais alta */
+.site-cel:not(.site-cel--destaque){margin-top:14px}
+.site-cel__link{display:flex;flex-direction:column;align-items:center;gap:12px;border-radius:22px;color:var(--text-strong)}
+.site-cel__link:focus-visible{outline:2px solid var(--accent-soft);outline-offset:6px}
+.site-cel__aparelho{
+  display:block;width:100%;padding:5px;border-radius:22px;background:#151a26;
+  border:1px solid rgba(148,163,184,0.28);box-shadow:0 18px 40px rgba(0,0,0,0.55);
+  transition:border-color .3s ease,box-shadow .3s ease;
 }
-.recorte{display:flex;flex-direction:column;gap:8px;min-width:0}
-.recorte--apresentacao{grid-area:apres}
-.recorte--produto{grid-area:prod}
-.recorte--contato{grid-area:cont}
-.recorte--celular{grid-area:cel}
-.recorte__img{
-  display:block;width:100%;border-radius:12px;overflow:hidden;
-  background:#1a1020 url("img/tacobons/site-desktop.webp") no-repeat;
-  border:1px solid rgba(148,163,184,0.18);box-shadow:0 14px 34px rgba(0,0,0,0.45);
+.site-cel__tela{display:block;aspect-ratio:9/17;overflow:hidden;border-radius:17px;background:#fdf8f5}
+.site-cel__tela img{display:block;width:100%;height:auto}
+.site-cel__nome{font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:6px}
+.site-cel__nome::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);flex-shrink:0}
+/* Projeto em destaque: borda roxa, sombra suave, pequena elevação e marcador sob o nome
+   (não depende só da cor). Só o aparelho sobe; os vizinhos não se deslocam. */
+.site-cel__aparelho{transition:border-color .3s ease,box-shadow .3s ease,transform .35s var(--curva)}
+.site-cel.ativo .site-cel__aparelho{border-color:var(--accent-soft);box-shadow:0 24px 50px rgba(0,0,0,0.55),0 0 26px rgba(168,85,247,0.3);transform:translateY(-6px)}
+.site-cel__nome{position:relative;padding-bottom:6px}
+.site-cel__nome::after{content:'';position:absolute;left:50%;bottom:0;width:0;height:2px;border-radius:2px;background:var(--accent-soft);transform:translateX(-50%);transition:width .3s ease}
+.site-cel.ativo .site-cel__nome{color:var(--accent-soft)}
+.site-cel.ativo .site-cel__nome::after{width:100%}
+
+/* Controles */
+.sites-cel__controles{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 14px;margin-top:22px}
+/* Paleta dos controles: roxo suave e dessaturado, lilases acinzentados (sem roxo neon) */
+.sites-cel__controles{--ctrl-fundo:#1d1830;--ctrl-borda:rgba(196,181,253,0.2);--ctrl-seta:#cdbff5;--ctrl-roxo:#7a6bb4;--ctrl-roxo-2:#685aa0;--ctrl-lilas:rgba(205,191,245,0.55);--ctrl-texto:#a99dc4}
+.cel-ctrl{
+  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;
+  background:var(--ctrl-fundo);border:1px solid var(--ctrl-borda);color:var(--ctrl-seta);
+  font-size:.9rem;cursor:pointer;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease;
 }
-/* x .03–.46, y .09–.73 */
-.recorte--apresentacao .recorte__img{aspect-ratio:1.075;background-size:232.6% auto;background-position:5.26% 25%}
-/* x .60–.89, y .23–.83 */
-.recorte--produto .recorte__img{aspect-ratio:.773;background-size:344.8% auto;background-position:84.5% 57.5%}
-/* x .03–.37, y .74–.82 */
-.recorte--contato .recorte__img{aspect-ratio:6.8;background-size:294.1% auto;background-position:4.55% 80.4%}
-.recorte__celular{
-  display:block;padding:4px;border-radius:20px;background:#1f2433;
-  border:1px solid rgba(148,163,184,0.28);box-shadow:0 20px 44px rgba(0,0,0,0.6);
+.cel-ctrl--play{
+  background:linear-gradient(145deg,var(--ctrl-roxo),var(--ctrl-roxo-2));border-color:var(--ctrl-lilas);color:#f4f0ff;
+  box-shadow:0 0 14px rgba(122,107,180,0.28);
 }
-.recorte__celular img{display:block;width:100%;height:auto;aspect-ratio:390/760;object-fit:cover;object-position:top;border-radius:16px}
-.recorte__rotulo{font-size:.76rem;font-weight:600;color:var(--text-strong);display:flex;align-items:center;gap:6px}
-.recorte__rotulo::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);flex-shrink:0}
+.cel-ctrl:hover,.cel-ctrl:focus-visible{border-color:rgba(205,191,245,0.45);background:#231d3a;box-shadow:0 0 12px rgba(140,122,205,0.22)}
+.cel-ctrl--play:hover,.cel-ctrl--play:focus-visible{background:linear-gradient(145deg,#8475bd,#7062a8);border-color:rgba(221,210,252,0.7);box-shadow:0 0 18px rgba(140,122,205,0.34)}
+.cel-ctrl:focus-visible{outline:2px solid var(--ctrl-seta);outline-offset:3px}
+.cel-ctrl[aria-disabled="true"]{opacity:.45;cursor:not-allowed;box-shadow:none}
+.cel-auto{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 6px;font-size:.85rem;font-weight:400;color:var(--ctrl-texto);cursor:pointer;position:relative}
+.cel-auto__input{position:absolute;opacity:0;width:1px;height:1px}
+.cel-auto__trilho{position:relative;width:40px;height:22px;border-radius:22px;background:#2a2440;border:1px solid var(--ctrl-borda);transition:background .2s ease,border-color .2s ease,box-shadow .2s ease}
+.cel-auto__trilho::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#9d93b6;transition:transform .2s ease,background .2s ease}
+.cel-auto__input:checked + .cel-auto__trilho{background:linear-gradient(145deg,var(--ctrl-roxo),var(--ctrl-roxo-2));border-color:var(--ctrl-lilas)}
+.cel-auto__input:checked + .cel-auto__trilho::after{transform:translateX(18px);background:#f4f0ff}
+.cel-auto:hover .cel-auto__trilho,.cel-auto__input:focus-visible + .cel-auto__trilho{border-color:rgba(205,191,245,0.45);box-shadow:0 0 12px rgba(140,122,205,0.22)}
+.cel-auto__input:focus-visible + .cel-auto__trilho{outline:2px solid var(--ctrl-seta);outline-offset:3px}
+.cel-auto__input:disabled + .cel-auto__trilho{opacity:.45}
+.cel-auto:has(.cel-auto__input:disabled){cursor:not-allowed}
+
+@media (hover:hover){
+  .site-cel__link:hover .site-cel__aparelho{border-color:var(--accent-soft);box-shadow:0 22px 48px rgba(0,0,0,0.6),0 0 30px rgba(168,85,247,0.25)}
+  .site-cel__link:hover .site-cel__nome{color:var(--accent-soft)}
+}
 
 /* ---- Perfil: partes do perfil real ---- */
 .partes-perfil{display:flex;flex-direction:column;align-items:center}
@@ -418,20 +447,14 @@
 .parte__img--info{aspect-ratio:2.03;background-position:0 100%}    /* y .68–1 */
 
 /* ---- Movimento (só com JS; estado final estável) ----
-   Sites: cada recorte é revelado por uma cortina de baixo para cima, em sequência, e o celular sobe.
+   Sites: os três celulares sobem e aparecem em sequência curta, uma vez; depois ficam parados.
    Perfil: as partes começam juntas, empilhadas no centro, e se separam até a posição final. */
 .js .oferta.revela{opacity:1;transform:none}
 .js .oferta .oferta__texto{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s var(--curva)}
 .js .oferta.visivel .oferta__texto{opacity:1;transform:none}
 
-.js .oferta--site .recorte__img{clip-path:inset(100% 0 0 0 round 12px);transform:scale(1.04);transition:clip-path .9s var(--curva),transform 1.1s var(--curva)}
-.js .oferta--site.visivel .recorte__img{clip-path:inset(0 0 0 0 round 12px);transform:none}
-.js .oferta--site.visivel .recorte--produto .recorte__img{transition-delay:.15s}
-.js .oferta--site.visivel .recorte--contato .recorte__img{transition-delay:.3s}
-.js .oferta--site .recorte__celular{opacity:0;transform:translateY(40px);transition:opacity .7s ease .45s,transform .9s var(--curva) .45s}
-.js .oferta--site.visivel .recorte__celular{opacity:1;transform:none}
-.js .oferta--site .recorte__rotulo{opacity:0;transition:opacity .5s ease .9s}
-.js .oferta--site.visivel .recorte__rotulo{opacity:1}
+.js .oferta--site .site-cel{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .8s var(--curva);transition-delay:calc(.15s + var(--i) * .12s)}
+.js .oferta--site.visivel .site-cel{opacity:1;transform:none}
 
 .js .oferta--perfil .parte__img{opacity:0;transform:translateY(calc((1.5 - var(--i)) * 60px)) scale(.94);transition:opacity .6s ease,transform 1s var(--curva);transition-delay:calc(var(--i) * 90ms)}
 .js .oferta--perfil.visivel .parte__img{opacity:1;transform:none}
@@ -441,7 +464,8 @@
 .js .oferta--perfil.visivel .partes-perfil__lista::before{transform:none}
 
 @media (prefers-reduced-motion:reduce){
-  .js .oferta .oferta__texto,.js .oferta .recorte__img,.js .oferta .recorte__celular,.js .oferta .recorte__rotulo,
+  .site-cel__aparelho,.site-cel__nome::after,.cel-ctrl,.cel-auto__trilho,.cel-auto__trilho::after{transition:none!important}
+  .js .oferta .oferta__texto,.js .oferta .site-cel,
   .js .oferta .parte__img,.js .oferta .parte__rotulo,.js .partes-perfil__lista::before{
     opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important;
   }
@@ -453,20 +477,24 @@
   .oferta--perfil .oferta__texto{order:-1}
 }
 @media (max-width:760px){
-  .ofertas{padding:24px 0 88px}
+  .ofertas{padding:24px 0 32px}
   .ofertas__cabeca{margin:28px 0 44px}
   .oferta{margin-bottom:64px}
+  .oferta--perfil{margin-bottom:0}  /* último serviço: sem margem extra antes do fim da seção */
   .oferta__num{font-size:2.5rem}
   .oferta__acoes .btn{width:100%}
-  .recortes-site{padding:14px;border-radius:18px}
-  .recortes-site__grade{
-    gap:12px 10px;
-    grid-template-columns:minmax(0,1fr) minmax(0,.58fr);
-    grid-template-areas:"apres prod" "cont cont" "cel cel";
+  /* faixa horizontal: rolagem por toque com encaixe, restrita à faixa; o próximo aparelho aparece pela metade */
+  /* sem cartão: a faixa vai de borda a borda da tela (anula a margem de 16 px da página) e o primeiro
+     aparelho fica alinhado ao texto; o recorte da faixa não corta sombras nem a rolagem da página */
+  .sites-cel{margin-inline:-16px;padding:4px 0 6px;overflow:hidden}
+  .sites-cel__lista{
+    display:flex;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
+    padding:16px 16px 26px;scroll-padding-inline:16px;scrollbar-width:none;-webkit-overflow-scrolling:touch;
   }
-  .recorte--celular{align-items:center}
-  .recorte--celular .recorte__celular{width:56%}
-  .recorte__rotulo{font-size:.74rem}
+  .sites-cel__lista::-webkit-scrollbar{display:none}
+  .site-cel{flex:0 0 min(52%,230px);scroll-snap-align:start}
+  .site-cel--destaque,.site-cel:not(.site-cel--destaque){margin-top:0}
+  .sites-cel__controles{margin-top:10px;padding-inline:12px;gap:10px 12px}
   .partes-perfil__lista{padding:18px 14px;gap:16px;border-radius:18px}
   .partes-perfil__lista::before{display:none}
   .parte{grid-template-columns:1fr;gap:8px}
@@ -527,15 +555,27 @@
   box-shadow:0 34px 70px rgba(0,0,0,0.55),inset 0 1px 0 rgba(255,255,255,0.12);
   transform:perspective(800px) rotateY(14deg) rotateX(5deg);
 }
-.placa__icone{
-  width:54px;height:54px;border-radius:50%;display:grid;place-items:center;
-  color:#fff;font-size:1.25rem;transform:rotate(90deg);
-  background:linear-gradient(135deg,var(--accent-2),var(--accent));
-  box-shadow:0 0 30px rgba(168,85,247,0.55);
+/* Símbolo NFC: círculo roxo com volume suave e acabamento de vidro (reflexo discreto no topo) */
+.placa__simbolo{
+  position:relative;width:48%;aspect-ratio:1;border-radius:50%;
+  display:grid;place-items:center;color:#fff;overflow:hidden;
+  background:
+    radial-gradient(circle at 30% 24%,rgba(255,255,255,0.32),transparent 36%),
+    radial-gradient(circle at 50% 62%,#a77bfa 0%,#7c3aed 58%,#4c1d95 100%);
+  border:1px solid rgba(233,213,255,0.5);
+  box-shadow:
+    inset 0 2px 5px rgba(255,255,255,0.28),
+    inset 0 -10px 18px rgba(46,16,101,0.55),
+    0 0 22px rgba(192,132,252,0.32),
+    0 10px 24px rgba(0,0,0,0.35);
 }
+.placa__simbolo::after{
+  content:'';position:absolute;left:16%;right:16%;top:5%;height:40%;border-radius:50%;
+  background:linear-gradient(180deg,rgba(255,255,255,0.3),rgba(255,255,255,0));
+  pointer-events:none;
+}
+.placa__simbolo svg{position:relative;z-index:1;width:56%;height:56%;filter:drop-shadow(0 1px 2px rgba(46,16,101,0.45))}
 .placa__titulo{font-size:.78rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#ede9fe;text-align:center;padding:0 10px}
-.placa__linha{width:58%;height:6px;border-radius:6px;background:rgba(255,255,255,0.12)}
-.placa__linha--curta{width:38%;margin-top:-4px}
 .placa__ondas{position:absolute;right:-6%;top:22%;width:44%;aspect-ratio:1;pointer-events:none}
 .placa__ondas i{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(192,132,252,0.75);opacity:0}
 
@@ -567,7 +607,6 @@
   font-family:'Orbitron',sans-serif;font-size:.72rem;
   background:linear-gradient(135deg,var(--accent),#7c3aed);color:#fff;
 }
-.nfc-cena figcaption{font-size:.76rem;color:var(--muted);text-align:center}
 
 /* ---- Movimento (uma vez, ao aparecer; estado final estável) ----
    O celular se aproxima da plaquinha (0,9 s), as ondas pulsam duas vezes,
@@ -595,8 +634,10 @@
   .nfc-faixa__grade{grid-template-columns:1fr;gap:48px}
 }
 @media (max-width:760px){
-  .nfc-faixa{padding:72px 0}
+  .nfc-faixa{padding:28px 0 72px}  /* topo curto: a passagem vinda dos serviços fica em ~60px */
   .nfc-faixa .btn-lg{width:100%}
+  .nfc-destinos{gap:8px}
+  .nfc-destinos li{padding:9px 12px}
   .nfc-cena__palco{max-width:360px}
   .cel{border-radius:20px;padding:5px}
   .js .nfc-cena .cel{transform:translate(6%,-6%) rotate(2deg)} /* ponto de partida mais curto, dentro da tela */
@@ -605,7 +646,6 @@
   .cel__ok{width:30px;height:30px;font-size:.8rem}
   .cel__texto{font-size:.72rem}
   .cel__sub{font-size:.55rem}
-  .placa__icone{width:44px;height:44px;font-size:1.05rem}
   .placa__titulo{font-size:.66rem}
 }
 @media (max-width:360px){
@@ -771,7 +811,7 @@
 @media (max-width:760px){
   .depoimentos{padding:16px 0 88px}
   .depoimentos__palco{padding:92px 22px 30px;border-radius:22px} /* texto começa abaixo das aspas */
-  .depoimentos__aspas{font-size:13rem;right:8px;top:-24px}
+  .depoimentos__aspas{font-size:7.5rem;line-height:.8;right:18px;top:18px}
   .depoimentos__convite{padding:24px 20px}
   .js .depoimentos__convite.revela{transform:translateY(20px)}
 }
@@ -951,7 +991,8 @@
   background:rgba(168,85,247,0.14);color:var(--accent-soft);font-size:.9rem;
 }
 .autora__fatos strong{color:var(--text-strong);font-weight:600}
-.autora__convite{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.autora__convite{display:inline-flex;flex-direction:column;align-items:center;gap:10px;max-width:100%}
+.autora__nota{text-align:center}
 .autora__nota{font-size:.86rem;color:var(--muted)}
 
 /* Movimento: o anel se desenha uma vez e os selos aparecem; estado final estável */
@@ -975,6 +1016,7 @@
   .retrato{max-width:300px}
 }
 @media (max-width:760px){
+  .autora__convite{display:flex}
   .autora__convite .btn{width:100%}
   .retrato{max-width:min(260px,72vw)}
   .retrato__selo{font-size:.72rem;padding:6px 10px}
@@ -1075,6 +1117,8 @@
   .convite-final__grade{grid-template-columns:1fr;gap:36px}
 }
 @media (max-width:760px){
+  .convite-final{padding-bottom:24px}
+  .rodape{padding-top:24px}
   .escolhas{padding:6px;border-radius:20px}
   .escolha{grid-template-columns:44px minmax(0,1fr) 36px;gap:14px;min-height:76px;padding:12px}
   .escolha__icone{width:44px;height:44px;border-radius:13px;font-size:1.05rem}
@@ -1103,7 +1147,22 @@
   .cabecalho .menu-botao{order:3}
 }
 @media (max-width:560px){
-  .js .menu-principal.aberto .seletor-idioma--menu{display:inline-flex;align-self:flex-start;margin:14px 0 4px}
+  /* Uma linha só: marca à esquerda; idiomas e Menu (só ícone) à direita. Sem a faixa de idiomas acima
+     e sem repetir o seletor dentro do Menu. */
+  .pagina-inicio .barra-idioma{display:none}
+  /* âncoras: o título não fica sob o cabeçalho fixo (77px no celular) */
+  .pagina-inicio main section[id]{scroll-margin-top:84px}
+  .cabecalho .nav{gap:8px}
+  .cabecalho .nav > .seletor-idioma--cabecalho{display:inline-flex;margin-right:0}
+  .cabecalho .seletor-idioma button{min-width:40px;min-height:40px;padding:0 8px}
+  .pagina-inicio .logo{gap:8px;min-width:0}
+  .pagina-inicio .logo .label{font-size:.9rem;white-space:nowrap}
+  .cabecalho .menu-botao{width:44px;padding:0;justify-content:center;flex-shrink:0}
+  .cabecalho .menu-botao span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
+/* Telas estreitas: versão compacta da marca (só o ícone; o link mantém o nome acessível) */
+@media (max-width:384px){
+  .pagina-inicio .logo .label{display:none}
 }
 /* Hero sem a linha de idiomas: mantém o mesmo respiro antes dos botões. */
 .abertura__apoio + .abertura__acoes{margin-top:10px}
@@ -1158,6 +1217,11 @@
   .trio__item:hover,.trio__item:focus-within{z-index:5}
   .trio__carta:hover,.trio__carta:focus-visible{transform:translateY(-10px) scale(1.03);border-color:var(--accent-soft);box-shadow:0 34px 64px rgba(0,0,0,0.6),0 0 44px rgba(168,85,247,0.35)}
 }
+/* Toque (celular): o mesmo destaque do hover enquanto o dedo está no cartão (classe .tocando, via JS).
+   Fica no .trio__carta (transform) e não no .trio__item (translate/rotate/scale do leque): sem conflito. */
+.trio__item.tocando{z-index:5}
+.trio__item.tocando .trio__carta{transform:translateY(-10px) scale(1.03);border-color:var(--accent-soft);box-shadow:0 34px 64px rgba(0,0,0,0.6),0 0 44px rgba(168,85,247,0.35)}
+.trio__carta{-webkit-tap-highlight-color:transparent}
 
 /* Entrada (só na primeira vez que a seção aparece): os cartões saem juntos do centro e se abrem em leque */
 .js .trio.revela{opacity:1;transform:none}

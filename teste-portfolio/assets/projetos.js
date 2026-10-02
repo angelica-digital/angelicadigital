@@ -31,6 +31,7 @@
         {
           titulo: { pt: 'Site', es: 'Sitio web', en: 'Website' },
           icone: 'fa-solid fa-globe',
+          servico: 'site',
           descricao: {
             pt: 'Site da Tacobons, publicado e acessível no endereço oficial.',
             es: 'Sitio web de Tacobons, publicado y disponible en su dirección oficial.',
@@ -66,6 +67,7 @@
           titulo: { pt: 'Perfil da Empresa no Google', es: 'Perfil de Empresa en Google', en: 'Google Business Profile' },
           tituloDetalhe: { pt: 'Perfil da Tacobons no Google', es: 'Perfil de Tacobons en Google', en: 'Tacobons on Google' },
           icone: 'fa-brands fa-google',
+          servico: 'perfil',
           link: {
             rotulo: { pt: 'perfil no Google', es: 'perfil en Google', en: 'Google profile' },
             botao: { pt: 'Abrir perfil atualizado no Google', es: 'Abrir el perfil actualizado en Google', en: 'Open the current profile on Google' },
@@ -87,6 +89,7 @@
     // ---------- Bavel Piercing ----------
     // Verificado em 30/09/2026: loja em bavelpiercing.com na plataforma Tiendanube (envios para toda a Colômbia).
     // Perfis enviados pela Angélica e identificados pelo Google: "Bavel piercing I sede centro" e "Bavel Piercing I Sede Norte".
+    // Imagens dos dois perfis enviadas em 01/10/2026 (nome visível conferido em cada uma); as duas sedes ficam em Armenia, Quindío.
     // A extensão exata do trabalho na loja ainda não foi detalhada: o texto só diz o que é verificável.
     {
       slug: 'bavel',
@@ -105,6 +108,7 @@
         {
           titulo: { pt: 'Loja online', es: 'Tienda en línea', en: 'Online store' },
           icone: 'fa-solid fa-bag-shopping',
+          servico: 'site',
           descricao: {
             pt: 'Loja online da Bavel Piercing em bavelpiercing.com, montada na plataforma Tiendanube.',
             es: 'Tienda en línea de Bavel Piercing en bavelpiercing.com, montada en la plataforma Tiendanube.',
@@ -140,90 +144,208 @@
           titulo: { pt: 'Perfil da Empresa no Google', es: 'Perfil de Empresa en Google', en: 'Google Business Profile' },
           tituloDetalhe: { pt: 'Perfil no Google · Sede Centro', es: 'Perfil en Google · Sede Centro', en: 'Google profile · Sede Centro' },
           icone: 'fa-brands fa-google',
-          descricao: {
-            pt: 'Perfil público “Bavel piercing I sede centro” no Google.',
-            es: 'Perfil público “Bavel piercing I sede centro” en Google.',
-            en: 'Public Google profile “Bavel piercing I sede centro”.'
+          servico: 'perfil',
+          par: true,
+          link: {
+            rotulo: { pt: 'perfil no Google', es: 'perfil en Google', en: 'Google profile' },
+            botao: { pt: 'Abrir perfil atualizado no Google', es: 'Abrir el perfil actualizado en Google', en: 'Open the current profile on Google' },
+            posicao: 'abaixo',
+            url: 'https://share.google/6atx1poLEHZreaf5K'
           },
-          link: { botao: { pt: 'Ver perfil no Google', es: 'Ver el perfil en Google', en: 'View the profile on Google' }, url: 'https://share.google/6DgDbRvkvezMT9XZ8' }
+          imagem: {
+            src: 'assets/img/bavel/perfil-centro.png', largura: 495, altura: 694,
+            alt: {
+              pt: 'Perfil da Bavel Piercing Sede Centro no Google: Bavel piercing I sede centro, Estúdio de tatuagem e colocação de piercing em Armênia, Colômbia. Fotos da loja, do mapa e da rua. Botões Site, Rotas, Avaliar, Salvar, Compartilhar e Ligar. Endereço: Carrera 17 & Calle 19, Armenia, Quindío, Colômbia. Telefone: +57 313 6718113.',
+              es: 'Perfil de Bavel Piercing Sede Centro en Google: Bavel piercing I sede centro, estudio de tatuajes y perforaciones en Armenia, Colombia. Fotos de la tienda, del mapa y de la calle. Botones Sitio web, Cómo llegar, Opinar, Guardar, Compartir y Llamar. Dirección: Carrera 17 & Calle 19, Armenia, Quindío, Colombia. Teléfono: +57 313 6718113.',
+              en: 'Bavel Piercing Sede Centro on Google: Bavel piercing I sede centro, tattoo and piercing studio in Armenia, Colombia. Photos of the shop, the map and the street. Buttons: Website, Directions, Review, Save, Share and Call. Address: Carrera 17 & Calle 19, Armenia, Quindío, Colombia. Phone: +57 313 6718113.'
+            }
+          }
         },
         {
           titulo: { pt: 'Perfil da Empresa no Google', es: 'Perfil de Empresa en Google', en: 'Google Business Profile' },
           tituloDetalhe: { pt: 'Perfil no Google · Sede Norte', es: 'Perfil en Google · Sede Norte', en: 'Google profile · Sede Norte' },
           icone: 'fa-brands fa-google',
-          descricao: {
-            pt: 'Perfil público “Bavel Piercing I Sede Norte” no Google.',
-            es: 'Perfil público “Bavel Piercing I Sede Norte” en Google.',
-            en: 'Public Google profile “Bavel Piercing I Sede Norte”.'
+          servico: 'perfil',
+          par: true,
+          link: {
+            rotulo: { pt: 'perfil no Google', es: 'perfil en Google', en: 'Google profile' },
+            botao: { pt: 'Abrir perfil atualizado no Google', es: 'Abrir el perfil actualizado en Google', en: 'Open the current profile on Google' },
+            posicao: 'abaixo',
+            url: 'https://share.google/itz33m24ippMFPlg1'
           },
-          link: { botao: { pt: 'Ver perfil no Google', es: 'Ver el perfil en Google', en: 'View the profile on Google' }, url: 'https://share.google/aDQmPly03bnBRbuFg' }
+          imagem: {
+            src: 'assets/img/bavel/perfil-norte.png', largura: 425, altura: 743,
+            alt: {
+              pt: 'Perfil da Bavel Piercing Sede Norte no Google: Bavel Piercing I Sede Norte, Serviço de colocação de piercing em Armênia, Colômbia. Fotos do prédio e do mapa. Botões Site, Rotas, Avaliar, Salvar, Compartilhar e Ligar. Endereço: Mall primavera life, 630001, Cra. 13 #16N-79 piso 6 local 613, Armenia, Quindío, Colômbia. Telefone: +57 302 1007680.',
+              es: 'Perfil de Bavel Piercing Sede Norte en Google: Bavel Piercing I Sede Norte, servicio de perforaciones en Armenia, Colombia. Fotos del edificio y del mapa. Botones Sitio web, Cómo llegar, Opinar, Guardar, Compartir y Llamar. Dirección: Mall primavera life, 630001, Cra. 13 #16N-79 piso 6 local 613, Armenia, Quindío, Colombia. Teléfono: +57 302 1007680.',
+              en: 'Bavel Piercing Sede Norte on Google: Bavel Piercing I Sede Norte, piercing service in Armenia, Colombia. Photos of the building and a map. Buttons: Website, Directions, Review, Save, Share and Call. Address: Mall primavera life, 630001, Cra. 13 #16N-79 piso 6 local 613, Armenia, Quindío, Colombia. Phone: +57 302 1007680.'
+            }
+          }
         }
       ]
     },
 
     // ---------- Meraki ----------
-    // Verificado em 30/09/2026: meraki.angelicadigital.com se identifica como
-    // "Demo desarrollada por Angélica Digital" (o WhatsApp do site é o da Angélica), por isso a página
-    // é apresentada como demonstração. Perfil: link "Abrir en Google Maps" do próprio site →
-    // share.google/dESclTaohLZJgrkCX, identificado pelo Google como "Meraki Experiences" (Salento).
-    // Esse link não foi enviado pela Angélica: falta ela confirmar que é o perfil que configurou.
+    // Projeto real: em 01/10/2026 a Angélica confirmou que o site e a configuração do Perfil da Empresa
+    // no Google são trabalhos reais dela. Endereço oficial do site: www.merakiexperiences.online.
+    // Perfil: link enviado pela Angélica (share.google/9y7JMePD9dfFeqCTU), aberto pelo Google como "Meraki Salento".
+    // Imagem do perfil enviada pela Angélica em 01/10/2026 (nome visível: "Meraki Salento").
     {
       slug: 'meraki',
       tipo: 'real',
       nome: 'Meraki',
       categoria: { pt: 'Gastronomia e experiências · Salento, Colômbia', es: 'Gastronomía y experiencias · Salento, Colombia', en: 'Food & experiences · Salento, Colombia' },
       resumo: {
-        pt: 'Perfil da Empresa no Google e página de demonstração do site.',
-        es: 'Perfil de Empresa en Google y página de demostración del sitio web.',
-        en: 'Google Business Profile and a website demo page.'
+        pt: 'Site e Perfil da Empresa no Google.',
+        es: 'Sitio web y Perfil de Empresa en Google.',
+        en: 'Website and Google Business Profile.'
       },
       logo: '../logomeraki.png',
-      site: 'https://meraki.angelicadigital.com/',
+      site: 'https://www.merakiexperiences.online/',
       pagina: 'projetos/meraki.html',
       entregas: [
         {
-          titulo: { pt: 'Perfil da Empresa no Google', es: 'Perfil de Empresa en Google', en: 'Google Business Profile' },
-          tituloDetalhe: { pt: 'Perfil da Meraki no Google', es: 'Perfil de Meraki en Google', en: 'Meraki on Google' },
-          icone: 'fa-brands fa-google',
-          descricao: {
-            pt: 'Perfil público “Meraki Experiences”, em Salento, Quindío.',
-            es: 'Perfil público “Meraki Experiences”, en Salento, Quindío.',
-            en: 'Public profile “Meraki Experiences”, in Salento, Quindío.'
-          },
-          link: { botao: { pt: 'Ver perfil no Google', es: 'Ver el perfil en Google', en: 'View the profile on Google' }, url: 'https://share.google/dESclTaohLZJgrkCX' }
-        },
-        {
-          titulo: { pt: 'Site (demonstração)', es: 'Sitio web (demostración)', en: 'Website (demo)' },
+          titulo: { pt: 'Site', es: 'Sitio web', en: 'Website' },
           icone: 'fa-solid fa-globe',
+          servico: 'site',
           descricao: {
-            pt: 'Página criada pela Angélica Digital para a Meraki, publicada como demonstração: o próprio site traz o aviso “Demo desarrollada por Angélica Digital”.',
-            es: 'Página creada por Angélica Digital para Meraki, publicada como demostración: el propio sitio muestra el aviso “Demo desarrollada por Angélica Digital”.',
-            en: 'A page built by Angélica Digital for Meraki, published as a demo: the site itself shows the notice “Demo desarrollada por Angélica Digital”.'
+            pt: 'Site da Meraki criado pela Angélica Digital, publicado em merakiexperiences.online.',
+            es: 'Sitio web de Meraki creado por Angélica Digital, publicado en merakiexperiences.online.',
+            en: 'The Meraki website built by Angélica Digital, published at merakiexperiences.online.'
           },
-          link: { rotulo: 'meraki.angelicadigital.com', url: 'https://meraki.angelicadigital.com/' },
+          link: { rotulo: 'merakiexperiences.online', url: 'https://www.merakiexperiences.online/' },
           capturas: {
-            endereco: 'meraki.angelicadigital.com',
+            endereco: 'merakiexperiences.online',
             nota: {
-              pt: 'Página inicial da demonstração, capturada em 30/09/2026.',
-              es: 'Página de inicio de la demostración, capturada el 30/09/2026.',
-              en: 'Home page of the demo, captured on September 30, 2026.'
+              pt: 'Página inicial do site, capturada em 01/10/2026.',
+              es: 'Página de inicio del sitio web, capturada el 01/10/2026.',
+              en: 'Home page of the website, captured on October 1, 2026.'
             },
             desktop: {
               src: 'assets/img/meraki/site-desktop.webp', largura: 2160, altura: 1350,
               alt: {
-                pt: 'Página inicial de meraki.angelicadigital.com no computador: aviso “Demo desarrollada por Angélica Digital”, logo Meraki, título “Local & Cosmo Experiences”, botões Ver Menú & Experiencias e Abrir en Google Maps, filtros e cartões de experiências.',
-                es: 'Página de inicio de meraki.angelicadigital.com en computadora: aviso “Demo desarrollada por Angélica Digital”, logotipo de Meraki, título “Local & Cosmo Experiences”, botones Ver Menú & Experiencias y Abrir en Google Maps, filtros y tarjetas de experiencias.',
-                en: 'meraki.angelicadigital.com home page on desktop: “Demo desarrollada por Angélica Digital” notice, Meraki logo, headline “Local & Cosmo Experiences”, “Ver Menú & Experiencias” and “Abrir en Google Maps” buttons, filters and experience cards.'
+                pt: 'Página inicial de merakiexperiences.online no computador: logo Meraki, título “Local & Cosmo Experiences”, botões Ver Menú & Experiencias e Abrir en Google Maps, filtros e cartões de experiências.',
+                es: 'Página de inicio de merakiexperiences.online en computadora: logotipo de Meraki, título “Local & Cosmo Experiences”, botones Ver Menú & Experiencias y Abrir en Google Maps, filtros y tarjetas de experiencias.',
+                en: 'merakiexperiences.online home page on desktop: Meraki logo, headline “Local & Cosmo Experiences”, “Ver Menú & Experiencias” and “Abrir en Google Maps” buttons, filters and experience cards.'
               }
             },
             celular: {
               src: 'assets/img/meraki/site-celular.webp', largura: 780, altura: 1688,
               alt: {
-                pt: 'Página inicial de meraki.angelicadigital.com no celular: aviso de demonstração, logo, título “Local & Cosmo Experiences” e botões Ver Menú & Experiencias e Abrir en Google Maps.',
-                es: 'Página de inicio de meraki.angelicadigital.com en celular: aviso de demostración, logotipo, título “Local & Cosmo Experiences” y botones Ver Menú & Experiencias y Abrir en Google Maps.',
-                en: 'meraki.angelicadigital.com home page on mobile: demo notice, logo, headline “Local & Cosmo Experiences”, and “Ver Menú & Experiencias” and “Abrir en Google Maps” buttons.'
+                pt: 'Página inicial de merakiexperiences.online no celular: logo, título “Local & Cosmo Experiences” e botões Ver Menú & Experiencias e Abrir en Google Maps.',
+                es: 'Página de inicio de merakiexperiences.online en celular: logotipo, título “Local & Cosmo Experiences” y botones Ver Menú & Experiencias y Abrir en Google Maps.',
+                en: 'merakiexperiences.online home page on mobile: logo, headline “Local & Cosmo Experiences”, and “Ver Menú & Experiencias” and “Abrir en Google Maps” buttons.'
               }
             }
+          }
+        },
+        {
+          titulo: { pt: 'Perfil da Empresa no Google', es: 'Perfil de Empresa en Google', en: 'Google Business Profile' },
+          tituloDetalhe: { pt: 'Perfil da Meraki no Google', es: 'Perfil de Meraki en Google', en: 'Meraki on Google' },
+          icone: 'fa-brands fa-google',
+          servico: 'perfil',
+          link: {
+            rotulo: { pt: 'perfil no Google', es: 'perfil en Google', en: 'Google profile' },
+            botao: { pt: 'Abrir perfil atualizado no Google', es: 'Abrir el perfil actualizado en Google', en: 'Open the current profile on Google' },
+            posicao: 'abaixo',
+            url: 'https://share.google/9y7JMePD9dfFeqCTU'
+          },
+          imagem: {
+            src: 'assets/img/meraki/perfil-google.png', largura: 473, altura: 706,
+            alt: {
+              pt: 'Perfil da Meraki no Google: Meraki Salento, Restaurante especializado em gastronomia. Fotos do salão e dos pratos. Botões Pedir on-line, Site, Rotas, Salvar, Compartilhar e Ligar. Necessidade de fazer reserva, Mesas externas, Opções vegetarianas. Endereço: Cra. 3 #5-56, Salento, Quindío, Colômbia.',
+              es: 'Perfil de Meraki en Google: Meraki Salento, restaurante especializado en gastronomía. Fotos del salón y de los platos. Botones Pedir en línea, Sitio web, Cómo llegar, Guardar, Compartir y Llamar. Requiere reserva, mesas al aire libre, opciones vegetarianas. Dirección: Cra. 3 #5-56, Salento, Quindío, Colombia.',
+              en: 'Meraki on Google: Meraki Salento, restaurant specializing in gastronomy. Photos of the dining room and dishes. Buttons: Order online, Website, Directions, Save, Share and Call. Reservations required, outdoor seating, vegetarian options. Address: Cra. 3 #5-56, Salento, Quindío, Colombia.'
+            }
+          }
+        }
+      ]
+    },
+
+    // ---------- Recanto das Águas WS ----------
+    // Projeto real: a Angélica forneceu somente as plaquinhas NFC (o cliente já tinha site e Perfil no Google,
+    // que não são trabalhos dela). Link do negócio enviado pela Angélica; verificado em 01/10/2026: abre no
+    // Google Maps "Recanto das Águas WS - Disk Água Mineral - Distribuidora", R. Agamenon Magalhães, 432,
+    // Vila Santa Edwiges, São Paulo - SP. É a página do negócio, não um link direto de avaliação.
+    // Serviço realizado: somente plaquinhas NFC (categoria "Plaquinhas NFC"; nunca "Perfil no Google").
+    // "foto": registro da entrega (cliente segurando as plaquinhas). Ainda não recebida: até lá o cartão e a
+    // página mostram o bloco neutro com o ícone do serviço no lugar da imagem.
+    {
+      slug: 'recanto-das-aguas',
+      tipo: 'real',
+      nome: 'Recanto das Águas WS',
+      categoria: { pt: 'Distribuidora de água mineral · São Paulo, SP', es: 'Distribuidora de agua mineral · São Paulo, Brasil', en: 'Mineral water distributor · São Paulo, Brazil' },
+      resumo: {
+        pt: 'Entrega de plaquinhas NFC para facilitar o acesso dos clientes à avaliação do negócio no Google.',
+        es: 'Entrega de placas NFC para facilitar que los clientes lleguen a la reseña del negocio en Google.',
+        en: 'Delivery of NFC tap signs that make it easier for customers to reach the business’s Google review.'
+      },
+      // { src, largura, altura, enquadramento (object-position do cartão), alt: { pt, es, en } }
+      foto: null,
+      negocio: 'https://maps.app.goo.gl/ekjUH21nCyXaUEqC6?g_st=aw',
+      pagina: 'projetos/recanto-das-aguas.html',
+      selos: true,
+      contatoNfc: true,
+      entregas: [
+        {
+          titulo: { pt: 'Plaquinha NFC', es: 'Placa NFC', en: 'NFC tap sign' },
+          icone: 'fa-solid fa-mobile-screen-button',
+          servico: 'nfc',
+          descricao: {
+            pt: 'Plaquinhas para o balcão que levam o cliente à avaliação do negócio no Google.',
+            es: 'Placas para el mostrador que llevan al cliente a la reseña del negocio en Google.',
+            en: 'Counter signs that take customers to the business’s Google review.'
+          },
+          itens: [
+            { pt: 'Tamanho: 12 × 10 cm', es: 'Tamaño: 12 × 10 cm', en: 'Size: 12 × 10 cm' },
+            { pt: 'NFC: o cliente aproxima o celular da plaquinha', es: 'NFC: el cliente acerca el celular a la placa', en: 'NFC: customers tap their phone on the sign' },
+            { pt: 'QR Code: o cliente aponta a câmera do celular', es: 'Código QR: el cliente apunta la cámara del celular', en: 'QR code: customers point their phone camera at it' }
+          ]
+        }
+      ]
+    },
+
+    // ---------- Minimercado Utilidades & Variedades ----------
+    // Serviços confirmados pela Angélica em 01/10/2026: configuração do Perfil da Empresa no Google e venda da
+    // plaquinha NFC. Nenhum site. Link do perfil enviado por ela; verificado em 01/10/2026: o Google abre
+    // "Minimercado Utilidades & Variedades". Plaquinha NFC só é vendida no Brasil, por isso "Brasil" na categoria.
+    // Ainda não recebidos: a imagem real do perfil no Google e o material da plaquinha entregue. As fotos do
+    // estabelecimento em Downloads (minimercado*.png) não foram indicadas para o portfólio e não são usadas.
+    {
+      slug: 'minimercado',
+      tipo: 'real',
+      nome: 'Minimercado Utilidades & Variedades',
+      categoria: { pt: 'Minimercado · Brasil', es: 'Minimercado · Brasil', en: 'Mini market · Brazil' },
+      resumo: {
+        pt: 'Configuração do Perfil da Empresa no Google e entrega de plaquinha NFC.',
+        es: 'Configuración del Perfil de Empresa en Google y entrega de placa NFC.',
+        en: 'Google Business Profile setup and an NFC tap sign delivered.'
+      },
+      foto: null,
+      pagina: 'projetos/minimercado.html',
+      selos: true,
+      contatoNfc: true,
+      entregas: [
+        {
+          titulo: { pt: 'Perfil da Empresa no Google', es: 'Perfil de Empresa en Google', en: 'Google Business Profile' },
+          tituloDetalhe: { pt: 'Perfil do Minimercado no Google', es: 'Perfil del Minimercado en Google', en: 'Minimercado on Google' },
+          icone: 'fa-brands fa-google',
+          servico: 'perfil',
+          descricao: {
+            pt: 'Perfil público “Minimercado Utilidades & Variedades” no Google.',
+            es: 'Perfil público “Minimercado Utilidades & Variedades” en Google.',
+            en: 'Public Google profile “Minimercado Utilidades & Variedades”.'
+          },
+          link: { botao: { pt: 'Abrir perfil atualizado no Google', es: 'Abrir el perfil actualizado en Google', en: 'Open the current profile on Google' }, url: 'https://share.google/ZlyC1C2W73U49noDy' }
+        },
+        {
+          titulo: { pt: 'Plaquinha NFC', es: 'Placa NFC', en: 'NFC tap sign' },
+          icone: 'fa-solid fa-mobile-screen-button',
+          servico: 'nfc',
+          descricao: {
+            pt: 'Plaquinha NFC fornecida para o negócio.',
+            es: 'Placa NFC suministrada al negocio.',
+            en: 'NFC tap sign supplied to the business.'
           }
         }
       ]
