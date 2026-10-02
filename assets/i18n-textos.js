@@ -1,6 +1,8 @@
 /* ============== TEXTOS DOS IDIOMAS ==============
-   pt: só os textos gerados por JavaScript (o português das páginas está no próprio HTML).
+   pt: textos gerados por JavaScript e metadados das páginas de projeto (o português das
+       páginas está nos modelos em fonte/).
    es / en: todos os textos (HTML + JavaScript). As chaves devem ser as mesmas em es e en.
+   Depois de mudar um texto, rode  node ferramentas/gerar-paginas.mjs  para atualizar as páginas.
    Marcações: [[gradiente]] e **negrito** (nunca HTML). {nome} = valor preenchido pelo código.
    Nomes: Perfil da Empresa no Google · Perfil de Empresa en Google · Google Business Profile.
           plaquinha NFC · placa NFC · NFC tap sign. */
@@ -54,6 +56,9 @@ window.I18N_TEXTOS = {
     'proj.nfc.disp': 'Disponível somente no Brasil',
     'proj.nfc.btn': 'Quero uma plaquinha para meu negócio',
     'wa.projNfc': 'Olá, Angélica! Vi o projeto {nome} e quero uma plaquinha NFC para meu negócio. Estou no Brasil.',
+    'meta.tacobons.desc': 'Projeto Tacobons: site e Perfil da Empresa no Google.',
+    'meta.bavel.desc': 'Projeto Bavel Piercing: loja online e Perfis da Empresa no Google.',
+    'meta.meraki.desc': 'Projeto Meraki: site e Perfil da Empresa no Google.',
     'meta.recanto.desc': 'Projeto Recanto das Águas WS: entrega de plaquinhas NFC.',
     'meta.minimercado.desc': 'Projeto Minimercado Utilidades & Variedades: Perfil no Google e plaquinha NFC.',
     'proj.naoEncontrado': 'Projeto não encontrado',
@@ -95,7 +100,7 @@ window.I18N_TEXTOS = {
     'cab.inicio': 'Inicio',
     'cab.projetos': 'Proyectos',
     'cab.contato': 'Contacto',
-    'cab.vitrine': 'Vitrina',
+    'cab.vitrine': 'Proyectos',
     'rodape.voltarInicio': 'Volver al inicio',
     'rodape.voltarVitrine': 'Volver a la vitrina',
 
@@ -215,7 +220,6 @@ window.I18N_TEXTOS = {
     'av.titulo': 'Reseñas de [[clientes]]',
     'av.listaAria': 'Reseñas aprobadas',
     'av.vazio': 'Este espacio está reservado para la opinión de quienes ya trabajaron conmigo, escrita por el propio cliente. Las primeras reseñas todavía se están reuniendo.',
-    'av.distincao': 'Aquí aparecen opiniones de clientes, no descripciones de proyectos.',
     'av.convite.titulo': '¿Ya trabajaste conmigo?',
     'av.convite.texto': 'Cuéntame cómo fue. Tu reseña pasa por revisión antes de aparecer aquí.',
     'av.aviso': 'El envío de reseñas por el sitio todavía se está configurando.',
@@ -344,7 +348,7 @@ window.I18N_TEXTOS = {
     'wa.projNfc': '¡Hola, Angélica! Vi el proyecto {nome} y quiero una placa NFC para mi negocio. Estoy en Brasil.',
     'proj.titulo': '{nome} | Portafolio · Angélica Digital',
     'proj.voceEsta': 'Estás en',
-    'proj.vitrine': 'Vitrina',
+    'proj.vitrine': 'Proyectos',
     'proj.voltar': 'Volver a la vitrina',
     'proj.entregas': 'Entregas',
     'proj.ampliar': 'Ampliar captura: {rotulo} (se abre en una pestaña nueva)',
@@ -354,6 +358,8 @@ window.I18N_TEXTOS = {
     'proj.figCel': 'Celular',
     'proj.cliqueAmpliar': 'Haz clic o toca una imagen para ampliarla.',
     'proj.imagemPerfil': 'Imagen del perfil en Google',
+    'proj.semJs': 'Activa JavaScript para ver este proyecto.',
+    'vit.semJs': 'Activa JavaScript para ver los proyectos.',
     'proj.naoEncontrado': 'Proyecto no encontrado',
     'proj.naoEncontradoTexto': 'No hay datos registrados para “{slug}”.'
   },
@@ -367,7 +373,7 @@ window.I18N_TEXTOS = {
     'cab.inicio': 'Home',
     'cab.projetos': 'Projects',
     'cab.contato': 'Contact',
-    'cab.vitrine': 'Showcase',
+    'cab.vitrine': 'Portfolio',
     'rodape.voltarInicio': 'Back to home',
     'rodape.voltarVitrine': 'Back to the showcase',
 
@@ -487,7 +493,6 @@ window.I18N_TEXTOS = {
     'av.titulo': 'Client [[reviews]]',
     'av.listaAria': 'Approved reviews',
     'av.vazio': 'This space is reserved for feedback from people who have worked with me, written by the clients themselves. The first reviews are still being collected.',
-    'av.distincao': 'These are client opinions, not project descriptions.',
     'av.convite.titulo': 'Have you worked with me?',
     'av.convite.texto': 'Tell me how it went. Your review is checked before it appears here.',
     'av.aviso': 'Submitting reviews through the site is still being set up.',
@@ -616,7 +621,7 @@ window.I18N_TEXTOS = {
     'wa.projNfc': 'Hi Angélica! I saw the {nome} project and I’d like an NFC tap sign for my business. I’m in Brazil.',
     'proj.titulo': '{nome} | Portfolio · Angélica Digital',
     'proj.voceEsta': 'You are here',
-    'proj.vitrine': 'Showcase',
+    'proj.vitrine': 'Portfolio',
     'proj.voltar': 'Back to the showcase',
     'proj.entregas': 'Deliverables',
     'proj.ampliar': 'Enlarge screenshot: {rotulo} (opens in a new tab)',
@@ -626,6 +631,8 @@ window.I18N_TEXTOS = {
     'proj.figCel': 'Mobile',
     'proj.cliqueAmpliar': 'Click or tap an image to enlarge it.',
     'proj.imagemPerfil': 'Image of the Google profile',
+    'proj.semJs': 'Turn on JavaScript to see this project.',
+    'vit.semJs': 'Turn on JavaScript to see the projects.',
     'proj.naoEncontrado': 'Project not found',
     'proj.naoEncontradoTexto': 'There is no data for “{slug}”.'
   }

@@ -6,7 +6,6 @@
 .pagina-inicio{--curva:cubic-bezier(.2,.7,.2,1)}
 
 /* ---------- Cabeçalho ---------- */
-.pagina-inicio .logo .label{display:inline}
 .menu-principal{display:flex;align-items:center;gap:6px}
 .menu-principal a{
   padding:10px 14px;border-radius:10px;
@@ -15,7 +14,7 @@
 }
 .menu-principal a:hover{color:var(--text-strong);background:rgba(168,85,247,0.1)}
 .menu-principal a[aria-current="page"]{color:var(--accent-soft)}
-.menu-botao{display:none}
+/* Menu do celular (botão, menu aberto, seletor na mesma linha): assets/cabecalho.css */
 
 /* ---------- Primeira seção ---------- */
 .abertura{position:relative;padding:64px 0 88px;overflow:hidden;isolation:isolate}
@@ -281,29 +280,6 @@
   .ponte__acao{align-items:center}
 }
 @media (max-width:760px){
-  /* Menu compacto no celular */
-  .pagina-inicio .logo{font-size:1rem;gap:8px}
-  .pagina-inicio .logo .icon-wrap{width:32px;height:32px;border-radius:9px}
-  .menu-botao{
-    display:inline-flex;align-items:center;gap:8px;
-    min-height:44px;padding:0 14px;border-radius:12px;
-    background:rgba(168,85,247,0.1);border:1px solid var(--border);
-    color:var(--text-strong);font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;
-  }
-  .menu-botao[aria-expanded="true"]{background:rgba(168,85,247,0.22)}
-  .js .menu-principal{display:none}
-  .js .menu-principal.aberto{
-    display:flex;flex-direction:column;align-items:stretch;gap:0;
-    position:absolute;left:0;right:0;top:100%;
-    padding:6px 16px 14px;
-    background:rgba(9,13,22,0.97);
-    border-bottom:1px solid rgba(168,85,247,0.3);
-    box-shadow:0 20px 40px rgba(0,0,0,0.5);
-  }
-  .menu-principal.aberto a{padding:14px 6px;border-radius:0;border-top:1px solid rgba(148,163,184,0.12);font-size:1rem}
-  html:not(.js) .menu-botao{display:none}
-  html:not(.js) .menu-principal a{padding:10px 6px;font-size:.85rem}
-
   .abertura__acoes .btn{flex:1 1 100%}
   .palco__cena{margin-top:10px}
   .camada--perfil{left:6.9cqw;margin-top:calc(57.83cqw + 33px)}  /* sobe 28px: sobrepõe 8px a borda do site; mesma borda esquerda */
@@ -477,9 +453,9 @@
   .oferta--perfil .oferta__texto{order:-1}
 }
 @media (max-width:760px){
-  .ofertas{padding:24px 0 32px}
+  .ofertas{padding:24px 0 72px}  /* fim dos serviços: 72 + 84 do topo da NFC = mesmo ritmo de NFC → Como trabalhamos */
   .ofertas__cabeca{margin:28px 0 44px}
-  .oferta{margin-bottom:64px}
+  .oferta{margin-bottom:106px}  /* serviço 01 → 02: ~112 px entre os controles e o "02" */
   .oferta--perfil{margin-bottom:0}  /* último serviço: sem margem extra antes do fim da seção */
   .oferta__num{font-size:2.5rem}
   .oferta__acoes .btn{width:100%}
@@ -634,7 +610,7 @@
   .nfc-faixa__grade{grid-template-columns:1fr;gap:48px}
 }
 @media (max-width:760px){
-  .nfc-faixa{padding:28px 0 72px}  /* topo curto: a passagem vinda dos serviços fica em ~60px */
+  .nfc-faixa{padding:84px 0 72px}  /* passagem vinda dos serviços: ~156 px, igual a NFC → Como trabalhamos */
   .nfc-faixa .btn-lg{width:100%}
   .nfc-destinos{gap:8px}
   .nfc-destinos li{padding:9px 12px}
@@ -760,13 +736,7 @@
   pointer-events:none;user-select:none;
 }
 .depoimentos__vazio h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:900;line-height:1.1;margin:10px 0 18px;text-wrap:balance}
-.depoimentos__vazio > p{font-size:1.04rem;color:#cbd5e1;max-width:520px;margin-bottom:22px}
-.depoimentos__vazio .depoimentos__distincao{
-  display:inline-flex;align-items:flex-start;gap:9px;margin:0;
-  font-size:.86rem;color:var(--text);
-  padding:10px 14px;border-radius:10px;background:rgba(9,13,22,0.6);border:1px dashed rgba(148,163,184,0.35);
-}
-.depoimentos__distincao i{color:var(--accent-soft);margin-top:3px}
+.depoimentos__vazio > p{font-size:1.04rem;color:#cbd5e1;max-width:520px;margin-bottom:0}
 
 .depoimentos__convite{
   margin-top:72px;
@@ -875,11 +845,6 @@
    Bloco novo; só afeta a seção 6. */
 .depoimentos__lista[hidden],.depoimentos__vazio[hidden],.avaliar[hidden],.avaliar__sucesso[hidden],.avaliar__aviso[hidden]{display:none!important}
 .depoimentos__titulo{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:900;line-height:1.1;margin:10px 0 18px;text-wrap:balance}
-.depoimentos__palco > .depoimentos__distincao{
-  display:inline-flex;align-items:flex-start;gap:9px;margin:22px 0 0;
-  font-size:.86rem;color:var(--text);
-  padding:10px 14px;border-radius:10px;background:rgba(9,13,22,0.6);border:1px dashed rgba(148,163,184,0.35);
-}
 .depoimentos__lista{margin-top:6px}
 .depoimento blockquote p{margin:0;overflow-wrap:anywhere}
 .depoimento__autor{overflow-wrap:anywhere}
@@ -1142,27 +1107,11 @@
 /* Cabeçalho: logo | links | seletor. */
 .cabecalho .menu-principal{margin-left:auto}
 .cabecalho .nav > .seletor-idioma--cabecalho{margin-left:10px}
-@media (max-width:760px){
-  .cabecalho .nav > .seletor-idioma--cabecalho{order:2;margin-left:auto;margin-right:10px}
-  .cabecalho .menu-botao{order:3}
-}
 @media (max-width:560px){
-  /* Uma linha só: marca à esquerda; idiomas e Menu (só ícone) à direita. Sem a faixa de idiomas acima
-     e sem repetir o seletor dentro do Menu. */
+  /* Cabeçalho numa linha só (assets/cabecalho.css): sem a faixa de idiomas acima. */
   .pagina-inicio .barra-idioma{display:none}
   /* âncoras: o título não fica sob o cabeçalho fixo (77px no celular) */
   .pagina-inicio main section[id]{scroll-margin-top:84px}
-  .cabecalho .nav{gap:8px}
-  .cabecalho .nav > .seletor-idioma--cabecalho{display:inline-flex;margin-right:0}
-  .cabecalho .seletor-idioma button{min-width:40px;min-height:40px;padding:0 8px}
-  .pagina-inicio .logo{gap:8px;min-width:0}
-  .pagina-inicio .logo .label{font-size:.9rem;white-space:nowrap}
-  .cabecalho .menu-botao{width:44px;padding:0;justify-content:center;flex-shrink:0}
-  .cabecalho .menu-botao span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-}
-/* Telas estreitas: versão compacta da marca (só o ícone; o link mantém o nome acessível) */
-@media (max-width:384px){
-  .pagina-inicio .logo .label{display:none}
 }
 /* Hero sem a linha de idiomas: mantém o mesmo respiro antes dos botões. */
 .abertura__apoio + .abertura__acoes{margin-top:10px}

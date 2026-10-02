@@ -1,0 +1,227 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "es"
+        }
+      ],
+      "destination": "/es/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "es"
+        }
+      ],
+      "destination": "/es/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/",
+      "permanent": true
+    },
+    {
+      "source": "/vitrine.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "es"
+        }
+      ],
+      "destination": "/es/vitrine/",
+      "permanent": true
+    },
+    {
+      "source": "/vitrine.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/vitrine/",
+      "permanent": true
+    },
+    {
+      "source": "/vitrine.html",
+      "destination": "/vitrine/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/tacobons.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "es"
+        }
+      ],
+      "destination": "/es/projetos/tacobons/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/tacobons.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/projetos/tacobons/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/tacobons.html",
+      "destination": "/projetos/tacobons/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/bavel.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "es"
+        }
+      ],
+      "destination": "/es/projetos/bavel/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/bavel.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/projetos/bavel/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/bavel.html",
+      "destination": "/projetos/bavel/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/meraki.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "es"
+        }
+      ],
+      "destination": "/es/projetos/meraki/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/meraki.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/projetos/meraki/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/meraki.html",
+      "destination": "/projetos/meraki/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/recanto-das-aguas.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "es"
+        }
+      ],
+      "destination": "/es/projetos/recanto-das-aguas/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/recanto-das-aguas.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/projetos/recanto-das-aguas/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/recanto-das-aguas.html",
+      "destination": "/projetos/recanto-das-aguas/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/minimercado.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "es"
+        }
+      ],
+      "destination": "/es/projetos/minimercado/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/minimercado.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/projetos/minimercado/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/minimercado.html",
+      "destination": "/projetos/minimercado/",
+      "permanent": true
+    }
+  ]
+}

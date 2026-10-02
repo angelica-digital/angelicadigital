@@ -157,7 +157,6 @@
       const q = new URLSearchParams();
       if (estado.filtro !== 'todos') q.set('filtro', estado.filtro);
       if (estado.busca) q.set('busca', estado.busca);
-      if (I.idioma !== 'pt') q.set('lang', I.idioma);
       const qs = q.toString();
       history.replaceState(history.state, '', location.pathname + (qs ? '?' + qs : ''));
     }

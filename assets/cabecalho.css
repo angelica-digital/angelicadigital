@@ -1,0 +1,50 @@
+/* ============== CABEÇALHO NO CELULAR (todas as páginas) ==============
+   Marca, seletor PT · ES · EN e botão Menu numa linha; os links ficam dentro do Menu.
+   Usado pela página inicial, pela vitrine e pelas páginas de projeto (<header class="header cabecalho">).
+   Comportamento do Menu: assets/cabecalho.js. Carregar depois de portfolio.css.
+   O visual do computador continua em portfolio.css (vitrine e projetos) e inicio.css (página inicial). */
+.menu-botao{display:none}
+
+@media (max-width:760px){
+  .cabecalho .logo{font-size:1rem;gap:8px}
+  .cabecalho .logo .icon-wrap{width:32px;height:32px;border-radius:9px}
+  .cabecalho .logo .label{display:inline}
+  .menu-botao{
+    display:inline-flex;align-items:center;gap:8px;
+    min-height:44px;padding:0 14px;border-radius:12px;
+    background:rgba(168,85,247,0.1);border:1px solid var(--border);
+    color:var(--text-strong);font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;
+  }
+  .menu-botao[aria-expanded="true"]{background:rgba(168,85,247,0.22)}
+  .js .menu-principal{display:none}
+  .js .menu-principal.aberto{
+    display:flex;flex-direction:column;align-items:stretch;gap:0;
+    position:absolute;left:0;right:0;top:100%;
+    padding:6px 16px 14px;
+    background:rgba(9,13,22,0.97);
+    border-bottom:1px solid rgba(168,85,247,0.3);
+    box-shadow:0 20px 40px rgba(0,0,0,0.5);
+  }
+  .menu-principal.aberto a{padding:14px 6px;border-radius:0;border-top:1px solid rgba(148,163,184,0.12);font-size:1rem;font-weight:500;color:var(--text)}
+  .menu-principal.aberto a:hover{color:var(--text-strong);background:rgba(168,85,247,0.1)}
+  .menu-principal.aberto a[aria-current="page"]{color:var(--accent-soft)}
+  html:not(.js) .menu-botao{display:none}
+  html:not(.js) .menu-principal a{padding:10px 6px;font-size:.85rem}
+  /* seletor encostado no Menu; vale sobre a margem de computador de inicio.css */
+  .cabecalho .nav > .seletor-idioma.seletor-idioma--cabecalho{order:2;margin-left:auto;margin-right:10px}
+  .cabecalho .menu-botao{order:3}
+}
+@media (max-width:560px){
+  /* Uma linha só: marca à esquerda; idiomas e Menu (só ícone) à direita. */
+  .cabecalho .nav{gap:8px}
+  .cabecalho .nav > .seletor-idioma.seletor-idioma--cabecalho{display:inline-flex;margin-right:0}
+  .cabecalho .seletor-idioma button{min-width:40px;min-height:40px;padding:0 8px}
+  .cabecalho .logo{gap:8px;min-width:0}
+  .cabecalho .logo .label{font-size:.9rem;white-space:nowrap}
+  .cabecalho .menu-botao{width:44px;padding:0;justify-content:center;flex-shrink:0}
+  .cabecalho .menu-botao span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
+/* Telas estreitas: versão compacta da marca (só o ícone; o link mantém o nome acessível) */
+@media (max-width:384px){
+  .cabecalho .logo .label{display:none}
+}

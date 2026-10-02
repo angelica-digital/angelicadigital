@@ -28,30 +28,7 @@
   var reduzir = window.matchMedia('(prefers-reduced-motion: reduce)');
   var computador = window.matchMedia('(min-width: 761px)');
 
-  // ---------- Menu do celular ----------
-  var botao = document.querySelector('.menu-botao');
-  var menu = document.getElementById('menu-principal');
-  if (botao && menu) {
-    var fechar = function () {
-      menu.classList.remove('aberto');
-      botao.setAttribute('aria-expanded', 'false');
-      botao.querySelector('i').className = 'fa-solid fa-bars';
-    };
-    botao.addEventListener('click', function () {
-      var abrir = !menu.classList.contains('aberto');
-      menu.classList.toggle('aberto', abrir);
-      botao.setAttribute('aria-expanded', String(abrir));
-      botao.querySelector('i').className = abrir ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-    });
-    menu.addEventListener('click', function (e) { if (e.target.closest('a')) fechar(); });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && menu.classList.contains('aberto')) { fechar(); botao.focus(); }
-    });
-    document.addEventListener('click', function (e) {
-      if (menu.classList.contains('aberto') && !e.target.closest('.cabecalho')) fechar();
-    });
-    computador.addEventListener('change', fechar);
-  }
+  // Menu do celular: assets/cabecalho.js
 
   // ---------- Revelar ao rolar ----------
   var itens = document.querySelectorAll('.revela');

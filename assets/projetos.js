@@ -3,8 +3,10 @@
 
    Para adicionar um projeto real:
      1. Acrescente um objeto na lista PROJETOS_REAIS (use o modelo da Tacobons).
-     2. Copie projetos/tacobons.html para projetos/<slug>.html e troque o
-        data-slug do <main> pelo novo slug.
+     2. Acrescente meta.<slug>.desc (pt, es, en) em assets/i18n-textos.js.
+     3. Rode  node ferramentas/gerar-paginas.mjs  (cria /projetos/<slug>/ em PT, ES e EN
+        a partir de fonte/projeto.html). Em "pagina" use projetos/<slug>.html: os links
+        viram o endereço limpo do idioma (/es/projetos/<slug>/ etc.).
 
    Textos traduzíveis usam { pt, es, en }. Nomes de clientes, marcas e URLs não se traduzem.
    Caminhos de "logo" e "pagina" são relativos à raiz do site.
