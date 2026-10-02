@@ -1,6 +1,6 @@
-/* ============== PORTFÓLIO (TESTE) — COMPONENTES ==============
+/* ============== PORTFÓLIO — COMPONENTES ==============
    Monta a vitrine e as páginas de projeto a partir de window.PORTFOLIO_PROJETOS.
-   Cada página informa em <body data-base="..."> o caminho até teste-portfolio/.
+   Cada página informa em <body data-base="..."> o caminho até a raiz do site.
    Textos de interface: window.I18N (assets/i18n.js). Todo dado é escapado antes de entrar no HTML. */
 
 (function () {
@@ -312,7 +312,7 @@
 
   function renderProjeto(raiz, slug) {
     const p = PROJETOS.find((item) => item.slug === slug && item.tipo === 'real');
-    const vitrine = interno('index.html');
+    const vitrine = interno('vitrine.html');
 
     if (!p) {
       raiz.innerHTML = `

@@ -88,7 +88,6 @@ window.I18N_TEXTOS = {
 
   es: {
     /* --- comum --- */
-    'banner': 'Vista previa de prueba · rama teste/novo-portfolio · no publicada',
     'idioma.grupo': 'Idioma',
     'cab.logo': 'Angélica Digital — inicio',
     'cab.navPrincipal': 'Principal',
@@ -307,7 +306,7 @@ window.I18N_TEXTOS = {
     'meta.vitrine.title': 'Vitrina de proyectos | Angélica Digital',
     'meta.vitrine.desc': 'Proyectos de sitios web y Perfiles de Empresa en Google hechos por Angélica Digital.',
     'vit.titulo': 'Vitrina de [[proyectos]]',
-    'vit.texto': 'Proyectos reales y tarjetas de demostración usadas para probar la vitrina con muchos elementos.',
+    'vit.texto': 'Proyectos reales y lo que se entregó en cada uno.',
     'vit.secaoAria': 'Proyectos',
     'filtro.grupo': 'Filtrar proyectos por servicio',
     'filtro.todos': 'Todos',
@@ -361,7 +360,6 @@ window.I18N_TEXTOS = {
 
   en: {
     /* --- comum --- */
-    'banner': 'Test preview · branch teste/novo-portfolio · not published',
     'idioma.grupo': 'Language',
     'cab.logo': 'Angélica Digital — home',
     'cab.navPrincipal': 'Main',
@@ -580,7 +578,7 @@ window.I18N_TEXTOS = {
     'meta.vitrine.title': 'Project Showcase | Angélica Digital',
     'meta.vitrine.desc': 'Website and Google Business Profile projects by Angélica Digital.',
     'vit.titulo': 'Project [[showcase]]',
-    'vit.texto': 'Real projects and demo cards used to test the showcase with many items.',
+    'vit.texto': 'Real projects and what was delivered for each one.',
     'vit.secaoAria': 'Projects',
     'filtro.grupo': 'Filter projects by service',
     'filtro.todos': 'All',

@@ -7,7 +7,7 @@
 
    NUNCA coloque aqui a chave "secret" / "service_role": ela ignora todas as regras de segurança.
    A chave pública é visível para qualquer visitante — por isso as regras ficam no banco
-   (teste-portfolio/supabase/avaliacoes_site.sql).
+   (supabase/avaliacoes_site.sql).
 
    Enquanto os dois campos estiverem vazios, o formulário fica desativado e a lista
    mostra o estado inicial, sem nenhuma avaliação.

@@ -1,4 +1,4 @@
-/* ============== PORTFÓLIO (TESTE) — DADOS DOS PROJETOS ==============
+/* ============== PORTFÓLIO — DADOS DOS PROJETOS ==============
    Fonte única da vitrine e das páginas de projeto.
 
    Para adicionar um projeto real:
@@ -7,7 +7,7 @@
         data-slug do <main> pelo novo slug.
 
    Textos traduzíveis usam { pt, es, en }. Nomes de clientes, marcas e URLs não se traduzem.
-   Caminhos de "logo" e "pagina" são relativos à pasta teste-portfolio/.
+   Caminhos de "logo" e "pagina" são relativos à raiz do site.
    Inclua somente informações confirmadas pelo cliente. */
 
 (function () {
@@ -24,7 +24,7 @@
         es: 'Sitio web y Perfil de Empresa en Google.',
         en: 'Website and Google Business Profile.'
       },
-      logo: '../logotacobons.png',
+      logo: 'logotacobons.png',
       site: 'https://www.tacobons.com/',
       pagina: 'projetos/tacobons.html',
       entregas: [
@@ -101,7 +101,7 @@
         es: 'Tienda en línea y Perfiles de Empresa en Google de dos sedes.',
         en: 'Online store and Google Business Profiles for two locations.'
       },
-      logo: '../logobavelpiercing.png',
+      logo: 'logobavelpiercing.png',
       site: 'https://bavelpiercing.com/',
       pagina: 'projetos/bavel.html',
       entregas: [
@@ -200,7 +200,7 @@
         es: 'Sitio web y Perfil de Empresa en Google.',
         en: 'Website and Google Business Profile.'
       },
-      logo: '../logomeraki.png',
+      logo: 'logomeraki.png',
       site: 'https://www.merakiexperiences.online/',
       pagina: 'projetos/meraki.html',
       entregas: [
@@ -352,13 +352,5 @@
     }
   ];
 
-  // Cartões fictícios, apenas para testar layout e navegação com muitos itens.
-  // Não representam clientes nem marcas. Os textos vêm de i18n-textos.js (demo.*).
-  const TOTAL_DEMONSTRATIVOS = 11;
-  const PROJETOS_DEMONSTRATIVOS = Array.from({ length: TOTAL_DEMONSTRATIVOS }, (_, i) => {
-    const numero = String(i + 1).padStart(2, '0');
-    return { slug: 'demonstrativo-' + numero, tipo: 'demo', numero: numero };
-  });
-
-  window.PORTFOLIO_PROJETOS = PROJETOS_REAIS.concat(PROJETOS_DEMONSTRATIVOS);
+  window.PORTFOLIO_PROJETOS = PROJETOS_REAIS;
 })();

@@ -1,4 +1,4 @@
-/* ============== INÍCIO (TESTE) — COMPORTAMENTO ==============
+/* ============== INÍCIO — COMPORTAMENTO ==============
    Linha do tempo das animações (todas desativadas com prefers-reduced-motion):
 
    Ao carregar a página
