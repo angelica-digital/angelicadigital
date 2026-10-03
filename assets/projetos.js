@@ -10,7 +10,10 @@
 
    Textos traduzíveis usam { pt, es, en }. Nomes de clientes, marcas e URLs não se traduzem.
    Caminhos de "logo" e "pagina" são relativos à raiz do site.
-   Inclua somente informações confirmadas pelo cliente. */
+   Inclua somente informações confirmadas pelo cliente.
+   Imagens sem legendas explicativas: não informe data de captura, não chame a imagem de
+   "captura de tela", "site real" ou "site demonstrativo" e não escreva "clique para ampliar"
+   (a ampliação continua funcionando; o nome acessível fica nos textos alternativos). */
 
 (function () {
   'use strict';
@@ -42,11 +45,6 @@
           link: { rotulo: 'www.tacobons.com', url: 'https://www.tacobons.com/' },
           capturas: {
             endereco: 'www.tacobons.com',
-            nota: {
-              pt: 'Página inicial do site real, capturada em 29/09/2026.',
-              es: 'Página de inicio del sitio real, capturada el 29/09/2026.',
-              en: 'Home page of the real website, captured on September 29, 2026.'
-            },
             desktop: {
               src: 'assets/img/tacobons/site-desktop.webp', largura: 2160, altura: 1350,
               alt: {
@@ -119,11 +117,6 @@
           link: { rotulo: 'bavelpiercing.com', url: 'https://bavelpiercing.com/' },
           capturas: {
             endereco: 'bavelpiercing.com',
-            nota: {
-              pt: 'Página inicial da loja real, capturada em 30/09/2026.',
-              es: 'Página de inicio de la tienda real, capturada el 30/09/2026.',
-              en: 'Home page of the real store, captured on September 30, 2026.'
-            },
             desktop: {
               src: 'assets/img/bavel/site-desktop.webp', largura: 2160, altura: 1350,
               alt: {
@@ -218,11 +211,6 @@
           link: { rotulo: 'merakiexperiences.online', url: 'https://www.merakiexperiences.online/' },
           capturas: {
             endereco: 'merakiexperiences.online',
-            nota: {
-              pt: 'Página inicial do site, capturada em 01/10/2026.',
-              es: 'Página de inicio del sitio web, capturada el 01/10/2026.',
-              en: 'Home page of the website, captured on October 1, 2026.'
-            },
             desktop: {
               src: 'assets/img/meraki/site-desktop.webp', largura: 2160, altura: 1350,
               alt: {

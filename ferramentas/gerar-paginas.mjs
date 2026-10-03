@@ -2,12 +2,14 @@
    Uso (na raiz do repositório):   node ferramentas/gerar-paginas.mjs
 
    Fonte única:
-     fonte/inicio.html, fonte/vitrine.html, fonte/projeto.html   modelos em português
+     fonte/inicio.html, fonte/vitrine.html, fonte/modelos.html,
+     fonte/projeto.html                                          modelos em português
      assets/i18n-textos.js                                       textos em ES e EN
      assets/projetos.js                                          projetos (slug, nome)
 
    Gera (não edite à mão — rode o gerador de novo):
-     index.html, vitrine/index.html, projetos/<slug>/index.html                PT
+     index.html, vitrine/index.html, modelos/index.html,
+     projetos/<slug>/index.html                                                PT
      es/…, en/…                                                                 ES e EN
      vitrine.html, projetos/<slug>.html     endereços antigos → encaminham para os novos
      sitemap.xml, robots.txt, vercel.json   (vercel.json: redirecionamentos 308 dos endereços antigos)
@@ -65,6 +67,7 @@ function logicoDe(href) {
   const p = href.replace(/^(\.\.\/|\.\/|\/)+/, '');
   if (p === '' || p === 'index.html') return '';
   if (p === 'vitrine.html') return 'vitrine/';
+  if (p === 'modelos.html') return 'modelos/';
   const m = /^projetos\/([\w-]+)\.html$/.exec(p);
   return m ? `projetos/${m[1]}/` : null;
 }
@@ -173,6 +176,7 @@ const publicas = [];
 for (const l of IDIOMAS) {
   gravar(destino(l, ''), pagina('fonte/inicio.html', l, ''));
   gravar(destino(l, 'vitrine/'), pagina('fonte/vitrine.html', l, 'vitrine/'));
+  gravar(destino(l, 'modelos/'), pagina('fonte/modelos.html', l, 'modelos/'));
   for (const p of PROJETOS) {
     const logico = `projetos/${p.slug}/`;
     gravar(destino(l, logico), pagina('fonte/projeto.html', l, logico, (html) => html
@@ -181,7 +185,7 @@ for (const l of IDIOMAS) {
       .replace('{{descricao}}', esc(t(l, `meta.${CHAVE_META[p.slug] || p.slug}.desc`)))));
   }
 }
-publicas.push('', 'vitrine/', ...PROJETOS.map((p) => `projetos/${p.slug}/`));
+publicas.push('', 'vitrine/', 'modelos/', ...PROJETOS.map((p) => `projetos/${p.slug}/`));
 
 // Endereços antigos (.html) → novos. Na Vercel quem responde é o vercel.json (308);
 // estes arquivos ficam como reserva (servidor local, outra hospedagem).

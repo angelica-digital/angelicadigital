@@ -226,7 +226,6 @@ main{flex:1}
   border-radius:20px;
   display:flex;align-items:center;gap:6px;
 }
-.pcard--real .pcard__badge{background:rgba(6,32,26,0.92);border:1px solid var(--real);color:var(--real)}
 .pcard--demo .pcard__badge{background:rgba(36,26,8,0.92);border:1px solid var(--demo);color:var(--demo)}
 
 .pcard__media{
@@ -314,10 +313,8 @@ main{flex:1}
 .project-hero__media--foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .project-hero__media--foto:hover,.project-hero__media--foto:focus-visible{border-color:var(--accent-soft)}
 .project-hero__media--foto:focus-visible{outline:2px solid var(--accent-soft);outline-offset:3px}
-.project-hero__figura figcaption{font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:6px}
 .project-hero__selos{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.selo-real,.selo-servico{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:30px;font-size:.78rem;font-weight:700}
-.selo-real{background:rgba(6,32,26,0.92);border:1px solid var(--real);color:var(--real)}
+.selo-servico{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:30px;font-size:.78rem;font-weight:700}
 .selo-servico{background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.35);color:var(--accent-soft)}
 .project-hero__negocio{margin-top:18px}
 .project-hero h1{font-size:clamp(1.8rem,5vw,3rem);margin:6px 0 14px;font-weight:900}
@@ -406,7 +403,6 @@ main{flex:1}
   box-shadow:0 24px 60px rgba(0,0,0,0.55);
 }
 .phone__tela{border-radius:27px;overflow:hidden}
-.screens__note{font-size:.8rem;color:var(--muted)}
 
 /* Imagem em moldura: largura real da imagem, altura limitada e rolagem só se precisar */
 .image-stage{grid-template-columns:minmax(0,1fr);justify-items:center;gap:24px;padding:24px}
@@ -493,6 +489,41 @@ a.btn-acao:hover{background:rgba(190,155,255,0.08);border-color:rgba(190,155,255
 a.btn-acao:active{background:rgba(190,155,255,0.14)}
 a.btn-acao:focus-visible{outline:2px solid #d8bfff;outline-offset:3px}
 .project-hero__negocio.btn-acao{margin-top:18px}
+
+/* ============== MODELOS DE SITES (/modelos/) ==============
+   Cartões reaproveitam .pcard, .filter-bar, .tag-list e .btn; o convite final usa .project-cta.
+   Dados em assets/modelos.js; montagem em assets/componentes.js (renderModelos). */
+.page-intro .page-intro__link{margin-top:18px}
+.modelos-vazio{
+  display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;
+  padding:40px 20px;border:1px dashed var(--border);border-radius:var(--radius);
+  background:radial-gradient(ellipse at 50% 0%,rgba(168,85,247,0.12),transparent 65%);
+}
+.modelos-vazio[hidden]{display:none}
+.modelos-vazio__icone{font-size:1.6rem;color:var(--accent-soft)}
+.modelos-vazio p{max-width:480px;margin:0;color:var(--text-strong);font-size:1.02rem}
+.modelos__filtros{margin-bottom:24px}
+.modelos-personalizado{padding-top:40px;padding-bottom:72px}
+/* imagem do computador ocupa o quadro; a do celular (opcional) fica sobreposta no canto */
+.mcard__media{position:relative;display:block;aspect-ratio:16/10}
+.mcard__media .mcard__pc{width:100%;height:100%;object-fit:cover;object-position:top center}
+.mcard__media .mcard__cel{
+  position:absolute;right:6%;bottom:8%;width:22%;height:auto;aspect-ratio:9/19.5;object-fit:cover;object-position:top center;
+  border:3px solid #0b1220;border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,0.55);
+}
+.mcard__tipo{
+  align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;
+  padding:4px 10px;border-radius:30px;font-size:.72rem;font-weight:700;
+  background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.35);color:var(--accent-soft);
+}
+.mcard__rotulo{font-size:.78rem;color:var(--muted);margin:0 0 6px}
+/* botões sempre no rodapé do cartão, com ou sem descrição */
+.mcard .pcard__actions{margin-top:auto}
+@media (max-width:760px){
+  .modelos-personalizado{padding-top:32px;padding-bottom:56px}
+  .modelos-personalizado .btn{flex:1 1 100%;white-space:normal}
+  .modelos-vazio .btn{width:100%}
+}
 
 /* ============== RESPONSIVO ============== */
 @media (max-width:760px){

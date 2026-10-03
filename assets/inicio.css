@@ -136,13 +136,7 @@
   border:1px solid var(--border);
 }
 .palco__legenda > *{grid-column:1}
-.palco__legenda .btn{grid-column:2;grid-row:1 / span 4;align-self:center}
-.selo-real{
-  justify-self:start;display:inline-flex;align-items:center;gap:6px;
-  padding:4px 10px;border-radius:20px;font-size:.72rem;font-weight:700;
-  background:rgba(6,32,26,0.92);border:1px solid var(--real);color:var(--real);
-  margin-bottom:4px;
-}
+.palco__legenda .btn{grid-column:2;grid-row:1 / span 3;align-self:center}
 .palco__legenda h2{font-size:1.35rem}
 .palco__legenda p{font-size:.88rem}
 .palco__entregas{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-top:4px}
@@ -1107,6 +1101,12 @@
 /* Cabeçalho: logo | links | seletor. */
 .cabecalho .menu-principal{margin-left:auto}
 .cabecalho .nav > .seletor-idioma--cabecalho{margin-left:10px}
+/* Telas médias (761–960 px): quatro links + seletor numa linha só, sem quebrar "Modelos de sites" */
+@media (min-width:761px) and (max-width:960px){
+  .cabecalho .menu-principal{gap:2px}
+  .cabecalho .menu-principal a{padding:10px 8px;white-space:nowrap}
+  .cabecalho .logo .label{white-space:nowrap}
+}
 @media (max-width:560px){
   /* Cabeçalho numa linha só (assets/cabecalho.css): sem a faixa de idiomas acima. */
   .pagina-inicio .barra-idioma{display:none}
@@ -1150,7 +1150,6 @@
 .trio__foto{display:block;aspect-ratio:1;background:#111827}
 .trio__foto img{width:100%;height:100%;object-fit:cover}
 .trio__info{display:flex;flex-direction:column;gap:2px;padding:10px 12px 12px;text-align:left}
-.trio__selo{display:inline-flex;align-items:center;gap:5px;font-size:.66rem;font-weight:700;color:var(--real)}
 .trio__info strong{font-family:'Orbitron',sans-serif;color:var(--text-strong);font-size:.95rem;line-height:1.25}
 .trio__entregas{font-size:.72rem;line-height:1.35;color:var(--text)}
 .trio__entregas--lista{display:flex;flex-direction:column;gap:3px;margin-top:2px}
@@ -1193,17 +1192,16 @@
   .trio{
     --carta:calc((100vw - 32px - 16px) / 3);
     --lado-x:calc(-150% - 8px); --lado-y:12px; --giro:3deg; --destaque:1.05;
-    max-width:none;aspect-ratio:auto;height:calc(var(--carta) + 150px);
+    max-width:none;aspect-ratio:auto;height:calc(var(--carta) + 132px);
   }
   .trio__carta{border-radius:14px}
   .trio__info{padding:8px 8px 10px}
-  .trio__selo{font-size:.6rem;gap:4px}
   .trio__info strong{font-size:.8rem}
   .trio__entregas{font-size:.66rem;line-height:1.3}
   .trio__e i{font-size:.55rem}
 }
 @media (max-width:360px){
-  .trio{height:calc(var(--carta) + 172px)}
+  .trio{height:calc(var(--carta) + 154px)}
   .trio__info{padding:7px 6px 9px}
   .trio__info strong{font-size:.74rem}
   .trio__entregas{font-size:.62rem}

@@ -43,6 +43,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.angelicadigital.com/vitrine/"/>
   </url>
   <url>
+    <loc>https://www.angelicadigital.com/modelos/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.angelicadigital.com/modelos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.angelicadigital.com/es/modelos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.angelicadigital.com/en/modelos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.angelicadigital.com/modelos/"/>
+  </url>
+  <url>
+    <loc>https://www.angelicadigital.com/es/modelos/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.angelicadigital.com/modelos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.angelicadigital.com/es/modelos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.angelicadigital.com/en/modelos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.angelicadigital.com/modelos/"/>
+  </url>
+  <url>
+    <loc>https://www.angelicadigital.com/en/modelos/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.angelicadigital.com/modelos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.angelicadigital.com/es/modelos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.angelicadigital.com/en/modelos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.angelicadigital.com/modelos/"/>
+  </url>
+  <url>
     <loc>https://www.angelicadigital.com/projetos/tacobons/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.angelicadigital.com/projetos/tacobons/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.angelicadigital.com/es/projetos/tacobons/"/>

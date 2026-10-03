@@ -1,5 +1,6 @@
 /* ============== PORTFÓLIO — COMPONENTES ==============
-   Monta a vitrine e as páginas de projeto a partir de window.PORTFOLIO_PROJETOS.
+   Monta a vitrine e as páginas de projeto a partir de window.PORTFOLIO_PROJETOS
+   e a página Modelos de sites a partir de window.MODELOS_SITES (assets/modelos.js).
    Cada página informa em <body data-base="..."> o caminho até a raiz do site.
    Textos de interface: window.I18N (assets/i18n.js). Todo dado é escapado antes de entrar no HTML. */
 
@@ -100,9 +101,8 @@
   }
 
   function cartao(p) {
-    const badge = p.tipo === 'demo'
-      ? `<i class="fa-solid fa-flask"></i> ${esc(t('selo.demo'))}`
-      : `<i class="fa-solid fa-circle-check"></i> ${esc(t('selo.real'))}`;
+    // Só os cartões demonstrativos levam selo; projetos de clientes (tipo 'real') não exibem selo.
+    const badge = p.tipo === 'demo' ? `<i class="fa-solid fa-flask"></i> ${esc(t('selo.demo'))}` : '';
     // Uma etiqueta por tipo de entrega (ex.: dois perfis no Google viram uma etiqueta só).
     // No cartão o perfil usa o nome curto "Perfil no Google"; a página mantém o nome completo.
     const etiqueta = (e) => (e.servico === 'perfil' ? t('etiqueta.perfil') : tx(e.titulo));
@@ -110,7 +110,7 @@
 
     return `
       <article class="pcard pcard--${p.tipo === 'demo' ? 'demo' : 'real'}">
-        <span class="pcard__badge">${badge}</span>
+        ${badge ? `<span class="pcard__badge">${badge}</span>` : ''}
         <div class="pcard__media">${midiaCartao(p)}</div>
         <div class="pcard__body">
           <span class="pcard__cat">${esc(categoria(p))}</span>
@@ -188,11 +188,96 @@
     desenhar();
   }
 
+  // ---------- Modelos de sites ----------
+  // Dados em assets/modelos.js (window.MODELOS_SITES), separados dos projetos de clientes.
+  // Só entram modelos completos: com demonstração publicada e imagem de computador.
+  function modeloValido(m) {
+    const ok = !!(m && m.slug && m.nome && m.nicho && m.nicho.id && /^https?:\/\//.test(m.demonstracao || '') &&
+      m.imagens && m.imagens.computador && m.imagens.computador.src);
+    if (!ok && window.console) console.warn('Modelo de site incompleto (não exibido):', m && m.slug);
+    return ok;
+  }
+
+  function imagemModelo(img, classe) {
+    const medidas = img.largura && img.altura ? ` width="${img.largura}" height="${img.altura}"` : '';
+    return `<img class="${classe}" src="${esc(BASE + img.src)}" alt="${esc(tx(img.alt))}"${medidas} loading="lazy" decoding="async">`;
+  }
+
+  function cartaoModelo(m) {
+    const nomeModelo = tx(m.nome);
+    const quero = WHATSAPP + '?text=' + encodeURIComponent(t('wa.modelo', { nome: nomeModelo }));
+    const itens = (m.personalizavel || []).map((i) => `<li>${esc(tx(i))}</li>`).join('');
+    return `
+      <article class="pcard mcard">
+        <div class="pcard__media mcard__media">
+          ${imagemModelo(m.imagens.computador, 'mcard__pc')}
+          ${m.imagens.celular ? imagemModelo(m.imagens.celular, 'mcard__cel') : ''}
+        </div>
+        <div class="pcard__body">
+          <span class="pcard__cat">${esc(tx(m.nicho))}</span>
+          <h3 class="pcard__title">${esc(nomeModelo)}</h3>
+          <span class="mcard__tipo"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> ${esc(t('mod.tipo'))}</span>
+          ${m.descricao ? `<p class="pcard__desc">${esc(tx(m.descricao))}</p>` : ''}
+          ${itens ? `<p class="mcard__rotulo">${esc(t('mod.personalizavel'))}</p><ul class="tag-list">${itens}</ul>` : ''}
+          <div class="pcard__actions">
+            ${linkExterno(m.demonstracao, `<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${esc(t('mod.verDemo'))}`, 'btn btn-primary')}
+            ${linkExterno(quero, `<i class="fa-brands fa-whatsapp" aria-hidden="true"></i> ${esc(t('mod.quero'))}`, 'btn btn-outline')}
+          </div>
+        </div>
+      </article>`;
+  }
+
+  function renderModelos(raiz, lista) {
+    const modelos = (lista || window.MODELOS_SITES || []).filter(modeloValido);
+    const vazio = raiz.querySelector('[data-modelos-vazio]');
+    let area = raiz.querySelector('[data-modelos-lista]');
+    if (!modelos.length) {               // nenhum modelo pronto: só o convite para conversar
+      if (vazio) vazio.hidden = false;
+      if (area) area.remove();
+      return;
+    }
+    if (vazio) vazio.hidden = true;
+    if (!area) {
+      area = document.createElement('div');
+      area.setAttribute('data-modelos-lista', '');
+      raiz.appendChild(area);
+    }
+
+    // Filtros por nicho só com modelos de pelo menos dois nichos.
+    const nichos = [...new Map(modelos.map((m) => [m.nicho.id, m.nicho])).values()];
+    const pedido = new URLSearchParams(location.search).get('nicho');
+    let filtro = nichos.some((n) => n.id === pedido) ? pedido : 'todos';
+    const conta = (id) => modelos.filter((m) => id === 'todos' || m.nicho.id === id).length;
+    area.innerHTML = `
+      ${nichos.length > 1 ? `
+        <div class="filter-bar modelos__filtros" role="group" aria-label="${esc(t('mod.filtroGrupo'))}">
+          ${[{ id: 'todos' }, ...nichos].map((n) => `
+            <button type="button" class="filter-btn" data-nicho="${esc(n.id)}">
+              ${esc(n.id === 'todos' ? t('filtro.todos') : tx(n))}<span class="count">(${conta(n.id)})</span>
+            </button>`).join('')}
+        </div>` : ''}
+      <div class="project-grid modelos__grade"></div>`;
+
+    const grade = area.querySelector('.modelos__grade');
+    const botoes = area.querySelectorAll('[data-nicho]');
+    function desenhar() {
+      botoes.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.nicho === filtro)));
+      grade.innerHTML = modelos.filter((m) => filtro === 'todos' || m.nicho.id === filtro).map(cartaoModelo).join('');
+      const q = new URLSearchParams(location.search);
+      if (filtro === 'todos') q.delete('nicho'); else q.set('nicho', filtro);
+      const s = q.toString();
+      history.replaceState(history.state, '', location.pathname + (s ? '?' + s : '') + location.hash);
+    }
+    botoes.forEach((b) => b.addEventListener('click', () => { filtro = b.dataset.nicho; desenhar(); }));
+    desenhar();
+  }
+
   // ---------- Página de projeto ----------
-  function captura(img, rotulo, classe) {
+  // nome: nome acessível do link de ampliação (ex.: "Ampliar imagem do site no computador")
+  function captura(img, nome, classe) {
     return `
       <a href="${esc(BASE + img.src)}" target="_blank" rel="noopener" class="${classe}__tela"
-         aria-label="${esc(t('proj.ampliar', { rotulo: rotulo }))}">
+         aria-label="${esc(nome)}">
         <img src="${esc(BASE + img.src)}" alt="${esc(tx(img.alt))}" width="${img.largura}" height="${img.altura}" loading="lazy" decoding="async">
       </a>`;
   }
@@ -206,16 +291,15 @@
               <span class="browser__dots"><i></i><i></i><i></i></span>
               <span class="browser__url"><i class="fa-solid fa-lock"></i> ${esc(c.endereco)}</span>
             </div>
-            ${captura(c.desktop, t('proj.versaoPc'), 'browser')}
+            ${captura(c.desktop, t('proj.ampliarPc'), 'browser')}
           </div>
           <figcaption><i class="fa-solid fa-desktop" aria-hidden="true"></i> ${esc(t('proj.figPc'))}</figcaption>
         </figure>
         <figure class="screen screen--celular">
-          <div class="phone">${captura(c.celular, t('proj.versaoCel'), 'phone')}</div>
+          <div class="phone">${captura(c.celular, t('proj.ampliarCel'), 'phone')}</div>
           <figcaption><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> ${esc(t('proj.figCel'))}</figcaption>
         </figure>
-      </div>
-      <p class="screens__note">${esc(tx(c.nota))} ${esc(t('proj.cliqueAmpliar'))}</p>`;
+      </div>`;
   }
 
   // Imagem em moldura de altura limitada; rola na vertical só se for mais alta que a moldura.
@@ -269,6 +353,7 @@
   }
 
   // Página: foto inteira (sem corte), clicável para ampliar em nova aba.
+  // Sem legendas de data, de "captura" ou de "clique para ampliar": o nome acessível fica no aria-label.
   function midiaProjeto(p) {
     if (!p.foto) return `<div class="project-hero__media">${midiaCartao(p)}</div>`;
     return `
@@ -277,17 +362,15 @@
            aria-label="${esc(t('proj.ampliarFoto'))}">
           <img src="${esc(BASE + p.foto.src)}" alt="${esc(tx(p.foto.alt))}" width="${p.foto.largura}" height="${p.foto.altura}" decoding="async">
         </a>
-        <figcaption><i class="fa-solid fa-expand" aria-hidden="true"></i> ${esc(t('proj.registro'))}</figcaption>
       </figure>`;
   }
 
-  // Selo e etiquetas de serviço no topo da página (só nos projetos que pedem: "selos: true").
+  // Etiquetas de serviço no topo da página (só nos projetos que pedem: "selos: true").
   function selosProjeto(p) {
     if (!p.selos) return '';
     const etiquetas = [...new Set((p.entregas || []).map((e) => tx(e.titulo)))];
     return `
       <div class="project-hero__selos">
-        <span class="selo-real"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> ${esc(t('selo.real'))}</span>
         ${etiquetas.map((e) => `<span class="selo-servico">${esc(e)}</span>`).join('')}
       </div>`;
   }
@@ -364,11 +447,14 @@
   const raizProjeto = document.getElementById('projeto');
   if (raizProjeto) renderProjeto(raizProjeto, raizProjeto.dataset.slug);
 
+  const raizModelos = document.getElementById('modelos');
+  if (raizModelos) renderModelos(raizModelos);
+
   // Troca de idioma: redesenha com os textos novos (filtro e busca continuam no endereço).
   I.aoMudar(() => {
     if (raizVitrine) renderVitrine(raizVitrine);
     if (raizProjeto) renderProjeto(raizProjeto, raizProjeto.dataset.slug);
   });
 
-  window.Portfolio = { cartao, renderVitrine, renderProjeto };
+  window.Portfolio = { cartao, renderVitrine, renderProjeto, cartaoModelo, renderModelos };
 })();

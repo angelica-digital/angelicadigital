@@ -10,7 +10,7 @@
      data-i18n-attr="attr:chave;..."  atributos (aria-label, alt, title, placeholder, content…)
      data-i18n-wa="chave"             link do WhatsApp: troca só o texto da mensagem
      data-idioma="pt|es|en"           botões do seletor: abrem a mesma página no outro idioma
-   Links internos no formato antigo (index.html, vitrine.html, projetos/<slug>.html)
+   Links internos no formato antigo (index.html, vitrine.html, modelos.html, projetos/<slug>.html)
    viram o endereço limpo do idioma atual. Nenhuma tradução é inserida como HTML. */
 (function () {
   'use strict';
@@ -66,6 +66,7 @@
     var p = href.replace(/^(\.\.\/|\.\/|\/)+/, ''), m, logico;
     if (p === 'index.html') logico = '';
     else if (p === 'vitrine.html') logico = 'vitrine/';
+    else if (p === 'modelos.html') logico = 'modelos/';
     else if ((m = /^projetos\/([\w-]+)\.html$/.exec(p))) logico = 'projetos/' + m[1] + '/';
     else return href + (q ? '?' + q : '') + hash;
     var params = new URLSearchParams(q);
